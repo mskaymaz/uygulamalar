@@ -124,7 +124,7 @@ body {
 
 /* Detay Sayfası Büyük İkon Stili (2 Katı Büyüklük) */
 .app-big-icon {
-  width: 160px;
+  width: 120px;
   height: 160px;
   background-color: #f5f7fa;
   border-radius: 28px;
@@ -528,7 +528,7 @@ body.lang-ar { direction: rtl; }
 
 /* Reklam Alanları */
 .desktop-ad {
-  width: 160px;
+  width: 120px;
   margin-top: 60px;
   position: sticky;
   top: 20px;
@@ -550,7 +550,7 @@ body.lang-ar { direction: rtl; }
 }
 
 .desktop-ad .ad-placeholder {
-  height: 600px;
+  height: 300px;
 }
 
 .infeed-ad-container {
@@ -773,4 +773,30 @@ body.lang-ar .static-page-card ul {
 .lang-badge.pending .arabic-badge-icon {
   opacity: 0.5;
   filter: grayscale(100%);
+}
+
+/* ==========================================================================
+   ANA SAYFA ALT BAŞLIK BİLGİLENDİRME NOTU (Thin & Elegant)
+   ========================================================================== */
+.subtitle-notice {
+  text-align: center;
+  margin: 14px auto 35px auto;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.notice-line-1 {
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: #1e293b;
+  letter-spacing: 0.2px;
+  margin: 0 0 6px 0;
+}
+
+.notice-line-2 {
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: #64748b;
+  letter-spacing: 0.1px;
+  margin: 0;
 }
