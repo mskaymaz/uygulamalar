@@ -800,3 +800,14 @@ body.lang-ar .static-page-card ul {
   letter-spacing: 0.1px;
   margin: 0;
 }
+/* ==========================================================================
+   BİZ KİMİZ ÖZEL SAYFA GÖRSELİ STİLİ
+   ========================================================================== */
+.who-we-are-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: block;
+  margin: 0 auto;
+}
