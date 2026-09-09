@@ -40,7 +40,7 @@ body {
 
 .main-logo {
   max-width: 100%;
-  width: 300px;
+  width: 240px;
   height: auto;
 }
 
@@ -656,10 +656,10 @@ body.lang-ar { direction: rtl; }
 .site-footer {
   margin-top: 50px;
   padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #e2e8f0;
   text-align: center;
   font-size: 0.9rem;
-  color: #a0aec0;
+  color: #475569;
 }
 
 .footer-links {
@@ -671,7 +671,7 @@ body.lang-ar { direction: rtl; }
 }
 
 .footer-links a {
-  color: #cbd5e0;
+  color: #334155; font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -682,7 +682,7 @@ body.lang-ar { direction: rtl; }
 
 .copyright-text {
   font-size: 0.85rem;
-  color: #718096;
+  color: #64748b;
 }
 
 .static-page-card {
@@ -715,7 +715,7 @@ body.lang-ar .static-page-card {
 }
 
 .static-page-card p, .static-page-card ul {
-  color: #cbd5e0;
+  color: #334155; font-weight: 500;
   margin-bottom: 15px;
 }
 
@@ -811,3 +811,287 @@ body.lang-ar .static-page-card ul {
   display: block;
   margin: 0 auto;
 }
+
+/* ==========================================================================
+   DESTEK & TALEP SAYFASI (destek.html) - MODERN STILER
+   ========================================================================== */
+
+.support-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.app-badge-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.app-badge-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-badge-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(56, 189, 248, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #38bdf8;
+}
+
+.app-badge-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 4px 0;
+}
+
+.app-badge-meta {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  display: flex;
+  gap: 12px;
+}
+
+.app-badge-tag {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.support-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  padding: 32px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.category-option {
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.category-option:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.category-option.selected {
+  border-color: #0284c7;
+  background: rgba(2, 132, 199, 0.04);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+}
+
+.category-option-icon {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.category-option-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.custom-input,
+.custom-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.custom-input:focus,
+.custom-textarea:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+.custom-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-helper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.draft-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #059669;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.draft-indicator.visible {
+  opacity: 1;
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  padding: 16px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(2, 132, 199, 0.35);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Bilet Makbuzu (Ticket Receipt Card) */
+.receipt-card {
+  display: none;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #10b981;
+  padding: 36px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+  animation: fadeInReceipt 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInReceipt {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.receipt-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 16px auto;
+}
+
+.ticket-number-box {
+  background: #f0fdf4;
+  border: 1px dashed #34d399;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 16px 0;
+}
+
+.ticket-number-value {
+  font-family: monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #065f46;
+  letter-spacing: 1px;
+}
+
+.copy-ticket-btn {
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.status-timeline {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+.status-item:last-child {
+  margin-bottom: 0;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+}
+

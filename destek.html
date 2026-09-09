@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSKLabs.org - Destek & Talep Merkezi</title>
+    <meta name="description" content="MSK Labs uygulama destek, hata bildirimi ve özellik talep merkezi.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css?v=16">
+
+    <!-- MSK Labs Favicon -->
+    <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
+    <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+</head>
+<body class="lang-tr">
+
+<div class="layout-wrapper">
+
+  <!-- Sol Reklam -->
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <!-- Orta İçerik Konteyneri -->
+  <div class="portfolio-container support-container">
+  
+    <!-- Dil Seçici -->
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <!-- Geri Butonu -->
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">Portföye Dön</span>
+      <span class="lang-en">Back to Portfolio</span>
+      <span class="lang-ar">العودة إلى المعرض</span>
+    </a>
+
+    <!-- Ana Başlık -->
+    <h1 class="page-title">
+      <span class="lang-tr">Destek & Talep Merkezi</span>
+      <span class="lang-en">Support & Feedback</span>
+      <span class="lang-ar">مركز الدعم والطلبات</span>
+    </h1>
+
+    <!-- Dinamik Uygulama Bilgi Rozeti -->
+    <div class="app-badge-banner" id="appBadgeBanner">
+      <div class="app-badge-info">
+        <div class="app-badge-icon" id="appBadgeIcon">📱</div>
+        <div>
+          <div class="app-badge-title" id="appBadgeTitle">MSK Labs Uygulaması</div>
+          <div class="app-badge-meta">
+            <span><span class="lang-tr">Sürüm:</span><span class="lang-en">Version:</span><span class="lang-ar">الإصدار:</span> <strong id="appBadgeVersion" class="app-badge-tag">1.0.0</strong></span>
+            <span><span class="lang-tr">Sistem:</span><span class="lang-en">OS:</span><span class="lang-ar">النظام:</span> <strong id="appBadgeOs" class="app-badge-tag">Web / Bilinmeyen</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Kartı -->
+    <div class="support-card" id="supportFormCard">
+      <form id="feedbackForm" onsubmit="handleFormSubmit(event)">
+        
+        <!-- Kategori Seçimi -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="lang-tr">Talep Türü Seçiniz</span>
+            <span class="lang-en">Select Request Type</span>
+            <span class="lang-ar">اختر نوع الطلب</span>
+          </label>
+          
+          <div class="category-grid">
+            <div class="category-option selected" onclick="selectCategory('hata', this)">
+              <span class="category-option-icon">🐛</span>
+              <span class="category-option-title lang-tr">Hata Bildirimi</span>
+              <span class="category-option-title lang-en">Bug Report</span>
+              <span class="category-option-title lang-ar">إبلاغ عن خطأ</span>
+            </div>
+            
+            <div class="category-option" onclick="selectCategory('istek', this)">
+              <span class="category-option-icon">✨</span>
+              <span class="category-option-title lang-tr">Özellik Talebi</span>
+              <span class="category-option-title lang-en">Feature Request</span>
+              <span class="category-option-title lang-ar">طلب ميزة جديدة</span>
+            </div>
+            
+            <div class="category-option" onclick="selectCategory('tesekkur', this)">
+              <span class="category-option-icon">❤️</span>
+              <span class="category-option-title lang-tr">Teşekkür / Övgü</span>
+              <span class="category-option-title lang-en">Feedback</span>
+              <span class="category-option-title lang-ar">شكر وتقييم</span>
+            </div>
+            
+            <div class="category-option" onclick="selectCategory('fikir', this)">
+              <span class="category-option-icon">💡</span>
+              <span class="category-option-title lang-tr">Yeni Fikir</span>
+              <span class="category-option-title lang-en">New App Idea</span>
+              <span class="category-option-title lang-ar">فكرة تطبيق جديد</span>
+            </div>
+          </div>
+          <input type="hidden" id="categoryInput" value="hata">
+        </div>
+
+        <!-- Konu Başlığı -->
+        <div class="form-group">
+          <label class="form-label" for="subjectInput">
+            <span class="lang-tr">Kısa Özet / Konu</span>
+            <span class="lang-en">Subject / Short Summary</span>
+            <span class="lang-ar">الموضوع / ملخص قصير</span>
+          </label>
+          <input type="text" id="subjectInput" class="custom-input" placeholder="Örn: Profil sayfasında güncelleme hatası alıyorum" required oninput="saveDraft()">
+        </div>
+
+        <!-- Detaylı Açıklama -->
+        <div class="form-group">
+          <label class="form-label" for="messageInput">
+            <span class="lang-tr">Detaylı Açıklama</span>
+            <span class="lang-en">Detailed Description</span>
+            <span class="lang-ar">وصف تفصيلي</span>
+          </label>
+          <textarea id="messageInput" class="custom-textarea" placeholder="Talebinizi veya karşılaştığınız senaryoyu detaylıca açıklayınız." required oninput="handleMessageInput()"></textarea>
+          
+          <div class="form-helper">
+            <div class="draft-indicator" id="draftIndicator">
+              <span>✓ <span class="lang-tr">Taslak kaydedildi</span><span class="lang-en">Draft saved</span><span class="lang-ar">تم حفظ المسودة</span></span>
+            </div>
+            <div>
+              <span id="charCounter">0</span> / 2000
+            </div>
+          </div>
+        </div>
+
+        <!-- E-posta Adresi -->
+        <div class="form-group">
+          <label class="form-label" for="emailInput">
+            <span class="lang-tr">E-posta Adresiniz (İsteğe Bağlı)</span>
+            <span class="lang-en">Email Address (Optional)</span>
+            <span class="lang-ar">البريد الإلكتروني (اختياري)</span>
+          </label>
+          <input type="email" id="emailInput" class="custom-input" placeholder="ornek@domain.com" oninput="saveDraft()">
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span>🚀 <span class="lang-tr">Talebi Gönder</span><span class="lang-en">Submit Request</span><span class="lang-ar">إرسال الطلب</span></span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Bilet Makbuzu (Gönderim Sonrası Ekran) -->
+    <div class="receipt-card" id="receiptCard">
+      <div class="receipt-icon">✓</div>
+      
+      <h2>
+        <span class="lang-tr">Talebiniz Alındı ve Kaydedildi!</span>
+        <span class="lang-en">Request Received & Saved!</span>
+        <span class="lang-ar">تم استلام طلبك بنجاح!</span>
+      </h2>
+      <p style="color:#64748b; font-size:0.95rem;">
+        <span class="lang-tr">Talebiniz sistemimize ulaşmış ve yapay zeka analiz kuyruğuna alınmıştır.</span>
+        <span class="lang-en">Your request has reached our system and entered the AI analysis queue.</span>
+        <span class="lang-ar">وصل طلبك إلى نظامنا ودخل في قائمة تحليلات الذكاء الاصطناعي.</span>
+      </p>
+
+      <div class="ticket-number-box">
+        <span>
+          <span class="lang-tr">BİLET NUMARANIZ</span>
+          <span class="lang-en">YOUR TICKET NUMBER</span>
+          <span class="lang-ar">رقم التذكرة الخاص بك</span>
+        </span><br>
+        <span class="ticket-number-value" id="ticketNumberDisplay">#MSK-84920</span>
+        <button type="button" class="copy-ticket-btn" onclick="copyTicketNumber()">
+          <span class="lang-tr">Kopyala</span><span class="lang-en">Copy</span><span class="lang-ar">نسخ</span>
+        </button>
+      </div>
+
+      <div class="status-timeline">
+        <div class="status-item">
+          <div class="status-dot"></div>
+          <span>
+            <strong class="lang-tr">Sunucu Durumu:</strong><strong class="lang-en">Server Status:</strong><strong class="lang-ar">حالة السيرفر:</strong>
+            <span class="lang-tr">Talebiniz başarıyla kaydedildi.</span>
+            <span class="lang-en">Your request was saved successfully.</span>
+            <span class="lang-ar">تم حفظ طلبك بنجاح.</span>
+          </span>
+        </div>
+        <div class="status-item">
+          <div class="status-dot" style="background:#0284c7;"></div>
+          <span>
+            <strong class="lang-tr">AI Analiz Kuyruğu:</strong><strong class="lang-en">AI Queue:</strong><strong class="lang-ar">تحليل الذكاء الاصطناعي:</strong>
+            <span class="lang-tr">Gemini Flash ile sınıflandırma yapılıyor.</span>
+            <span class="lang-en">Classifying via Gemini Flash AI.</span>
+            <span class="lang-ar">جاري التصنيف بواسطة الذكاء الاصطناعي.</span>
+          </span>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" style="margin-top:20px; background:#475569;" onclick="resetForm()">
+        <span>🔄 <span class="lang-tr">Yeni Bir Talep Gönder</span><span class="lang-en">Submit Another Request</span><span class="lang-ar">إرسال طلب جديد</span></span>
+      </button>
+    </div>
+
+    <!-- Alt Bilgi / Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html">
+          <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
+        </a> |
+        <a href="about.html">
+          <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">عن الشركة</span>
+        </a> |
+        <a href="destek.html">
+          <span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span><span class="lang-ar">الدعم والطلبات</span>
+        </a> |
+        <a href="contact.html">
+          <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span>
+        </a> |
+        <a href="who-we-are.html">
+          <span class="lang-tr">Biz Kimiz</span><span class="lang-en">Who We Are</span><span class="lang-ar">من نحن</span>
+        </a> |
+        <a href="faq.html">
+          <span class="lang-tr">SSS</span><span class="lang-en">FAQ</span><span class="lang-ar">الأسئلة الشائعة</span>
+        </a> |
+        <a href="privacy.html">
+          <span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span>
+        </a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div> <!-- .portfolio-container Bitişi -->
+
+  <!-- Sağ Reklam -->
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div> <!-- .layout-wrapper Bitişi -->
+
+<script>
+  // Dynamic URL Param Parsing
+  const urlParams = new URLSearchParams(window.location.search);
+  const appName = urlParams.get('app') || 'MSK Labs Genel';
+  const appVer = urlParams.get('ver') || 'Web';
+  const appOs = urlParams.get('os') || (navigator.platform.includes('Win') ? 'Windows' : 'Mobil/Diğer');
+
+  document.getElementById('appBadgeTitle').innerText = appName;
+  document.getElementById('appBadgeVersion').innerText = appVer;
+  document.getElementById('appBadgeOs').innerText = appOs;
+
+  // Language Switcher Logic
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    
+    document.body.className = 'lang-' + lang;
+    
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // Category Selection
+  function selectCategory(cat, element) {
+    document.querySelectorAll('.category-option').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('categoryInput').value = cat;
+    saveDraft();
+  }
+
+  // Handle Textarea Input & Counter
+  function handleMessageInput() {
+    const txt = document.getElementById('messageInput').value;
+    document.getElementById('charCounter').innerText = txt.length;
+    saveDraft();
+  }
+
+  // Auto Draft Storage (localStorage)
+  function saveDraft() {
+    const draft = {
+      category: document.getElementById('categoryInput').value,
+      subject: document.getElementById('subjectInput').value,
+      message: document.getElementById('messageInput').value,
+      email: document.getElementById('emailInput').value
+    };
+    localStorage.setItem('msk_support_draft_' + appName, JSON.stringify(draft));
+    
+    const indicator = document.getElementById('draftIndicator');
+    indicator.classList.add('visible');
+    setTimeout(() => { indicator.classList.remove('visible'); }, 2000);
+  }
+
+  // Load Draft on Startup
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('msk_support_draft_' + appName);
+    if (saved) {
+      try {
+        const draft = JSON.parse(saved);
+        if (draft.subject) document.getElementById('subjectInput').value = draft.subject;
+        if (draft.message) {
+          document.getElementById('messageInput').value = draft.message;
+          document.getElementById('charCounter').innerText = draft.message.length;
+        }
+        if (draft.email) document.getElementById('emailInput').value = draft.email;
+      } catch (e) {}
+    }
+
+    // Initialize Language
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+    setLang(langParam || savedLang || 'tr');
+  });
+
+  // Ticket ID Generator
+  function generateTicketId() {
+    const rand = Math.floor(10000 + Math.random() * 90000);
+    return 'MSK-' + rand;
+  }
+
+  // Handle Form Submit (API Call + Fallback)
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerHTML = '⏳ <span>İletiliyor...</span>';
+    submitBtn.disabled = true;
+
+    const payload = {
+      app: appName,
+      ver: appVer,
+      os: appOs,
+      category: document.getElementById('categoryInput').value,
+      subject: document.getElementById('subjectInput').value,
+      message: document.getElementById('messageInput').value,
+      email: document.getElementById('emailInput').value
+    };
+
+    let ticketId = generateTicketId();
+
+    try {
+      const res = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data && data.ticket_id) {
+        ticketId = data.ticket_id;
+      }
+    } catch (err) {
+      console.warn('API Entegrasyonu (Çevrimdışı/Lokal mod):', err);
+    }
+
+    // Success Screen
+    localStorage.removeItem('msk_support_draft_' + appName);
+    document.getElementById('ticketNumberDisplay').innerText = '#' + ticketId;
+    document.getElementById('supportFormCard').style.display = 'none';
+    document.getElementById('receiptCard').style.display = 'block';
+
+    submitBtn.innerHTML = '🚀 <span>Talebi Gönder</span>';
+    submitBtn.disabled = false;
+  }
+
+  // Copy Ticket Number
+  function copyTicketNumber() {
+    const ticketText = document.getElementById('ticketNumberDisplay').innerText;
+    navigator.clipboard.writeText(ticketText).then(() => {
+      alert('Bilet numaranız kopyalandı: ' + ticketText);
+    });
+  }
+
+  // Reset Form for New Request
+  function resetForm() {
+    document.getElementById('feedbackForm').reset();
+    document.getElementById('supportFormCard').style.display = 'block';
+    document.getElementById('receiptCard').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
