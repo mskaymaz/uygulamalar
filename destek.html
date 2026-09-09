@@ -355,18 +355,20 @@
 
     let ticketId = generateTicketId();
 
+    payload.ticket_id = ticketId;
+
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbxgq4DYnnr8DXIzaW3YZ1Pbt4N2k1nwMejgbjoK85LvRdB7JqD5VWZkbvPfjaui7DwQJw/exec';
+
     try {
-      const res = await fetch('/api/feedback', {
+      // Direct POST to Google Apps Script Webhook
+      await fetch(googleSheetsUrl, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      const data = await res.json();
-      if (data && data.ticket_id) {
-        ticketId = data.ticket_id;
-      }
     } catch (err) {
-      console.warn('API Entegrasyonu (Çevrimdışı/Lokal mod):', err);
+      console.warn('Webhook İletim Hatası:', err);
     }
 
     // Success Screen
