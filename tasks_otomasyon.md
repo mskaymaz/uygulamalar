@@ -101,8 +101,8 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [ ] 7.2 Uygulamaya özel kısa indirme ve dinamik QR kod oluşturma motoru.
 
 #### Adım 8: Sürüm & Değişiklik Günlüğü (changelog.html)
-- [ ] 8.1 changelog.html kronolojik versiyon geçmişi görünümü.
-- [ ] 8.2 Uygulama bazlı sürüm yenilikleri filtreleme (?app=rekatsay).
+- [x] 8.1 changelog.html kronolojik versiyon geçmişi görünümü.
+- [x] 8.2 Uygulama bazlı sürüm yenilikleri filtreleme (?app=rekatsay).
 
 ---
 

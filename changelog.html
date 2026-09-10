@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sürüm Günlüğü & Yenilikler | MSK Labs</title>
+  <meta name="description" content="MSK Labs uygulamalarının sürüm geçmişi ve yenilikler kronolojisi.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    .changelog-header-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .app-meta-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .app-meta-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+    .app-meta-info h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .app-meta-info p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin: 0.2rem 0 0 0;
+    }
+
+    .timeline-container {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid rgba(56, 189, 248, 0.2);
+      margin-left: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.55rem;
+      top: 0.25rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8;
+      border: 3px solid #0f172a;
+    }
+    .version-card {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+    }
+    .version-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .version-number {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .version-date {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .change-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .change-item {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tag-pill {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+    }
+    .tag-feat { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .tag-impr { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+    .tag-fix { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+  </style>
+</head>
+<body class="lang-tr">
+
+<div class="main-layout">
+
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <div class="portfolio-container">
+  
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">← Portföye Dön</span>
+      <span class="lang-en">← Back to Portfolio</span>
+      <span class="lang-ar">← العودة إلى المحفظة</span>
+    </a>
+
+    <h1 class="page-title">
+      <span class="lang-tr">Sürüm Günlüğü & Değişiklikler</span>
+      <span class="lang-en">Changelog & Release Notes</span>
+      <span class="lang-ar">سجل التغييرات</span>
+    </h1>
+
+    <div class="changelog-header-card">
+      <div class="app-meta-box">
+        <div class="app-meta-icon" id="appIconBox">🚀</div>
+        <div class="app-meta-info">
+          <h2 id="appNameText">MSK Labs Uygulaması</h2>
+          <p id="appMetaSub">Sürüm Geçmişi ve Güncelleme Notları</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline List -->
+    <div class="timeline-container" id="timelineContainer">
+      <!-- Dynamically Rendered -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek</span><span class="lang-en">Support</span></a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  const APPS_CONFIG = {
+    'haydinamaza': { name: 'HaydiNamaza', icon: '🕌' },
+    'rekatsay': { name: 'RekatSay', icon: '📿' },
+    'emekli': { name: 'Emekli Sayaç', icon: '⏳' },
+    'enyakin': { name: 'En Yakın', icon: '📍' },
+    'deskpilot': { name: 'DeskPilot', icon: '🖥️' }
+  };
+
+  const CHANGELOG_DB = {
+    'haydinamaza': [
+      {
+        version: 'v2.1.0',
+        date: '10 Eylül 2026',
+        changes: [
+          { type: 'feat', text: 'Yeni hassas kıble pusulası kalibrasyon algoritması eklendi.' },
+          { type: 'impr', text: 'Ezan alarmlarının Android pil tasarrufunda gecikmeme iyileştirmesi yapıldı.' },
+          { type: 'fix', text: 'Konum izni verildiğinde yaşanan anlık çökme hatası giderildi.' }
+        ]
+      },
+      {
+        version: 'v2.0.0',
+        date: '1 Eylül 2026',
+        changes: [
+          { type: 'feat', text: 'Tamamen yeni arayüz ve Glassmorphism karanlık tema.' },
+          { type: 'feat', text: 'Merkezi destek ve talep bilet entegrasyonu.' }
+        ]
+      }
+    ],
+    'rekatsay': [
+      {
+        version: 'v1.5.0',
+        date: '5 Eylül 2026',
+        changes: [
+          { type: 'feat', text: 'Mesafe sensörü secde algılama hassasiyeti artırıldı.' },
+          { type: 'impr', text: 'Dokunsal titreşim geri bildirimi eklendi.' }
+        ]
+      }
+    ],
+    'deskpilot': [
+      {
+        version: 'v1.2.0',
+        date: '8 Eylül 2026',
+        changes: [
+          { type: 'feat', text: 'Windows 11 başlangıç uygulaması sekmesi iyileştirildi.' },
+          { type: 'fix', text: 'Kısayol tuş çakışması hatası çözüldü.' }
+        ]
+      }
+    ]
+  };
+
+  const DEFAULT_CHANGELOG = [
+    {
+      version: 'v1.0.0',
+      date: 'Eylül 2026',
+      changes: [
+        { type: 'feat', text: 'MSK Labs yeni sürüm yayında.' }
+      ]
+    }
+  ];
+
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const appId = (urlParams.get('app') || '').toLowerCase().trim();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+
+    setLang(langParam || savedLang || 'tr');
+
+    if (appId && APPS_CONFIG[appId]) {
+      document.getElementById('appNameText').innerText = APPS_CONFIG[appId].name;
+      document.getElementById('appIconBox').innerText = APPS_CONFIG[appId].icon;
+    }
+
+    const history = CHANGELOG_DB[appId] || DEFAULT_CHANGELOG;
+    const container = document.getElementById('timelineContainer');
+    container.innerHTML = '';
+
+    history.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'timeline-item';
+
+      let changeRowsHtml = '';
+      item.changes.forEach(c => {
+        let tagClass = 'tag-feat';
+        let tagText = 'YENİ';
+        if (c.type === 'impr') { tagClass = 'tag-impr'; tagText = 'GELİŞTİRME'; }
+        if (c.type === 'fix') { tagClass = 'tag-fix'; tagText = 'DÜZELTME'; }
+
+        changeRowsHtml += 
+          <li class="change-item">
+            <span class="tag-pill "></span>
+            <span></span>
+          </li>
+        ;
+      });
+
+      el.innerHTML = 
+        <div class="timeline-dot"></div>
+        <div class="version-card">
+          <div class="version-header">
+            <span class="version-number"></span>
+            <span class="version-date"></span>
+          </div>
+          <ul class="change-list">
+            
+          </ul>
+        </div>
+      ;
+      container.appendChild(el);
+    });
+  })();
+</script>
+
+</body>
+</html>
