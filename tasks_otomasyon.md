@@ -117,7 +117,7 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [x] 10.2 Olumsuz bir durumda destek.html üzerinde otomatik uyarı yayınlanması.
 
 #### Adım 11: Gizli İstatistik & Analiz Paneli (ist.html)
-- [ ] 11.1 Şifre / PIN korumalı yönetici giriş ekranı.
-- [ ] 11.2 Canlı tekil/çoğul ziyaretçi, sayfa görüntüleme ve cihaz dağılım grafikleri.
-- [ ] 11.3 E-Tablo senkronize uygulama bazlı günlük indirme ve buton tıklama sayaçları.
-- [ ] 11.4 AdSense / AdMob özet gösterim ve tıklama kartları.
+- [x] 11.1 Şifre / PIN korumalı yönetici giriş ekranı (ist.html).
+- [x] 11.2 Canlı tekil/çoğul ziyaretçi, sayfa görüntüleme ve cihaz dağılım grafikleri.
+- [x] 11.3 E-Tablo senkronize uygulama bazlı günlük indirme ve buton tıklama sayaçları.
+- [x] 11.4 AdSense / AdMob özet gösterim ve tıklama kartları.
