@@ -60,9 +60,9 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [x] 1.5 Yazdırılabilir / PDF çıktı alınabilir temiz görünüm seçeneği (@media print).
 
 #### Adım 2: Dinamik Kullanım Şartları & Sözleşmeler Motoru (	erms.html)
-- [ ] 2.1 	erms.html duyarlı yasal sözleşme şablonunun hazırlanması.
-- [ ] 2.2 Uygulama parametresine göre (?app=...) kullanım şartları ve telif metinlerinin dinamik basılması.
-- [ ] 2.3 Çoklu dil (TR / EN / AR) ve PDF yazdırma desteği.
+- [x] 2.1 	erms.html duyarlı yasal sözleşme şablonunun hazırlanması.
+- [x] 2.2 Uygulama parametresine göre (?app=...) kullanım şartları ve telif metinlerinin dinamik basılması.
+- [x] 2.3 Çoklu dil (TR / EN / AR) ve PDF yazdırma desteği.
 
 ---
 
