@@ -1,23 +1,178 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSKLabs.org - Sıkça Sorulan Sorular (SSS)</title>
-    <meta name="description" content="MSK Labs mobil ve masaüstü uygulamaları hakkında sıkça sorulan sorular, kurulum rehberleri ve yardım içerikleri.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css?v=13">
-    <!-- MSK Labs Favicon & Kısayol İkonları -->
-    <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
-    <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sıkça Sorulan Sorular (SSS) | MSK Labs</title>
+  <meta name="description" content="MSK Labs mobil ve masaüstü uygulamaları için sıkça sorulan sorular, yardım ve destek rehberi.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    /* FAQ Specific Custom Styles */
+    .faq-badge-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .app-meta-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .app-meta-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+    }
+    .app-meta-info h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .app-meta-info p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin: 0.2rem 0 0 0;
+    }
+    .faq-search-box {
+      width: 100%;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .faq-search-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1rem 1rem 1rem 3rem;
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+    .faq-search-input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    }
+    .faq-search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #64748b;
+      pointer-events: none;
+    }
+    .faq-accordion-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .faq-item-card {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .faq-item-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+    }
+    .faq-question-btn {
+      width: 100%;
+      padding: 1.1rem 1.25rem;
+      background: transparent;
+      border: none;
+      color: #f1f5f9;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-question-btn .arrow-icon {
+      font-size: 0.9rem;
+      color: #38bdf8;
+      transition: transform 0.3s ease;
+    }
+    .faq-item-card.open .faq-question-btn .arrow-icon {
+      transform: rotate(180deg);
+    }
+    .faq-answer-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.25rem;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item-card.open .faq-answer-content {
+      max-height: 500px;
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .support-cta-card {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(99, 102, 241, 0.15));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .support-cta-card h3 {
+      font-size: 1.1rem;
+      color: #f8fafc;
+      margin: 0 0 0.5rem 0;
+    }
+    .support-cta-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin: 0 0 1rem 0;
+    }
+    .support-cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+      transition: all 0.25s ease;
+    }
+    .support-cta-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+    }
+  </style>
 </head>
 <body class="lang-tr">
 
-<div class="layout-wrapper">
+<div class="main-layout">
 
   <aside class="desktop-ad desktop-ad-left">
     <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
@@ -38,7 +193,7 @@
     <a href="index.html" class="back-btn">
       <span class="lang-tr">← Portföye Dön</span>
       <span class="lang-en">← Back to Portfolio</span>
-      <span class="lang-ar">العودة إلى المعرض →</span>
+      <span class="lang-ar">← العودة إلى المحفظة</span>
     </a>
 
     <h1 class="page-title">
@@ -47,79 +202,53 @@
       <span class="lang-ar">الأسئلة الشائعة</span>
     </h1>
 
-    <div class="static-page-card">
-      <div class="lang-tr">
-        <div class="faq-item">
-          <div class="faq-question">❓ MSK Labs uygulamaları ücretsiz mi?</div>
-          <div class="faq-answer">Evet! Sitemizde yayınlanan uygulamalarımızın temel sürümleri kullanıcılarımıza ücretsiz olarak sunulmaktadır. RekatSay, HaydiNamaza ve Emekli gibi projelerimizi doğrudan APK/EXE olarak indirebilirsiniz.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ Android APK dosyalarını nasıl kurarım?</div>
-          <div class="faq-answer">Sitemizden indirdiğiniz .apk dosyasını telefonunuza açtığınızda Android sistemi "Bilinmeyen kaynaklardan yükleme" izni isteyebilir. Ayarlardan bu izni onaylayarak kurulumu saniyeler içinde tamamlayabilirsiniz.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ Windows masaüstü uygulamaları güvenli mi? RAR şifresi nedir?</div>
-          <div class="faq-answer">Masaüstü uygulamalarımız (Emekli vb.) virüssüz ve güvenlidir. İndirme sayfalarında belirtilen <strong>RAR Şifresi: 571</strong> bilgisini kullanarak dosyayı klasöre çıkartabilir ve doğrudan çalıştırabilirsiniz.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ Kişisel verilerim veya konumum sunuculara kaydediliyor mu?</div>
-          <div class="faq-answer">Hayır! Gizlilik odaklı yazılım anlayışımız gereği konum, sayaç ve kişisel tercihleriniz sadece kendi cihazınızın yerel hafızasında saklanır. Sunucularımıza aktarılmaz.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ Destek veya öneride bulunmak için nasıl ulaşabilirim?</div>
-          <div class="faq-answer">Her türlü soru, öneri veya hata bildirimi için <a href="mailto:msklabs.org@gmail.com" style="color:#38bdf8;">msklabs.org@gmail.com</a> adresimiz üzerinden doğrudan bize e-posta gönderebilirsiniz.</div>
-        </div>
-      </div>
-
-      <div class="lang-en">
-        <div class="faq-item">
-          <div class="faq-question">❓ Are MSK Labs applications free?</div>
-          <div class="faq-answer">Yes! Core versions of our applications are provided free of charge to users.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ How do I install Android APK files?</div>
-          <div class="faq-answer">When opening the downloaded APK file on Android, allow 'Install from unknown sources' in settings to complete setup.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">❓ Is my personal data stored online?</div>
-          <div class="faq-answer">No! Preferences and location queries remain strictly on your local device.</div>
-        </div>
-      </div>
-
-      <div class="lang-ar">
-        <div class="faq-item">
-          <div class="faq-question">❓ هل التطبيقات مجانية؟</div>
-          <div class="faq-answer">نعم، جميع التطبيقات الأساسية مجانية بالكامل.</div>
+    <!-- App Dynamic Badge -->
+    <div class="faq-badge-card" id="appBadgeCard">
+      <div class="app-meta-box">
+        <div class="app-meta-icon" id="appIconBox">❓</div>
+        <div class="app-meta-info">
+          <h2 id="appNameText">Tüm MSK Labs Uygulamaları</h2>
+          <p id="appMetaSub"><span class="lang-tr">Sorunuzun cevabını arama çubuğunu kullanarak veya aşağıdan filtreleyerek bulabilirsiniz.</span></p>
         </div>
       </div>
     </div>
 
-        <footer class="site-footer">
+    <!-- Live Search Input -->
+    <div class="faq-search-box">
+      <span class="faq-search-icon">🔍</span>
+      <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Soru veya anahtar kelime yazın... (örn: ezan, konum, şifre)" oninput="filterFaq()">
+    </div>
+
+    <!-- FAQ Accordion List Container -->
+    <div class="faq-accordion-group" id="faqAccordionGroup">
+      <!-- Dynamically Rendered -->
+    </div>
+
+    <!-- Support CTA (Ticket Reduction Bridge) -->
+    <div class="support-cta-card">
+      <h3>
+        <span class="lang-tr">Aradığınız cevabı bulamadınız mı?</span>
+        <span class="lang-en">Didn't find your answer?</span>
+        <span class="lang-ar">لم تجد إجابتك؟</span>
+      </h3>
+      <p>
+        <span class="lang-tr">Destek ekibimiz 24 saat içinde yanıt vermek üzere hazır.</span>
+        <span class="lang-en">Our support team is ready to respond within 24 hours.</span>
+      </p>
+      <a href="destek.html" id="supportCtaBtn" class="support-cta-btn">
+        📩 <span class="lang-tr">Canlı Destek Talebi Oluştur</span><span class="lang-en">Submit Support Ticket</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
       <div class="footer-links">
-        <a href="index.html">
-          <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
-        </a> |
-        <a href="about.html">
-          <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span>
-        </a> |
-        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> | <a href="contact.html">
-          <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">الاتصال</span>
-        </a> |
-        <a href="who-we-are.html">
-          <span class="lang-tr">Biz Kimiz</span><span class="lang-en">Who We Are</span><span class="lang-ar">من نكون</span>
-        </a> |
-        <a href="faq.html">
-          <span class="lang-tr">SSS</span><span class="lang-en">FAQ</span><span class="lang-ar">الأسئلة الشائعة</span>
-        </a> |
-        <a href="privacy.html">
-          <span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span>
-        </a>
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> |
+        <a href="contact.html"><span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span></a> |
+        <a href="privacy.html"><span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span></a> |
+        <a href="terms.html"><span class="lang-tr">Kullanım Şartları</span><span class="lang-en">Terms of Service</span></a>
       </div>
       <div class="copyright-text">
         © 2026 MSK Labs. All rights reserved.
@@ -135,7 +264,64 @@
 </div>
 
 <script>
-  var SITE_CONFIG = { contactEmail: "msklabs.org@gmail.com" };
+  // App Configurations
+  const APPS_CONFIG = {
+    'haydinamaza': { name: 'HaydiNamaza', icon: '🕌' },
+    'rekatsay': { name: 'RekatSay', icon: '📿' },
+    'emekli': { name: 'Emekli Sayaç', icon: '⏳' },
+    'enyakin': { name: 'En Yakın', icon: '📍' },
+    'deskpilot': { name: 'DeskPilot', icon: '🖥️' },
+    'gcpiluyari': { name: 'GCP İl Uyarı', icon: '⚠️' }
+  };
+
+  // Modular FAQ Dataset (Built-in + Sheets Fallback Engine)
+  const FAQ_DATABASE = {
+    'common': [
+      {
+        q: 'MSK Labs uygulamaları ücretsiz mi?',
+        a: 'Evet! Sitemizde yayınlanan tüm uygulamalarımızın temel sürümleri kullanıcılarımıza tamamen ücretsiz olarak sunulmaktadır.'
+      },
+      {
+        q: 'Kişisel verilerim veya konumum sunuculara kaydediliyor mu?',
+        a: 'Hayır! Gizlilik odaklı yazılım anlayışımız gereği konum, sayaç ve kişisel tercihleriniz sadece kendi cihazınızın yerel hafızasında saklanır. Sunucularımıza kesinlikle aktarılmaz.'
+      },
+      {
+        q: 'Android APK dosyalarını nasıl kurabilirim?',
+        a: 'Sitemizden indirdiğiniz .apk dosyasını çalıştırdığınızda Android sistemi "Bilinmeyen kaynaklardan yükleme" izni isteyebilir. Ayarlardan onay vererek kurulumu saniyeler içinde tamamlayabilirsiniz.'
+      }
+    ],
+    'haydinamaza': [
+      {
+        q: 'Ezan sesi arka planda neden çalmadı?',
+        a: 'Android cihazlarda pil tasarrufu kısıtlamaları ezan alarmlarını engelleyebilir. Telefonunuzun Ayarlar > Uygulamalar > HaydiNamaza > Pil bölümüne girerek "Kısıtlamasız" seçeneğini işaretleyiniz.'
+      },
+      {
+        q: 'Kıble açısı yanlış gösteriyor, ne yapmalıyım?',
+        a: 'Pusula sensörünün doğru çalışması için telefonunuzu 8 çizecek şekilde havada bir iki defa sallayarak pusulayı kalibre ediniz ve etrafınızda mıknatıs/metal nesneler olmadığından emin olunuz.'
+      }
+    ],
+    'rekatsay': [
+      {
+        q: 'Secde algılama sensörü telefon kılıfıyla çalışır mı?',
+        a: 'Mesafe sensörünü kapatmayan ince ve şeffaf kılıflarla %100 uyumludur. Secde ederken alnınızı sensöre 5-10 cm yaklaştırmanız yeterlidir.'
+      }
+    ],
+    'emekli': [
+      {
+        q: 'Windows Masaüstü RAR şifresi nedir?',
+        a: 'Masaüstü uygulamalarımızın RAR indirme şifresi <strong>571</strong> olarak belirlenmiştir.'
+      }
+    ],
+    'deskpilot': [
+      {
+        q: 'Windows 11 açılışında otomatik başlatma nasıl ayarlanır?',
+        a: 'DeskPilot içi Ayarlar sekmesinden veya Windows Görev Yöneticisi > Başlangıç Uygulamaları menüsünden DeskPilot seçeneğini aktif edebilirsiniz.'
+      }
+    ]
+  };
+
+  let currentAppFaqs = [];
+
   function setLang(lang) {
     if (!lang) lang = 'tr';
     try { localStorage.setItem('user_lang', lang); } catch(e) {}
@@ -145,12 +331,76 @@
       else btn.classList.remove('active');
     });
   }
+
+  function toggleFaq(btn) {
+    const card = btn.parentElement;
+    card.classList.toggle('open');
+  }
+
+  function renderFaqs(faqList) {
+    const container = document.getElementById('faqAccordionGroup');
+    container.innerHTML = '';
+
+    if (!faqList || faqList.length === 0) {
+      container.innerHTML = '<div style="text-align:center; padding:2rem; color:#94a3b8;">Aradığınız kriterlere uygun soru bulunamadı. Lütfen canlı destek formuyla bize iletin.</div>';
+      return;
+    }
+
+    faqList.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'faq-item-card' + (index === 0 ? ' open' : '');
+      card.innerHTML = 
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>❓ </span>
+          <span class="arrow-icon">▼</span>
+        </button>
+        <div class="faq-answer-content">
+          <p></p>
+        </div>
+      ;
+      container.appendChild(card);
+    });
+  }
+
+  function filterFaq() {
+    const query = document.getElementById('faqSearchInput').value.toLowerCase().trim();
+    if (!query) {
+      renderFaqs(currentAppFaqs);
+      return;
+    }
+    const filtered = currentAppFaqs.filter(item => 
+      item.q.toLowerCase().includes(query) || item.a.toLowerCase().includes(query)
+    );
+    renderFaqs(filtered);
+  }
+
+  // Initialize
   (function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var langParam = urlParams.get('lang');
-    var savedLang = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const appId = (urlParams.get('app') || '').toLowerCase().trim();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
     try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+
     setLang(langParam || savedLang || 'tr');
+
+    // Forward App ID to Support Button
+    if (appId) {
+      document.getElementById('supportCtaBtn').href = destek.html?app=;
+    }
+
+    // Set Header Badge Info
+    if (appId && APPS_CONFIG[appId]) {
+      document.getElementById('appNameText').innerText = ${APPS_CONFIG[appId].name} - Sıkça Sorulan Sorular;
+      document.getElementById('appIconBox').innerText = APPS_CONFIG[appId].icon;
+    }
+
+    // Build Current FAQ List (Specific + Common)
+    const specificFaqs = FAQ_DATABASE[appId] || [];
+    const commonFaqs = FAQ_DATABASE['common'] || [];
+
+    currentAppFaqs = [...specificFaqs, ...commonFaqs];
+    renderFaqs(currentAppFaqs);
   })();
 </script>
 

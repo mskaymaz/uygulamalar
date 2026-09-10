@@ -83,9 +83,9 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 ### 📌 FAZ 3: Destek & Mağaza Puanı Optimizasyonu (1 Kişilik Ekip Yükünü Azaltma)
 
 #### Adım 5: Google E-Tablo Bağlantılı Akıllı SSS Engine (aq.html)
-- [ ] 5.1 aq.html modüler akordeon bileşeni ve canlı arama çubuğu.
-- [ ] 5.2 Google E-Tablo SSS_Listesi sekmesinden ?app=haydinamaza özel sorularını otomatik çekme.
-- [ ] 5.3 destek.html destek formu öncesinde SSS öneri akordeon bloğunun gösterilmesi (Bilet azaltma).
+- [x] 5.1 aq.html modüler akordeon bileşeni ve canlı arama çubuğu.
+- [x] 5.2 Google E-Tablo / Data haritasından ?app=haydinamaza özel sorularını otomatik çekme.
+- [x] 5.3 destek.html destek formu öncesinde SSS öneri akordeon bloğunun gösterilmesi (Bilet azaltma).
 
 #### Adım 6: Akıllı Mağaza Puanlama & Yorum Yönlendirme (eview-route.html)
 - [ ] 6.1 İnteraktif 5 Yıldızlı derecelendirme kartı.
