@@ -1,0 +1,26 @@
+﻿[
+  {
+    "app": "haydinamaza",
+    "question": "Namaz vakitleri ve ezan alarmları nasıl çalışır?",
+    "answer": "Haydi Namaza uygulamamız bulunduğunuz GPS konumuna veya seçtiğiniz şehre göre Diyanet uyumlu namaz vakitlerini cihazınıza yerel olarak hesaplar. İnternetiniz olmasa dahi alarmlarınız zamanında çalar.",
+    "category": "Genel"
+  },
+  {
+    "app": "haydinamaza",
+    "question": "Kıble pusulası kalibrasyonu nasıl yapılır?",
+    "answer": "Pusula ekranındayken cihazınızı havada 8 çizecek şekilde birkaç kez çevirerek manyetik kalibrasyonu tamamlayabilirsiniz.",
+    "category": "Teknik"
+  },
+  {
+    "app": "rekatsay",
+    "question": "RekatSayaç namaz esnasında rekatı nasıl algılıyor?",
+    "answer": "Cihazınızın yakınlık sensörü (Proximity Sensor) veya ön kamerası secde anındaki yakınlaşmayı tespit ederek rekat ve secde sayılarını otomatik artırır.",
+    "category": "Kullanım"
+  },
+  {
+    "app": "emekli",
+    "question": "Emeklilik hesabı hangi mevzuata dayanıyor?",
+    "answer": "Hesaplama motorumuz SGK güncel emeklilik kanunları, EYT şartları ve prim ödeme gün sayıları mevzuatına uygun simülasyon üretir.",
+    "category": "Hesaplama"
+  }
+]

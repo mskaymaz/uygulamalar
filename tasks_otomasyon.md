@@ -147,20 +147,20 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 ### 🚀 PHASE 6: Solo Admin Efficiency & Live Analytics Suite
 
 #### Adım 13: Tek Merkezli Yapılandırma Dosyası (ssets/js/config.js) / Step 13: Central Master Configuration File
-- [ ] 13.1 ssets/js/config.js ana konfigürasyon dosyasının oluşturulması (SITE_CONFIG). / Create ssets/js/config.js master configuration object.
-- [ ] 13.2 Tüm 12 HTML dosyasına <script src="assets/js/config.js"></script> eklenerek API URL ve e-posta tanımlarının tek merkezde toplanması. / Include config.js across all 12 HTML files.
+- [x] 13.1 ssets/js/config.js ana konfigürasyon dosyasının oluşturulması (SITE_CONFIG). / Create ssets/js/config.js master configuration object.
+- [x] 13.2 Tüm 12 HTML dosyasına <script src="assets/js/config.js"></script> eklenerek API URL ve e-posta tanımlarının tek merkezde toplanması. / Include config.js across all 12 HTML files.
 
 #### Adım 14: Canlı Web Analiz & Sayaç Betiği (ssets/js/analytics.js) / Step 14: Live Web Analytics & Click Tracking Engine
-- [ ] 14.1 Sitedeki her tıklamayı ve sayfa gösterimini kaydeden 1KB hafif nalytics.js motorunun yazılması. / Write non-blocking 1KB client analytics tracker script.
-- [ ] 14.2 ist.html panelinin gerçek canlı ziyaretçi ve indirme sayaç verilerini otomatik görselleştirmesi. / Connect live tracking events directly to ist.html metrics dashboard.
+- [x] 14.1 Sitedeki her tıklamayı ve sayfa gösterimini kaydeden 1KB hafif nalytics.js motorunun yazılması. / Write non-blocking 1KB client analytics tracker script.
+- [x] 14.2 ist.html panelinin gerçek canlı ziyaretçi ve indirme sayaç verilerini otomatik görselleştirmesi. / Connect live tracking events directly to ist.html metrics dashboard.
 
 #### Adım 15: Mobil Yönetici PWA Kısayolu (manifest.json & PWA) / Step 15: Mobile Admin PWA Home Screen Shortcut
-- [ ] 15.1 ist.html için "MSK Analiz" PWA uygulama simgesi ve manifest.json tanımı. / Create Web App Manifest & Apple touch icons for ist.html.
-- [ ] 15.2 Mobilden tek tıkla PIN ekranına erişim mimarisi. / Single-tap PWA home screen launch to admin PIN screen.
+- [x] 15.1 ist.html için "MSK Analiz" PWA uygulama simgesi ve manifest.json tanımı. / Create Web App Manifest & Apple touch icons for ist.html.
+- [x] 15.2 Mobilden tek tıkla PIN ekranına erişim mimarisi. / Single-tap PWA home screen launch to admin PIN screen.
 
 #### Adım 16: Google E-Tablo Tek Tıkla Otomatik Kurulum Kodu (scripts/google_sheet_setup.gs) / Step 16: 1-Click Google Sheet Auto-Setup Script
-- [ ] 16.1 Google Apps Script için 6 sekmenin ve hazır SSS verilerinin sıfırdan otomatik kurulmasını sağlayan google_sheet_setup.gs yazılması. / Create google_sheet_setup.gs for 1-click sheet & FAQ initialization.
-- [ ] 16.2 Mevcut sekmeleri ve verileri %100 koruyan güvenli denetim mekanizması. / Safe existence check preventing data overwrite.
+- [x] 16.1 Google Apps Script için 6 sekmenin ve hazır SSS verilerinin sıfırdan otomatik kurulmasını sağlayan google_sheet_setup.gs yazılması. / Create google_sheet_setup.gs for 1-click sheet & FAQ initialization.
+- [x] 16.2 Mevcut sekmeleri ve verileri %100 koruyan güvenli denetim mekanizması. / Safe existence check preventing data overwrite.
 
 #### Adım 17: Static JSON Fallback & Hız Koruması (ssets/data/faq_fallback.json) / Step 17: Sub-50ms Static JSON Fallback Engine
-- [ ] 17.1 Google API aksamasında SSS ve Duyuruların kesintisiz yüklenmesini sağlayan yerel JSON yedekleme yapısı. / Create static fallback JSON files for FAQ & announcements ensuring sub-50ms render.
+- [x] 17.1 Google API aksamasında SSS ve Duyuruların kesintisiz yüklenmesini sağlayan yerel JSON yedekleme yapısı. / Create static fallback JSON files for FAQ & announcements ensuring sub-50ms render.
