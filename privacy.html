@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gizlilik Politikası | MSK Labs</title>
   <meta name="description" content="MSK Labs uygulamaları için dinamik ve şeffaf Gizlilik Politikası ve Kişisel Veri Koruma Metni.">
-  <link rel="stylesheet" href="assets/global.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css?v=16">
+
+  <!-- MSK Labs Favicon -->
+  <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
+  <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+
   <style>
-    /* Privacy Page Specific Styles */
     .privacy-badge-card {
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(16px);
@@ -118,7 +127,6 @@
       color: #ffffff;
     }
 
-    /* Print Optimization */
     @media print {
       body {
         background: #ffffff !important;
@@ -152,7 +160,7 @@
 </head>
 <body class="lang-tr">
 
-<div class="main-layout">
+<div class="layout-wrapper">
 
   <aside class="desktop-ad desktop-ad-left">
     <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
@@ -170,14 +178,14 @@
       <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <a href="index.html" class="back-btn">
-        <span class="lang-tr">← Portföye Dön</span>
-        <span class="lang-en">← Back to Portfolio</span>
-        <span class="lang-ar">← العودة إلى المحفظة</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 1rem;">
+      <a href="index.html" class="back-btn" style="margin:0;">
+        <span class="lang-tr">Portföye Dön</span>
+        <span class="lang-en">Back to Portfolio</span>
+        <span class="lang-ar">العودة إلى المحفظة</span>
       </a>
 
-      <div class="print-btn-container">
+      <div class="print-btn-container" style="margin:0;">
         <button onclick="window.print()" class="print-btn">
           🖨️ <span class="lang-tr">PDF / Yazdır</span><span class="lang-en">Print / PDF</span><span class="lang-ar">طباعة / PDF</span>
         </button>
@@ -319,7 +327,6 @@
 </div>
 
 <script>
-  // App Dynamic Database & Permissions Data Engine
   const APPS_CONFIG = {
     'haydinamaza': {
       name: 'HaydiNamaza',
@@ -369,7 +376,6 @@
     }
   };
 
-  // Fallback for unknown / generic apps
   const DEFAULT_APP = {
     name: 'MSK Labs Genel Uygulama',
     icon: '📱',
@@ -389,7 +395,6 @@
     });
   }
 
-  // Initialize Dynamic Engine
   (function() {
     const urlParams = new URLSearchParams(window.location.search);
     const appId = (urlParams.get('app') || '').toLowerCase().trim();
@@ -401,21 +406,17 @@
     
     setLang(langParam || savedLang || 'tr');
 
-    // Get App Config or Fallback
     const appData = APPS_CONFIG[appId] || DEFAULT_APP;
 
-    // Render Badge UI
     document.getElementById('appNameText').innerText = appData.name;
     document.getElementById('appIconBox').innerText = appData.icon;
     document.getElementById('appVerText').innerText = appVer;
     document.getElementById('appOsText').innerText = appOs;
 
-    // Update Holder Texts
     document.querySelectorAll('.app-name-holder').forEach(el => {
       el.innerText = appData.name;
     });
 
-    // Render Permissions Tables
     function renderTable(tbodyId) {
       const tbody = document.getElementById(tbodyId);
       if (!tbody) return;
@@ -434,7 +435,6 @@
     renderTable('permissionsTbodyTr');
     renderTable('permissionsTbodyEn');
     renderTable('permissionsTbodyAr');
-
   })();
 </script>
 
