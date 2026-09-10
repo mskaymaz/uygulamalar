@@ -82,3 +82,34 @@ Tüm modüller ssets/css/global.css?v=25 ile %100 uyumlu, destek.html temiz bey
 Push yapıldıktan sonra yapılması gereken 2 küçük işlem:
 1. **Google Apps Script Web App Deployment:** E-Tablonuz üzerindeki Apps Script kodunun yayınlanıp URL'sinin destek.html, aq.html ve ist.html dosyalarına GOOGLE_SHEET_API_URL olarak yazılması.
 2. **Telegram Bot Token:** Telegram @BotFather üzerinden alınan Bot Token ve Chat ID bilgisinin Apps Script script özelliklerine eklenmesi.
+
+
+---
+
+## 🌐 6. Canlı Yayınlanan Tüm Sayfalara Erişim Haritası (Live URL Map)
+
+Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm dinamik ve statik modüllerin URL haritasıdır:
+
+### 📜 Kurumsal & Yasal Sayfalar
+* **Ana Sayfa Portföyü:** https://msklabs.org/index.html
+* **Hakkımızda:** https://msklabs.org/about.html
+* **Biz Kimiz:** https://msklabs.org/who-we-are.html
+* **İletişim:** https://msklabs.org/contact.html
+* **Dinamik Gizlilik Politikası:** https://msklabs.org/privacy.html?app=haydinamaza
+* **Dinamik Kullanım Şartları & EULA:** https://msklabs.org/terms.html?app=haydinamaza
+
+### 🛠️ Mobil Otomasyon Servisleri
+* **Modüler Akıllı SSS (Live Search):** https://msklabs.org/faq.html?app=haydinamaza
+* **Çapraz Promosyon Motoru:** https://msklabs.org/promo.html?app=haydinamaza
+* **Akıllı Mağaza Puanlama Yönlendiricisi:** https://msklabs.org/review-route.html?app=haydinamaza
+* **Akıllı İndirme & QR Kodu Yönlendiricisi:** https://msklabs.org/dl.html?app=haydinamaza
+* **Sürüm Günlüğü & Yenilikler (Changelog):** https://msklabs.org/changelog.html?app=haydinamaza
+* **Topluluk Yol Haritası & Oylama:** https://msklabs.org/roadmap.html
+* **Canlı Sistem Durumu:** https://msklabs.org/status.html
+
+### 🔐 Destek & Yönetim Paneli
+* **Canlı Destek & Bilet Formu:** https://msklabs.org/destek.html
+* **Gizli İstatistik & Analiz Paneli (PIN: 175):** https://msklabs.org/ist.html
+* **Tüm Sayfalar ve Dizin Haritası:** https://msklabs.org/pages.html
+* **Canlı Duyuru API (Static JSON):** https://msklabs.org/announcements.json
+* **Remote Announcement API (Worker Uç Noktası):** https://msklabs.org/api/announcement?app=haydinamaza
