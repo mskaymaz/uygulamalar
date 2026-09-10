@@ -671,7 +671,7 @@ body.lang-ar { direction: rtl; }
 }
 
 .footer-links a {
-  color: #334155; font-weight: 500;
+  color: #e2e8f0; font-weight: 400;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -686,7 +686,7 @@ body.lang-ar { direction: rtl; }
 }
 
 .static-page-card {
-  background: rgba(30, 41, 59, 0.7);
+  background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -715,7 +715,7 @@ body.lang-ar .static-page-card {
 }
 
 .static-page-card p, .static-page-card ul {
-  color: #334155; font-weight: 500;
+  color: #e2e8f0; font-weight: 400;
   margin-bottom: 15px;
 }
 
@@ -729,7 +729,7 @@ body.lang-ar .static-page-card ul {
 }
 
 .faq-item {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 20px;
