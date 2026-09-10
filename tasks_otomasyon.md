@@ -1,125 +1,142 @@
-﻿> 📘 **Detaylı Entegrasyon, Google E-Tablo Veri Mimarisi ve Alınan Kararlar:**  
-> Lütfen tam rehber için [ISTISARE_VE_KARARLAR.md](file:///d:/Code/mskaymaz/webMSKLabs/ISTISARE_VE_KARARLAR.md) dokümanını inceleyiniz.
-# Bismillahirrahmânirrâhîm
+﻿# Bismillahirrahmânirrâhîm
+
+> 📘 **Detaylı Entegrasyon, Google E-Tablo Veri Mimarisi ve Alınan Kararlar:**  
+> Lütfen tam rehber için [ISTISARE_VE_KARARLAR.md](file:///d:/Code/mskaymaz/webMSKLabs/ISTISARE_VE_KARARLAR.md) dokümanını inceleyiniz.  
+> *English:* For complete integration details, Google Sheets data schema, and technical guidelines, see [ISTISARE_VE_KARARLAR.md](file:///d:/Code/mskaymaz/webMSKLabs/ISTISARE_VE_KARARLAR.md).
 
 # MSK Labs 20+ Uygulama Merkezi Otomasyon Yol Haritası & İstemci Sözleşmesi (tasks_otomasyon.md)
+# MSK Labs 20+ Applications Automation Roadmap & Client Contract Specification
 
-Bu dosya, hem **msklabs.org merkezi web altyapısını** hem de **20+ Mobil Uygulamanın entegrasyon standartlarını** tanımlayan ana sözleşmedir (Master API & Client Specification). 
-
-1 kişi tarafından yönetilen tüm uygulamalar (Flutter, Kotlin, Swift, React Native vb.) görsel Google E-Tablo paneli ve bu dokümandaki URL yapılarını birebir uygulayacaktır.
+Bu dosya, hem **msklabs.org merkezi web altyapısını** hem de **20+ Mobil Uygulamanın entegrasyon standartlarını** tanımlayan ana sözleşmedir (Master API & Client Specification). 1 kişi tarafından yönetilen tüm uygulamalar (Flutter, Kotlin, Swift, React Native vb.) görsel Google E-Tablo paneli ve bu dokümandaki URL yapılarını birebir uygulayacaktır.  
+*English:* This master document defines integration standards for both the **msklabs.org web infrastructure** and **20+ Mobile Applications**. All client apps (Flutter, Kotlin, Swift, React Native, etc.) managed by a single developer must strictly consume the endpoints and parameter schemas defined below.
 
 ---
 
 ## 📱 MOBİL UYGULAMA ENTEGRASYON STANDARDI (Client Specification)
+## 📱 MOBILE APP CLIENT INTEGRATION SPECIFICATION
 
-Tüm MSK Labs uygulamalarında **"Ayarlar" (Settings)** ve **"Hakkında"** ekranlarında bulunması gereken standart web yönlendirme ve dinamik parametre mimarisi:
+Tüm MSK Labs uygulamalarında **"Ayarlar" (Settings)** ve **"Hakkında"** ekranlarında bulunması gereken standart web yönlendirme ve dinamik parametre mimarisi:  
+*English:* Standard web routing and query parameter specification required for "Settings" and "About" menus across all MSK Labs mobile apps:
 
 ### 1. Standart URL Parametre Yapısı (Her İstekte Gönderilecek Değişkenler)
-* {APP_ID}: Uygulama kimliği (Örn: haydinamaza, ekatsay, emekli, enyakin, deskpilot, gcpiluyari)
-* {APP_VER}: Uygulama sürümü (Örn: 2.1.0)
-* {OS}: İşletim sistemi (ndroid, ios, windows, web)
-* {LANG}: Kullanıcı cihaz dili (	r, en, r)
+### 1. Standard URL Query Parameters (Mandatory Variables)
+* {APP_ID}: Uygulama kimliği (Örn / e.g.: haydinamaza, ekatsay, emekli, enyakin, deskpilot, gcpiluyari)
+* {APP_VER}: Uygulama sürümü (Örn / e.g.: 2.1.0)
+* {OS}: İşletim sistemi / Operating System (ndroid, ios, windows, web)
+* {LANG}: Kullanıcı cihaz dili / Device language (	r, en, r)
 
 ---
 
 ### 2. Mobil Uygulama "Ayarlar" Menüsü Standart Bağlantı Tablosu
+### 2. Standard Mobile App Settings Menu Route Mapping Table
 
-| Menü Elemanı (UI Text) | Aksiyon | Hedef URL Formatı | Açıklama |
+| Menü Elemanı (UI Text) | Aksiyon | Hedef URL Formatı (Target URL) | Açıklama / Description |
 | :--- | :--- | :--- | :--- |
-| **Biz Kimiz / Hakkımızda** | External Browser | https://msklabs.org/who-we-are.html | Merkezi kurumsal tanıtım |
-| **Gizlilik Politikası** | External Browser | https://msklabs.org/privacy.html?app={APP_ID}&ver={APP_VER}&os={OS}&lang={LANG} | Uygulamaya özel dinamik yasal metin & izinler |
-| **Kullanım Şartları (Terms)** | External Browser | https://msklabs.org/terms.html?app={APP_ID}&lang={LANG} | Uygulama kullanım sözleşmesi |
-| **Destek & Talep Oluştur** | External Browser | https://msklabs.org/destek.html?app={APP_ID}&ver={APP_VER}&os={OS}&lang={LANG} | Telegram bağlantılı canlı bilet sistemi |
-| **Diğer Uygulamalarımız** | External Browser | https://msklabs.org/index.html | MSK Labs tüm uygulamalar portföyü |
-| **Öne Çıkanlar / Günün Tavsiyesi** | External / In-App | https://msklabs.org/promo.html?app={APP_ID} | E-Tablodan yönetilen çapraz promosyon |
-| **Sürüm Yenilikleri (Changelog)**| External Browser | https://msklabs.org/changelog.html?app={APP_ID}&ver={APP_VER} | Sürüm geçmişi ve yenilikler metni |
-| **Uygulamayı Değerlendir**| In-App / Browser | https://msklabs.org/review-route.html?app={APP_ID}&os={OS} | 5 Yıldız ➔ Mağaza / 1-3 Yıldız ➔ Destek Formu |
-| **Sık Sorulan Sorular (SSS)** | External Browser | https://msklabs.org/faq.html?app={APP_ID}&lang={LANG} | E-Tablodan yönetilen akıllı SSS filtresi |
-| **Gelecek Özellikleri Oyla** | External Browser | https://msklabs.org/roadmap.html?app={APP_ID} | Kullanıcı fikir oylama panosu |
+| **Biz Kimiz / Hakkımızda** | External Browser | https://msklabs.org/who-we-are.html | Merkezi kurumsal tanıtım / Corporate About Us page |
+| **Gizlilik Politikası** | External Browser | https://msklabs.org/privacy.html?app={APP_ID}&ver={APP_VER}&os={OS}&lang={LANG} | Dynamic privacy policy & permissions |
+| **Kullanım Şartları (Terms)** | External Browser | https://msklabs.org/terms.html?app={APP_ID}&lang={LANG} | Terms of Service contract |
+| **Destek & Talep Oluştur** | External Browser | https://msklabs.org/destek.html?app={APP_ID}&ver={APP_VER}&os={OS}&lang={LANG} | Telegram-integrated live support tickets |
+| **Diğer Uygulamalarımız** | External Browser | https://msklabs.org/index.html | Full MSK Labs app portfolio |
+| **Öne Çıkanlar / Günün Tavsiyesi** | External / In-App | https://msklabs.org/promo.html?app={APP_ID} | Sheet-managed cross-promotion matrix |
+| **Sürüm Yenilikleri (Changelog)**| External Browser | https://msklabs.org/changelog.html?app={APP_ID}&ver={APP_VER} | Version changelog history |
+| **Uygulamayı Değerlendir**| In-App / Browser | https://msklabs.org/review-route.html?app={APP_ID}&os={OS} | 5 Stars ➔ Store / 1-4 Stars ➔ Support Form |
+| **Sık Sorulan Sorular (SSS)** | External Browser | https://msklabs.org/faq.html?app={APP_ID}&lang={LANG} | Sheet-managed smart FAQ filter |
+| **Gelecek Özellikleri Oyla** | External Browser | https://msklabs.org/roadmap.html?app={APP_ID} | Community feature request voting board |
 
 ---
 
 ## 📊 MERKEZİ GÖRSEL YÖNETİM PANELİ (Google E-Tablo Mimarisi)
+## 📊 CENTRAL VISUAL MANAGEMENT DASHBOARD (Google Sheets Schema)
 
-Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan görsel olarak yönetilir:
+Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan görsel olarak yönetilir:  
+*English:* All web and mobile content is managed visually via a single Google Spreadsheet without redeploying code:
 
-1. **Biletler Sekmesi:** Telegram botu ile senkronize canlı destek biletleri.
-2. **SSS_Listesi Sekmesi:** Uygulama bazlı Soru-Cevap ikilileri (pp_id, soru, cevap).
-3. **Duyurular Sekmesi:** Mağaza güncellemesiz canlı uyarı ve zorunlu güncelleme bayrakları.
-4. **Capraz_Promosyon Sekmesi:** Hangi uygulamada hangi diğer uygulamanın öne çıkarılacağı matrisi.
-
----
-
-## 📌 WEB ALTYAPI GELİŞTİRME GÖREV LİSTESİ
-
-### 📌 FAZ 1: Yasal & Kurumsal Temeller (Uygulama Boyutunu Düşürme)
-
-#### Adım 1: Dinamik Gizlilik Politikası Motoru (privacy.html)
-- [x] 1.1 privacy.html temel modern duyarlı (responsive) şablonunun oluşturulması.
-- [x] 1.2 URL parametresinden (?app=...&ver=...&os=...&lang=...) uygulama adı, versiyon ve dil bilgisinin dinamik okunması.
-- [x] 1.3 Uygulamalara özel izinler tablosunun (GPS Konum, Bildirim, Depolama, Kamera vb.) dinamik yükleme mimarisi.
-- [x] 1.4 Çoklu dil desteği (TR / EN / AR) ve otomatik Google Play / App Store yasal standart uyumu.
-- [x] 1.5 Yazdırılabilir / PDF çıktı alınabilir temiz görünüm seçeneği (@media print).
-
-#### Adım 2: Dinamik Kullanım Şartları & Sözleşmeler Motoru (	erms.html)
-- [x] 2.1 	erms.html duyarlı yasal sözleşme şablonunun hazırlanması.
-- [x] 2.2 Uygulama parametresine göre (?app=...) kullanım şartları ve telif metinlerinin dinamik basılması.
-- [x] 2.3 Çoklu dil (TR / EN / AR) ve PDF yazdırma desteği.
+1. **Destek_Biletleri Sekmesi:** Telegram botu ile senkronize canlı destek biletleri. / Telegram-synced live support tickets.
+2. **SSS_Listesi Sekmesi:** Uygulama bazlı Soru-Cevap ikilileri (App_ID, Soru, Cevap). / App-specific Q&A list.
+3. **Duyurular Sekmesi:** Mağaza güncellemesiz canlı uyarı ve zorunlu güncelleme bayrakları. / Instant remote alerts & force update flags.
+4. **Capraz_Promosyon Sekmesi:** Hangi uygulamada hangi diğer uygulamanın öne çıkarılacağı matrisi. / App recommendation matrix.
 
 ---
 
-### 📌 FAZ 2: Canlı Kontrol & Kullanıcı İletişimi (Mağaza Güncellemesi Yapmadan)
+## 🛠️ WEB ALTYAPI GELİŞTİRME GÖREV LİSTESİ
+## 🛠️ WEB INFRASTRUCTURE DEVELOPMENT CHECKLIST
 
-#### Adım 3: Dinamik Duyuru & Canlı Güncelleme Banner Engine (nnouncements.json / Sheet API)
-- [x] 3.1 Google E-Tablo / JSON duyuru veritabanı şablonunun hazırlanması.
-- [x] 3.2 Uygulamalar için hafif API uç noktası (msklabs.org/api/announcement ve nnouncements.json).
-- [x] 3.3 Kritik Güncelleme (Force Update) / Genel Duyuru / Bakım Modu bayrakları.
+### 📜 FAZ 1: Yasal & Kurumsal Temeller (Uygulama Boyutunu Düşürme)
+### 📜 PHASE 1: Legal & Corporate Foundations (Reducing App Bundle Size)
 
-#### Adım 4: Çapraz Promosyon & Trafik Motoru (promo.html / Banner System)
-- [x] 4.1 20+ Uygulama arasında organik kullanıcı trafiği döndürecek Öne Çıkan Uygulama kartı bileşeni (promo.html).
-- [x] 4.2 Kaynak uygulamaya göre önerilen tamamlayıcı uygulamalar matris konfigürasyonu.
-- [x] 4.3 Tıklama ve yönlendirme kartları.
+#### Adım 1: Dinamik Gizlilik Politikası Motoru (privacy.html) / Step 1: Dynamic Privacy Policy Engine
+- [x] 1.1 privacy.html temel modern duyarlı (responsive) şablonunun oluşturulması. / Create responsive template.
+- [x] 1.2 URL parametresinden (?app=...&ver=...&os=...&lang=...) uygulama adı, versiyon ve dil bilgisinin dinamik okunması. / Parse URL parameters.
+- [x] 1.3 Uygulamalara özel izinler tablosunun (GPS Konum, Bildirim, Depolama vb.) dinamik yükleme mimarisi. / Dynamic app permissions table.
+- [x] 1.4 Çoklu dil desteği (TR / EN / AR) ve otomatik Google Play / App Store yasal standart uyumu. / Multi-language TR/EN/AR support.
+- [x] 1.5 Yazdırılabilir / PDF çıktı alınabilir temiz görünüm seçeneği (@media print). / Clean print & PDF styling.
 
----
-
-### 📌 FAZ 3: Destek & Mağaza Puanı Optimizasyonu (1 Kişilik Ekip Yükünü Azaltma)
-
-#### Adım 5: Google E-Tablo Bağlantılı Akıllı SSS Engine (aq.html)
-- [x] 5.1 aq.html modüler akordeon bileşeni ve canlı arama çubuğu.
-- [x] 5.2 Google E-Tablo / Data haritasından ?app=haydinamaza özel sorularını otomatik çekme.
-- [x] 5.3 destek.html destek formu öncesinde SSS öneri akordeon bloğunun gösterilmesi (Bilet azaltma).
-
-#### Adım 6: Akıllı Mağaza Puanlama & Yorum Yönlendirme (eview-route.html)
-- [x] 6.1 İnteraktif 5 Yıldızlı derecelendirme kartı (eview-route.html).
-- [x] 6.2 **5 Yıldız:** Doğrudan Google Play / App Store mağaza sayfasına yönlendirme (Puan tavan yaptırma).
-- [x] 6.3 **1-4 Yıldız:** Mağaza yerine doğrudan Telegram bağlantılı destek.html formuna yönlendirme (Kötü yorum engelleme).
+#### Adım 2: Dinamik Kullanım Şartları & Sözleşmeler Motoru (	erms.html) / Step 2: Dynamic Terms of Service Engine
+- [x] 2.1 	erms.html duyarlı yasal sözleşme şablonunun hazırlanması. / Prepare responsive legal terms template.
+- [x] 2.2 Uygulama parametresine göre (?app=...) kullanım şartları ve telif metinlerinin dinamik basılması. / Dynamic terms rendering by ?app=.
+- [x] 2.3 Çoklu dil (TR / EN / AR) ve PDF yazdırma desteği. / Multi-language & print support.
 
 ---
 
-### 📌 FAZ 4: Dağıtım & Akıllı Bağlantı Otomasyonu
+### 📢 FAZ 2: Canlı Kontrol & Kullanıcı İletişimi (Mağaza Güncellemesi Yapmadan)
+### 📢 PHASE 2: Live Control & User Engagement (Zero Store Update Needed)
 
-#### Adım 7: Akıllı İndirme & QR Bağlantıları (msklabs.org/dl/app)
-- [ ] 7.1 Cihaz algılama betiği (Android ➔ Play Store, iOS ➔ App Store, Masaüstü ➔ Web Portföyü).
-- [ ] 7.2 Uygulamaya özel kısa indirme ve dinamik QR kod oluşturma motoru.
+#### Adım 3: Dinamik Duyuru & Canlı Güncelleme Banner Engine (nnouncements.json / Sheet API) / Step 3: Remote Announcement Engine
+- [x] 3.1 Google E-Tablo / JSON duyuru veritabanı şablonunun hazırlanması. / Prepare JSON announcement database schema.
+- [x] 3.2 Uygulamalar için hafif API uç noktası (msklabs.org/api/announcement ve nnouncements.json). / Light JSON API endpoints.
+- [x] 3.3 Kritik Güncelleme (Force Update) / Genel Duyuru / Bakım Modu bayrakları. / Force update and maintenance mode flags.
 
-#### Adım 8: Sürüm & Değişiklik Günlüğü (changelog.html)
-- [x] 8.1 changelog.html kronolojik versiyon geçmişi görünümü.
-- [x] 8.2 Uygulama bazlı sürüm yenilikleri filtreleme (?app=rekatsay).
+#### Adım 4: Çapraz Promosyon & Trafik Motoru (promo.html / Banner System) / Step 4: Cross-Promotion Engine
+- [x] 4.1 20+ Uygulama arasında organik kullanıcı trafiği döndürecek Öne Çıkan Uygulama kartı bileşeni (promo.html). / Cross-promo card components.
+- [x] 4.2 Kaynak uygulamaya göre önerilen tamamlayıcı uygulamalar matris konfigürasyonu. / Recommendation matrix by source app.
+- [x] 4.3 Tıklama ve yönlendirme kartları. / Interactive redirect cards.
 
 ---
 
-### 📌 FAZ 5: İleri Düzey Yönetim & Geri Bildirim
+### 🛠️ FAZ 3: Destek & Mağaza Puanı Optimizasyonu (1 Kişilik Ekip Yükünü Azaltma)
+### 🛠️ PHASE 3: Support & Store Rating Optimization (Reducing Admin Overhead)
 
-#### Adım 9: Kullanıcı Fikir Oylama & Yol Haritası (oadmap.html)
-- [x] 9.1 Topluluk fikir önerme ve oylama (+1) kart yapısı (oadmap.html).
-- [x] 9.2 En çok istenen özelliklerin E-Tablo ve Telegram üzerinden 1 kişilik ekibe raporlanması.
+#### Adım 5: Google E-Tablo Bağlantılı Akıllı SSS Engine (aq.html) / Step 5: Smart Sheet-Backed FAQ Engine
+- [x] 5.1 aq.html modüler akordeon bileşeni ve canlı arama çubuğu. / Modular accordion component with live search bar.
+- [x] 5.2 Google E-Tablo / Data haritasından ?app=haydinamaza özel sorularını otomatik çekme. / Auto-fetch app-specific Q&A from Sheet API.
+- [x] 5.3 destek.html destek formu öncesinde SSS öneri akordeon bloğunun gösterilmesi (Bilet azaltma). / Show FAQ suggestions before ticket submission.
 
-#### Adım 10: Sistem Durumu Sayfası (status.html)
-- [x] 10.1 "Tüm Sistemler Çalışıyor" / "Bakım Çalışması Var" durum rozetleri (status.html).
-- [x] 10.2 Olumsuz bir durumda destek.html üzerinde otomatik uyarı yayınlanması.
+#### Adım 6: Akıllı Mağaza Puanlama & Yorum Yönlendirme (eview-route.html) / Step 6: Smart Review Router
+- [x] 6.1 İnteraktif 5 Yıldızlı derecelendirme kartı (eview-route.html). / Interactive 5-star rating card.
+- [x] 6.2 **5 Yıldız:** Doğrudan Google Play / App Store mağaza sayfasına yönlendirme (Puan tavan yaptırma). / 5 Stars ➔ Redirect to Store.
+- [x] 6.3 **1-4 Yıldız:** Mağaza yerine doğrudan Telegram bağlantılı destek.html formuna yönlendirme (Kötü yorum engelleme). / 1-4 Stars ➔ Internal support form.
 
-#### Adım 11: Gizli İstatistik & Analiz Paneli (ist.html)
-- [x] 11.1 Şifre / PIN korumalı yönetici giriş ekranı (ist.html).
-- [x] 11.2 Canlı tekil/çoğul ziyaretçi, sayfa görüntüleme ve cihaz dağılım grafikleri.
-- [x] 11.3 E-Tablo senkronize uygulama bazlı günlük indirme ve buton tıklama sayaçları.
-- [x] 11.4 AdSense / AdMob özet gösterim ve tıklama kartları.
+---
+
+### 📲 FAZ 4: Dağıtım & Akıllı Bağlantı Otomasyonu
+### 📲 PHASE 4: Distribution & Smart Route Automation
+
+#### Adım 7: Akıllı İndirme & QR Bağlantıları (dl.html) / Step 7: Smart Download & QR Router
+- [x] 7.1 Cihaz algılama betiği (Android ➔ Play Store, iOS ➔ App Store, Masaüstü ➔ Web Portföyü). / Device detection script.
+- [x] 7.2 Uygulamaya özel kısa indirme ve dinamik QR kod oluşturma motoru. / App short download link & dynamic QR generator.
+
+#### Adım 8: Sürüm & Değişiklik Günlüğü (changelog.html) / Step 8: Version Release Changelog Engine
+- [x] 8.1 changelog.html kronolojik versiyon geçmişi görünümü. / Chronological version history view.
+- [x] 8.2 Uygulama bazlı sürüm yenilikleri filtreleme (?app=rekatsay). / App-specific release changelog filtering.
+
+---
+
+### 📊 FAZ 5: İleri Düzey Yönetim & Geri Bildirim
+### 📊 PHASE 5: Advanced Admin & Feedback Analytics
+
+#### Adım 9: Kullanıcı Fikir Oylama & Yol Haritası (oadmap.html) / Step 9: Community Roadmap & Voting Board
+- [x] 9.1 Topluluk fikir önerme ve oylama (+1) kart yapısı (oadmap.html). / Community feature proposal & +1 voting board.
+- [x] 9.2 En çok istenen özelliklerin E-Tablo ve Telegram üzerinden 1 kişilik ekibe raporlanması. / Reporting top requested features to admin.
+
+#### Adım 10: Sistem Durumu Sayfası (status.html) / Step 10: System Status Monitor Page
+- [x] 10.1 "Tüm Sistemler Çalışıyor" / "Bakım Çalışması Var" durum rozetleri (status.html). / Service health status badges.
+- [x] 10.2 Olumsuz bir durumda destek.html üzerinde otomatik uyarı yayınlanması. / Automatic alert banner on support form during outage.
+
+#### Adım 11: Gizli İstatistik & Analiz Paneli (ist.html) / Step 11: Secret Admin Analytics Dashboard
+- [x] 11.1 Şifre / PIN korumalı yönetici giriş ekranı (ist.html - PIN: 175). / Password / PIN protected admin entry screen.
+- [x] 11.2 Canlı tekil/çoğul ziyaretçi, sayfa görüntüleme ve cihaz dağılım grafikleri. / Live visitor, page view & OS breakdown metrics.
+- [x] 11.3 E-Tablo senkronize uygulama bazlı günlük indirme ve buton tıklama sayaçları. / Sheet-synced daily app download & click counters.
+- [x] 11.4 AdSense / AdMob özet gösterim ve tıklama kartları. / AdSense / AdMob summary impressions & click cards.
+
+#### Adım 12: Tüm Sayfalar Dizini (pages.html) / Step 12: Central Site Directory Map
+- [x] 12.1 Tüm repodaki dinamik ve statik sayfaların kategorize edilmiş indeks haritası (pages.html). / Categorized index map of all site pages.
