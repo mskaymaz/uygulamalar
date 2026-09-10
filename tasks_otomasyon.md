@@ -113,8 +113,8 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [x] 9.2 En çok istenen özelliklerin E-Tablo ve Telegram üzerinden 1 kişilik ekibe raporlanması.
 
 #### Adım 10: Sistem Durumu Sayfası (status.html)
-- [ ] 10.1 "Tüm Sistemler Çalışıyor" / "Bakım Çalışması Var" durum rozetleri.
-- [ ] 10.2 Olumsuz bir durumda destek.html üzerinde otomatik uyarı yayınlanması.
+- [x] 10.1 "Tüm Sistemler Çalışıyor" / "Bakım Çalışması Var" durum rozetleri (status.html).
+- [x] 10.2 Olumsuz bir durumda destek.html üzerinde otomatik uyarı yayınlanması.
 
 #### Adım 11: Gizli İstatistik & Analiz Paneli (ist.html)
 - [ ] 11.1 Şifre / PIN korumalı yönetici giriş ekranı.
