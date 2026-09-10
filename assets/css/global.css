@@ -999,3 +999,51 @@ body.lang-ar { direction: rtl; }
   background: #10b981;
 }
 
+
+
+/* ==========================================================================
+   STATIK SAYFA KARTLARI (Hakkimizda, Iletisim, Biz Kimiz, SSS, Gizlilik)
+   ========================================================================== */
+.static-page-card {
+  background: rgba(248, 250, 252, 0.85) !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 16px !important;
+  padding: 32px !important;
+  margin-bottom: 30px !important;
+  text-align: left !important;
+  line-height: 1.7 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.lang-ar .static-page-card {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+.static-page-card h2 {
+  color: #0284c7 !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  margin-top: 25px !important;
+  margin-bottom: 14px !important;
+  border-bottom: 1.5px solid #e2e8f0 !important;
+  padding-bottom: 8px !important;
+}
+
+.static-page-card h2:first-child {
+  margin-top: 0 !important;
+}
+
+.static-page-card p, 
+.static-page-card ul, 
+.static-page-card li {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+  margin-bottom: 15px !important;
+  font-size: 0.98rem !important;
+}
+
+.static-page-card a {
+  color: #0284c7 !important;
+  font-weight: 600 !important;
+}
