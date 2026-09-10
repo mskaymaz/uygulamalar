@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulamayı Değerlendir | MSK Labs</title>
+  <meta name="description" content="MSK Labs uygulamaları için akıllı derece ve değerlendirme yönlendirme sistemi.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    .rating-container-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .rating-app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+    }
+    .rating-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0 0 0.5rem 0;
+    }
+    .rating-subtitle {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin: 0 0 2rem 0;
+    }
+    .star-rating-box {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .star-btn {
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #475569;
+      transition: all 0.2s ease;
+    }
+    .star-btn.active, .star-btn:hover {
+      color: #fbbf24;
+      transform: scale(1.15);
+      text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    }
+
+    .rating-result-card {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 14px;
+      animation: fadeIn 0.4s ease;
+    }
+    .rating-result-card.five-star {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+    .rating-result-card.low-star {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+    .result-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.25s ease;
+    }
+    .result-btn-store {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    .result-btn-support {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    .result-btn:hover {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body class="lang-tr">
+
+<div class="main-layout">
+
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <div class="portfolio-container">
+  
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">← Portföye Dön</span>
+      <span class="lang-en">← Back to Portfolio</span>
+      <span class="lang-ar">← العودة إلى المحفظة</span>
+    </a>
+
+    <div class="rating-container-card">
+      <div class="rating-app-icon" id="appIconBox">⭐</div>
+      <h1 class="rating-title" id="appNameText">Uygulamamızı Değerlendirin</h1>
+      <p class="rating-subtitle">
+        <span class="lang-tr">Deneyiminizi geliştirebilmemiz için lütfen puan verin.</span>
+        <span class="lang-en">Please rate your experience to help us improve.</span>
+      </p>
+
+      <div class="star-rating-box">
+        <button class="star-btn" onclick="rate(1)">★</button>
+        <button class="star-btn" onclick="rate(2)">★</button>
+        <button class="star-btn" onclick="rate(3)">★</button>
+        <button class="star-btn" onclick="rate(4)">★</button>
+        <button class="star-btn" onclick="rate(5)">★</button>
+      </div>
+
+      <!-- Result Card (5 Stars -> Store, 1-4 Stars -> Support) -->
+      <div class="rating-result-card five-star" id="fiveStarCard">
+        <h3>🎉 Harika! Bize 5 Yıldız Verdiğiniz İçin Teşekkür Ederiz!</h3>
+        <p>Görüşleriniz daha çok kullanıcıya ulaşmamız için çok değerli. Lütfen mağazada da değerlendirin.</p>
+        <a href="https://play.google.com/store/apps/developer?id=MSK+Labs" id="storeLinkBtn" target="_blank" class="result-btn result-btn-store">
+          ⭐ Mağazada Puan Ver (Google Play / App Store)
+        </a>
+      </div>
+
+      <div class="rating-result-card low-star" id="lowStarCard">
+        <h3>🙏 Deneyiminizden Dolayı Üzgünüz!</h3>
+        <p>Sorununuzu hemen çözebilmemiz ve uygulamamızı geliştirebilmemiz için lütfen bize doğrudan bildirin.</p>
+        <a href="destek.html" id="supportLinkBtn" class="result-btn result-btn-support">
+          📩 Geri Bildirim Gönder (Destek Formu)
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek</span><span class="lang-en">Support</span></a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  const APPS_CONFIG = {
+    'haydinamaza': { name: 'HaydiNamaza', icon: '🕌' },
+    'rekatsay': { name: 'RekatSay', icon: '📿' },
+    'emekli': { name: 'Emekli Sayaç', icon: '⏳' },
+    'enyakin': { name: 'En Yakın', icon: '📍' },
+    'deskpilot': { name: 'DeskPilot', icon: '🖥️' }
+  };
+
+  let selectedAppId = '';
+
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  function rate(stars) {
+    const starBtns = document.querySelectorAll('.star-btn');
+    starBtns.forEach((btn, index) => {
+      if (index < stars) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+
+    const fiveCard = document.getElementById('fiveStarCard');
+    const lowCard = document.getElementById('lowStarCard');
+
+    if (stars === 5) {
+      fiveCard.style.display = 'block';
+      lowCard.style.display = 'none';
+    } else {
+      fiveCard.style.display = 'none';
+      lowCard.style.display = 'block';
+    }
+  }
+
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    selectedAppId = (urlParams.get('app') || '').toLowerCase().trim();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+
+    setLang(langParam || savedLang || 'tr');
+
+    if (selectedAppId && APPS_CONFIG[selectedAppId]) {
+      document.getElementById('appNameText').innerText = ${APPS_CONFIG[selectedAppId].name} Değerlendirmesi;
+      document.getElementById('appIconBox').innerText = APPS_CONFIG[selectedAppId].icon;
+      document.getElementById('supportLinkBtn').href = destek.html?app=&category=hata;
+    }
+  })();
+</script>
+
+</body>
+</html>

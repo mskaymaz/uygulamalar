@@ -88,9 +88,9 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [x] 5.3 destek.html destek formu öncesinde SSS öneri akordeon bloğunun gösterilmesi (Bilet azaltma).
 
 #### Adım 6: Akıllı Mağaza Puanlama & Yorum Yönlendirme (eview-route.html)
-- [ ] 6.1 İnteraktif 5 Yıldızlı derecelendirme kartı.
-- [ ] 6.2 **5 Yıldız:** Doğrudan Google Play / App Store mağaza sayfasına yönlendirme (Puan tavan yaptırma).
-- [ ] 6.3 **1-3 Yıldız:** Mağaza yerine doğrudan Telegram bağlantılı destek.html formuna yönlendirme (Kötü yorum engelleme).
+- [x] 6.1 İnteraktif 5 Yıldızlı derecelendirme kartı (eview-route.html).
+- [x] 6.2 **5 Yıldız:** Doğrudan Google Play / App Store mağaza sayfasına yönlendirme (Puan tavan yaptırma).
+- [x] 6.3 **1-4 Yıldız:** Mağaza yerine doğrudan Telegram bağlantılı destek.html formuna yönlendirme (Kötü yorum engelleme).
 
 ---
 
