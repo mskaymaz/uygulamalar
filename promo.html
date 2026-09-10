@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Günün Tavsiye Uygulaması | MSK Labs</title>
+  <meta name="description" content="MSK Labs ekosisteminden sizin için seçilen öne çıkan tavsiye uygulamalar.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    .promo-header-card {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(99, 102, 241, 0.2));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(12px);
+    }
+    .promo-header-card h2 {
+      font-size: 1.5rem;
+      color: #f8fafc;
+      margin: 0 0 0.5rem 0;
+    }
+    .promo-header-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin: 0;
+    }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .promo-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+    }
+    .promo-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .promo-app-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .promo-app-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+    .promo-app-title h3 {
+      font-size: 1.2rem;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .promo-app-title span {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .promo-desc {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .promo-action-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #ffffff;
+      text-align: center;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+    .promo-action-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+    }
+  </style>
+</head>
+<body class="lang-tr">
+
+<div class="main-layout">
+
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <div class="portfolio-container">
+  
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">← Portföye Dön</span>
+      <span class="lang-en">← Back to Portfolio</span>
+      <span class="lang-ar">← العودة إلى المحفظة</span>
+    </a>
+
+    <div class="promo-header-card">
+      <h2>
+        <span class="lang-tr">🌟 Sizin İçin Öne Çıkan Uygulamalarımız</span>
+        <span class="lang-en">🌟 Recommended Applications for You</span>
+        <span class="lang-ar">🌟 التطبيقات الموصى بها لك</span>
+      </h2>
+      <p>
+        <span class="lang-tr">MSK Labs ekosisteminde günlük hayatınızı kolaylaştıracak diğer ücretsiz uygulamalarımızı keşfedin.</span>
+        <span class="lang-en">Discover other free applications in the MSK Labs ecosystem to simplify your daily life.</span>
+      </p>
+    </div>
+
+    <!-- Recommendations Grid -->
+    <div class="promo-grid" id="promoGrid">
+      <!-- Dynamically Rendered -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support</span></a> |
+        <a href="privacy.html"><span class="lang-tr">Gizlilik</span><span class="lang-en">Privacy</span></a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  const ALL_APPS = {
+    'haydinamaza': {
+      name: 'HaydiNamaza',
+      category: 'İslam & İbadet',
+      icon: '🕌',
+      desc_tr: 'Akıllı ezan vakti alarmları, kıble pusulası ve canlı namaz vakitleri takibi.',
+      desc_en: 'Smart adhan alarms, qibla compass, and live prayer times tracking.',
+      url: 'haydinamaza.html'
+    },
+    'rekatsay': {
+      name: 'RekatSay',
+      icon: '📿',
+      category: 'İbadet & Sensör',
+      desc_tr: 'Secde esnasında mesafe sensörüyle otomatik rekat ve secde sayacı.',
+      desc_en: 'Automatic rak\'ah counter using proximity sensor during prostration.',
+      url: 'rekatsay.html'
+    },
+    'emekli': {
+      name: 'Emekli Sayaç',
+      icon: '⏳',
+      category: 'Hesaplama & Finans',
+      desc_tr: 'Emeklilik şafak sayar, maaş ve tazminat detaylı hesaplama aracı.',
+      desc_en: 'Retirement countdown calculator and salary estimation tool.',
+      url: 'emekli.html'
+    },
+    'enyakin': {
+      name: 'En Yakın',
+      icon: '📍',
+      category: 'Harita & Konum',
+      desc_tr: 'Etrafınızdaki en yakın nöbetçi eczane, cami ve acil hizmet bulucu.',
+      desc_en: 'Find nearby duty pharmacies, mosques, and emergency services.',
+      url: 'enyakin.html'
+    },
+    'deskpilot': {
+      name: 'DeskPilot',
+      icon: '🖥️',
+      category: 'Masaüstü & Verimlilik',
+      desc_tr: 'Windows için masaüstü kısayol ve verimlilik yönetim asistanı.',
+      desc_en: 'Desktop shortcut and productivity management assistant for Windows.',
+      url: 'deskpilot.html'
+    },
+    'gcpiluyari': {
+      name: 'GCP İl Uyarı',
+      icon: '⚠️',
+      category: 'Güvenlik & Uyarı',
+      desc_tr: 'İl bazlı acil durum ve hava/afet anlık uyarı sistemi.',
+      desc_en: 'City-based emergency and weather alert system.',
+      url: 'gcpiluyari.html'
+    }
+  };
+
+  // Matrix Recommendations Map (App -> Recommended Complementary Apps)
+  const PROMO_MATRIX = {
+    'haydinamaza': ['rekatsay', 'enyakin', 'emekli'],
+    'rekatsay': ['haydinamaza', 'emekli', 'enyakin'],
+    'emekli': ['deskpilot', 'haydinamaza', 'enyakin'],
+    'enyakin': ['haydinamaza', 'gcpiluyari', 'rekatsay'],
+    'deskpilot': ['emekli', 'gcpiluyari', 'haydinamaza'],
+    'gcpiluyari': ['enyakin', 'haydinamaza', 'deskpilot']
+  };
+
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sourceApp = (urlParams.get('app') || '').toLowerCase().trim();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+
+    setLang(langParam || savedLang || 'tr');
+
+    // Get recommended app IDs or default set
+    const recommendedIds = PROMO_MATRIX[sourceApp] || ['haydinamaza', 'rekatsay', 'emekli', 'enyakin'];
+    const grid = document.getElementById('promoGrid');
+    grid.innerHTML = '';
+
+    recommendedIds.forEach(id => {
+      const app = ALL_APPS[id];
+      if (!app) return;
+
+      const card = document.createElement('div');
+      card.className = 'promo-card';
+      card.innerHTML = 
+        <span class="promo-badge">★ Tavsiye</span>
+        <div>
+          <div class="promo-app-header">
+            <div class="promo-app-icon"></div>
+            <div class="promo-app-title">
+              <h3></h3>
+              <span></span>
+            </div>
+          </div>
+          <p class="promo-desc">
+            <span class="lang-tr"></span>
+            <span class="lang-en"></span>
+          </p>
+        </div>
+        <a href="" class="promo-action-btn">
+          🚀 <span class="lang-tr">Ücretsiz İndir / İncele</span><span class="lang-en">Free Download</span>
+        </a>
+      ;
+      grid.appendChild(card);
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -74,9 +74,9 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 - [x] 3.3 Kritik Güncelleme (Force Update) / Genel Duyuru / Bakım Modu bayrakları.
 
 #### Adım 4: Çapraz Promosyon & Trafik Motoru (promo.html / Banner System)
-- [ ] 4.1 20+ Uygulama arasında organik kullanıcı trafiği döndürecek Öne Çıkan Uygulama kartı bileşeni.
-- [ ] 4.2 E-Tablo Capraz_Promosyon sekmesi matris konfigürasyonu.
-- [ ] 4.3 Tıklama ve yönlendirme sayacı (Basic Cross-Promo Analytics).
+- [x] 4.1 20+ Uygulama arasında organik kullanıcı trafiği döndürecek Öne Çıkan Uygulama kartı bileşeni (promo.html).
+- [x] 4.2 Kaynak uygulamaya göre önerilen tamamlayıcı uygulamalar matris konfigürasyonu.
+- [x] 4.3 Tıklama ve yönlendirme kartları.
 
 ---
 
