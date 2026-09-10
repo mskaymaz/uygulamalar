@@ -164,3 +164,26 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 
 #### Adım 17: Static JSON Fallback & Hız Koruması (ssets/data/faq_fallback.json) / Step 17: Sub-50ms Static JSON Fallback Engine
 - [x] 17.1 Google API aksamasında SSS ve Duyuruların kesintisiz yüklenmesini sağlayan yerel JSON yedekleme yapısı. / Create static fallback JSON files for FAQ & announcements ensuring sub-50ms render.
+
+---
+
+### ✍️ FAZ 7: Bizce Düşünce Platformu & Temiz Klasör Mimarisi
+### ✍️ PHASE 7: Bizce Thought Platform & Clean Folder Refactoring
+
+#### Adım 18: Temiz Klasör Mimarisi & Yönlendirmeler / Step 18: Clean Directory Refactoring & Aliases
+- [x] 18.1 /blog/ ve /apps/ klasör yapısının oluşturulması ve uygulama sayfalarının taşınması. / Create /blog/ and /apps/ directory hierarchy.
+- [x] 18.2 izce.html yönlendirme köprüsünün (log/blog.html) kurulması. / Create izce.html redirect alias.
+
+#### Adım 19: Bizce Blog Platform Arayüzü & 3 Dilli Yapı (log/blog.html) / Step 19: Bizce Blog UI & 3-Language Engine
+- [x] 19.1 Vakur "BİZCE" başlığı, sağ üstte %50 küçültülmüş logo rozeti ve *Teknolojiye, Hayata ve İnsanlığa Derin Bakış* sloganı. / Responsive "Bizce" header with 50% logo badge and slogan.
+- [x] 19.2 El emeği 3 dilli içerik motoru (TR / EN / AR) ve Arapça RTL düzeni. / Handcrafted 3-language switcher with AR RTL support.
+- [x] 19.3 Modüler JSON veri kütüphanesi (ssets/data/blog_posts.json). / Modular JSON blog posts database.
+
+#### Adım 20: Dahili Sesli Okuma Motoru (TTS - Text-to-Speech) / Step 20: Built-in Native TTS Audio Reader Engine
+- [x] 20.1 Varsayılan Erkek (👨 Bay) ve isteğe bağlı Kadın (👩 Bayan) ses tercihi seçeneği. / Male default & Female optional voice selector.
+- [x] 20.2 Anadili diksiyon eşleştirmesi (TR/EN/AR) ve 1.0x / 1.25x / 1.5x okuma hızı kontrolleri. / Native diction mapping & speed controls.
+- [x] 20.3 Oynat, duraklat, durdur butonları ve canlı ses dalga animasyonu. / Play, pause, stop controls & audio wave animation.
+---
+
+### 📌 GELECEK OTURUM NOTU / NEXT SESSION NOTE
+- [ ] **Gözden Geçirme & İnceleme:** Blog sayfası altyapısı ve mimarisi tamamlandı. Ana sayfa (index.html) ile blog yapısının (log/blog.html) görsel, yapısal ve estetik bütünlüğü detaylı bir şekilde gözden geçirilecek ve ince ayarlar yapılacak. / Review & Refine: Blog architecture complete. Main page and blog UI will be visually and structurally reviewed and refined in the next session.

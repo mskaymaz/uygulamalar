@@ -1047,3 +1047,17 @@ body.lang-ar .static-page-card {
   color: #0284c7 !important;
   font-weight: 600 !important;
 }
+/* Arabic Badge Icon inside Cards & Badges */
+.arabic-badge-icon {
+  height: 14px !important;
+  width: auto !important;
+  max-height: 16px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.lang-badge-arabic {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

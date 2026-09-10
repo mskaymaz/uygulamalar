@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSKLabs.org - GC Pil Uyarı</title>
+    <meta name="description" content="GC Pil Uyarı - Donanım sağlığını koruyan arka plan izleme ve bildirim servisi.">
+    
+    <!-- Google Fonts: Inter & Global Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css?v=25">
+    
+    <style>
+      /* Üst Navigasyon */
+      .top-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #555;
+        font-weight: 600;
+        font-size: 0.95rem;
+        background: #fff;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.2s ease;
+      }
+
+      .back-btn:hover {
+        background: #f5f7fa;
+        color: #1a1a1a;
+        transform: translateX(-3px);
+      }
+
+      /* Uygulama Hero Kartı */
+      .detail-card {
+        background: #ffffff;
+        border: 1px solid #f0f0f0;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+        margin-bottom: 30px;
+      }
+
+      .app-header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+
+
+      .app-title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .app-title-group h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        color: #1a1a1a;
+      }
+
+      .badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .badge-platform {
+        background: #ecfdf5;
+        color: #047857;
+      }
+
+      .badge-status {
+        background: #fffbeb;
+        color: #b45309;
+        border: 1px solid #fef3c7;
+      }
+
+      .app-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #4b5563;
+        margin-bottom: 30px;
+      }
+
+      .features-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #1f2937;
+        border-bottom: 2px solid #f3f4f6;
+        padding-bottom: 8px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .feature-box {
+        background: #f9fafb;
+        border: 1px solid #f3f4f6;
+        border-radius: 12px;
+        padding: 16px 20px;
+      }
+
+      .feature-box h4 {
+        margin: 0 0 6px 0;
+        font-size: 1rem;
+        color: #111827;
+      }
+
+      .feature-box p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6b7280;
+        line-height: 1.45;
+      }
+
+      .action-btn-container {
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .status-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #f3f4f6;
+        color: #4b5563;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 10px;
+        border: 1px dashed #d1d5db;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        .detail-card { padding: 24px 16px; }
+        .app-header { gap: 16px; }
+        .app-big-icon { width: 60px; height: 60px; font-size: 32px; border-radius: 14px; }
+        .app-title-group h1 { font-size: 1.5rem; }
+        .app-description { font-size: 0.95rem; }
+        .features-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+    <!-- MSK Labs Favicon & Kısayol İkonları -->
+    <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
+    <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/analytics.js"></script>
+</head>
+<body class="lang-tr">
+
+<div class="layout-wrapper">
+
+  <!-- Masaüstü Sol Reklam -->
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <!-- Ana Detay İçeriği -->
+  <div class="portfolio-container">
+    
+    <!-- Üst Bar: Geri Dönüş ve Dil Seçici -->
+    <div class="top-nav">
+      <a href="index.html" class="back-btn">
+        <span class="lang-tr">← Portföye Dön</span>
+        <span class="lang-en">← Back to Portfolio</span>
+        <span class="lang-ar">العودة إلى المحفظة ←</span>
+      </a>
+
+      <div class="lang-switcher">
+        <button onclick="setLang('tr')" data-lang="tr" title="Türkçe">TR</button>
+        <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+        <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+      </div>
+    </div>
+
+    <!-- Dil Destek Uyarısı & Çeviri Talebi Kutusu (Sadece EN ve AR dillerinde görünür) -->
+    <div class="translation-request-box lang-en lang-ar">
+      <div class="request-content">
+        <div class="request-text">
+          <span class="lang-en">ℹ️ This application currently supports <strong>Turkish</strong>. Would you like to request English translation?</span>
+          <span class="lang-ar">ℹ️ هذا التطبيق يدعم حالياً اللغة <strong>التركية</strong>. هل ترغب في طلب الترجمة إلى العربية؟</span>
+        </div>
+        <a href="#" class="request-btn contact-email-link" data-subject="[Translation Request] GC Pil Uyari" data-body="Hello MSK Labs Team, I would like to request the GC Pil Uyari application to be translated to my language. Thank you!">
+          <span class="lang-en">📩 Request Translation</span>
+          <span class="lang-ar">📩 طلب الترجمة</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Uygulama Kartı -->
+    <div class="detail-card">
+      <div class="app-header">
+        <div class="app-big-icon">🔋</div>
+        <div class="app-title-group">
+          <h1>
+            <span class="lang-tr">GC Pil Uyarı</span>
+            <span class="lang-en">GC Battery Alert</span>
+            <span class="lang-ar">تنبيه بطارية GC</span>
+          </h1>
+          <div class="badges">
+            <span class="badge badge-platform">💻 Masaüstü Sistem</span>
+            <span class="badge badge-status">🛠️ Geliştirme Devam Ediyor</span>
+          </div>
+          <a href="#download-section" class="hero-download-btn">
+            <span class="lang-tr">🚀 Uygulamayı İndir</span>
+            <span class="lang-en">🚀 Download App</span>
+            <span class="lang-ar">🚀 تنزيل التطبيق</span>
+          </a>
+        </div>
+
+        <!-- Sağ Taraf: Global Dil Durumu & Laboratuvar Talep Butonları -->
+        <div class="app-header-right">
+          <div class="global-status-panel">
+            <span class="lang-tr">🌐 Dil Durumu: <strong class="status-tag active">TR (Aktif)</strong></span>
+            <span class="lang-en">🌐 Language Status: <strong class="status-tag active">TR (Active)</strong></span>
+            <span class="lang-ar">🌐 حالة اللغة: <strong class="status-tag active">TR (نشط)</strong></span>
+          </div>
+          <a href="#" class="lab-request-btn contact-email-link lang-en" data-subject="[EN Version Request] GC Pil Uyari" data-body="Hello MSK Labs Team, I would like to request the English (EN) version of GC Pil Uyari. Thank you!">
+            📩 Request EN Version from Lab
+          </a>
+          <small class="email-note lang-en">Or send email to: <strong class="contact-email-text">msklabs.org@gmail.com</strong></small>
+
+          <a href="#" class="lab-request-btn contact-email-link lang-ar" data-subject="[AR Version Request] GC Pil Uyari" data-body="Hello MSK Labs Team, I would like to request the Arabic version of GC Pil Uyari. Thank you!">
+            📩 طلب إصدار اللغة العربية من المختبر
+          </a>
+          <small class="email-note lang-ar">أو أرسل بريداً إلى: <strong class="contact-email-text">msklabs.org@gmail.com</strong></small>
+        </div>
+      </div>
+
+      <div class="app-description">
+        <span class="lang-tr">Donanım sağlığını koruyan arka plan izleme ve bildirim servisi. Dizüstü bilgisayarınızın pil ömrünü uzatmak için şarj seviyelerini akıllıca takip eder.</span>
+        <span class="lang-en">Background monitoring and notification service protecting hardware health. Intelligently tracks battery levels to extend your laptop's battery lifespan.</span>
+        <span class="lang-ar">خدمة المراقبة والإشعارات الخلفية التي تحمي صحة الأجهزة. تتبع مستويات البطارية بذكاء لتطيل عمر بطارية الكمبيوتر المحمول.</span>
+      </div>
+
+      <div class="features-title">
+        <span class="lang-tr">Öne Çıkan Özellikler</span>
+        <span class="lang-en">Key Features</span>
+        <span class="lang-ar">الميزات الرئيسية</span>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <h4>🔋 
+            <span class="lang-tr">Pil Sağlığı Koruması</span>
+            <span class="lang-en">Battery Health Protection</span>
+            <span class="lang-ar">حماية صحة البطارية</span>
+          </h4>
+          <p>
+            <span class="lang-tr">Aşırı şarj ve derin deşarjı önleyen eşik değer bildirimleri.</span>
+            <span class="lang-en">Threshold notifications preventing overcharge and deep discharge.</span>
+            <span class="lang-ar">إشعارات حدية تمنع الشحن الزائد والتفريغ العميق.</span>
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h4>⚙️ 
+            <span class="lang-tr">Sessiz Arka Plan Servisi</span>
+            <span class="lang-en">Silent Background Service</span>
+            <span class="lang-ar">خدمة خلفية صامتة</span>
+          </h4>
+          <p>
+            <span class="lang-tr">Sistem tepsisinde (System Tray) kaynak tüketmeden çalışır.</span>
+            <span class="lang-en">Runs in the System Tray with zero resource consumption.</span>
+            <span class="lang-ar">يعمل في صينية النظام دون استهلاك الموارد.</span>
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h4>🔊 
+            <span class="lang-tr">Özelleştirilebilir Sesler</span>
+            <span class="lang-en">Customizable Audio</span>
+            <span class="lang-ar">أصوات قابلة للتخصيص</span>
+          </h4>
+          <p>
+            <span class="lang-tr">Belirlenen şarj seviyelerine ulaşıldığında sesli ve görsel uyarı.</span>
+            <span class="lang-en">Audio and visual alerts upon reaching specified charge thresholds.</span>
+            <span class="lang-ar">تنبيهات صوتية وبصرية عند الوصول إلى مستويات شحن محددة.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- İndirme ve Yayın Kanalları Alanı -->
+      <div id="download-section" class="download-section">
+        <div class="download-section-title">
+          <span class="lang-tr">📥 İndirme Seçenekleri ve Yayın Kanalları</span>
+          <span class="lang-en">📥 Download Options & Release Channels</span>
+          <span class="lang-ar">📥 خيارات التنزيل وقنوات الإصدار</span>
+        </div>
+
+        <div class="download-grid">
+          <!-- GitHub Releases (Pasif) -->
+          <div class="download-card disabled">
+            <div class="download-card-header">
+              <div class="download-card-icon">
+                <img src="assets/img/store/github.png" alt="GitHub" class="store-brand-icon">
+              </div>
+              <div class="download-card-title">GitHub</div>
+            </div>
+            <div class="download-card-status">
+              <span class="lang-tr">Yakında Kullanılabilir Olacaksınız</span>
+              <span class="lang-en">Will be available soon</span>
+              <span class="lang-ar">ستكون متاحة قريباً</span>
+            </div>
+            <span class="download-tag tag-soon">
+              <span class="lang-tr">🛠️ Hazırlanıyor</span>
+              <span class="lang-en">🛠️ In Progress</span>
+              <span class="lang-ar">🛠️ قيد التحضير</span>
+            </span>
+          </div>
+
+          <!-- Google Drive İndirme Bağlantısı (Pasif) -->
+          <div class="download-card disabled">
+            <div class="download-card-header">
+              <div class="download-card-icon">
+                <img src="assets/img/store/google-drive.png" alt="Google Drive" class="store-brand-icon">
+              </div>
+              <div class="download-card-title">Google Drive</div>
+            </div>
+            <div class="download-card-status">
+              <span class="lang-tr">Yakında Kullanılabilir Olacaksınız</span>
+              <span class="lang-en">Will be available soon</span>
+              <span class="lang-ar">ستكون متاحة قريباً</span>
+            </div>
+            <span class="download-tag tag-soon">
+              <span class="lang-tr">🛠️ Hazırlanıyor</span>
+              <span class="lang-en">🛠️ In Progress</span>
+              <span class="lang-ar">🛠️ قيد التحضير</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sayfa Altı Reklam Alanı -->
+            <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html">
+          <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
+        </a> |
+        <a href="about.html">
+          <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span>
+        </a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> | <a href="contact.html">
+          <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">الاتصال</span>
+        </a> |
+        <a href="who-we-are.html">
+          <span class="lang-tr">Biz Kimiz</span><span class="lang-en">Who We Are</span><span class="lang-ar">من نكون</span>
+        </a> |
+        <a href="faq.html">
+          <span class="lang-tr">SSS</span><span class="lang-en">FAQ</span><span class="lang-ar">الأسئلة الشائعة</span>
+        </a> |
+        <a href="privacy.html">
+          <span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span>
+        </a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+<div class="infeed-ad-container">
+      <div class="ad-placeholder">Sayfa Altı Reklam Alanı (Bottom Banner)</div>
+    </div>
+
+  </div> <!-- .portfolio-container Bitişi -->
+
+  <!-- Masaüstü Sağ Reklam -->
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  // MERKEZİ SİTE KONFİGÜRASYONU (Blogger & HTML Uyumlu)
+  var SITE_CONFIG = {
+    contactEmail: "msklabs.org@gmail.com"
+  };
+
+  // E-posta adreslerini ve mailto bağlantılarını merkezi konfigürasyondan doldurur
+  function syncCentralConfig() {
+    var email = (window.SITE_CONFIG && window.SITE_CONFIG.contactEmail) ? window.SITE_CONFIG.contactEmail : "msklabs.org@gmail.com";
+    
+    // Metin etiketlerini güncelle
+    document.querySelectorAll('.contact-email-text').forEach(function(el) {
+      el.textContent = email;
+    });
+
+    // Mailto bağlantılarını güncelle
+    document.querySelectorAll('a.contact-email-link').forEach(function(a) {
+      var subject = a.getAttribute('data-subject') || 'Talep';
+      var body = a.getAttribute('data-body') || '';
+      a.setAttribute('href', 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+    });
+  }
+
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try {
+      localStorage.setItem('user_lang', lang);
+    } catch(e) {}
+    
+    document.body.className = 'lang-' + lang;
+    
+    // Aktif Dil Butonu Vurgulama
+    var buttons = document.querySelectorAll('.lang-switcher button');
+    buttons.forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Bağlantılara ?lang= Parametresi Ekleme
+    var links = document.querySelectorAll('a.back-btn');
+    links.forEach(function(a) {
+      var href = a.getAttribute('href');
+      if (href) {
+        var base = href.split('?')[0];
+        a.setAttribute('href', base + '?lang=' + lang);
+      }
+    });
+  }
+
+  // Sayfa Yüklenme Anında Çalışacak Ana Blok
+  (function() {
+    syncCentralConfig();
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var langParam = urlParams.get('lang');
+    var savedLang = null;
+    try {
+      savedLang = localStorage.getItem('user_lang');
+    } catch(e) {}
+    
+    var activeLang = langParam || savedLang || 'tr';
+    setLang(activeLang);
+  })();
+</script>
+
+</body>
+</html>

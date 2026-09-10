@@ -1,0 +1,50 @@
+﻿[
+  {
+    "id": 1,
+    "category": "Teknoloji & İnsanlık",
+    "category_en": "Tech & Humanity",
+    "category_ar": "التكنولوجيا والإنسانية",
+    "date": "10 Eylül 2026",
+    "readTime": "5 min",
+    "author": "MSK Labs",
+    "tr": {
+      "title": "Yapay Zeka Çağında İnsani Değerleri Korumak",
+      "summary": "Hızla dijitalleşen dünyada teknolojinin sunduğu kolaylıklar ile insanın ahlaki, duygusal ve sosyal sorumlulukları arasındaki dengeyi nasıl kuracağız?",
+      "content": "<p>Günümüz dünyası, tarih boyunca görülmemiş bir teknolojik dönüşümün içerisinden geçiyor. Yapay zeka algoritmaları, otonom sistemler ve devasa veri işleme kapasiteleri; gündelik hayatımızın her alanını şekillendiriyor. Ancak bu hızlı gelişim beraberinde temel bir soruyu da getiriyor: <strong>Teknoloji ilerlerken insani değerlerimizi ve ahlaki pusulamızı nasıl koruyacağız?</strong></p><blockquote>[📸 GÖRSEL ÖNERİSİ: İnsan eli ile modern dijital dalgaların buluştuğu sıcak bir odak fotoğrafı]</blockquote><p>İslam inancı ve evrensel insanlık değerleri, bilginin ve aracın üretilmesine karşı değildir; aksine faydalı ilmin ve insanlığa hizmet eden teknolojinin teşvik edilmesini emreder. Ancak bir aracın faydalı mı yoksa zararlı mı olacağını belirleyen şey, onu kullanan insanın niyetidir ve ahlaki duruşudur.</p><h3>Teknoloji Bir Amaç Değil, Araçtır</h3><p>Geliştirdiğimiz yazılımlar, tasarladığımız algoritmalar veya günlük hayatımızı kolaylaştıran uygulamalar (DeskPilot vb.) sadece birer araçtır. Amaç; insanın yaşam kalitesini artırmak, zamanı verimli kullanmasını sağlamak ve iyiliği yaymaktır. Teknolojiyi bir amaç haline getirdiğimizde, insan ilişkilerindeki samimiyeti, empatiyi ve derinliği kaybetme riskiyle karşı karşıya kalırız.</p><p>Geleceğin dünyasında yazılım ve yapay zeka geliştiren her bireyin; adalet, dürüstlük, mahremiyet ve kul hakkı (kullanıcı hakları) ilkelerini kodlarının merkezine yerleştirmesi gerekmektedir. MSK Labs olarak bizim bakış açımız; teknolojiyi insana hizmet eden, faydalı ve etik bir araç olarak sunmaktır.</p>"
+    },
+    "en": {
+      "title": "Preserving Human Values in the Age of Artificial Intelligence",
+      "summary": "How do we strike the balance between technological convenience and human moral, emotional, and social responsibilities in a rapidly digitalizing world?",
+      "content": "<p>Today's world is experiencing an unprecedented technological transformation. Artificial intelligence algorithms, autonomous systems, and massive data processing capabilities shape every aspect of our daily lives. However, this rapid progress brings a fundamental question: <strong>As technology advances, how do we preserve our human values and moral compass?</strong></p><blockquote>[📸 VISUAL SUGGESTION: Warm focus photo showing the intersection of human hands and modern digital waves]</blockquote><p>Universal human ethics and spiritual wisdom do not oppose the generation of knowledge or technology; on the contrary, they encourage useful knowledge and innovation that serves humanity. However, whether a tool becomes beneficial or harmful depends entirely on the intention and moral posture of the human behind it.</p><h3>Technology as a Means, Not an End</h3><p>The software we build, the algorithms we design, or the daily productivity applications we engineer (such as DeskPilot) are merely tools. The ultimate goal should be to enhance human quality of life, enable efficient use of time, and spread genuine goodness. When technology becomes an end in itself, we risk losing empathy, sincerity, and depth in human interactions.</p><p>In the world of tomorrow, every developer shaping software must place principles of justice, honesty, privacy, and user rights at the core of their codebase. At MSK Labs, our vision is to present technology as an ethical, useful, and human-centric tool.</p>"
+    },
+    "ar": {
+      "title": "الحفاظ على القيم الإنسانية في عصر الذكاء الاصطناعي",
+      "summary": "كيف نحدث التوازن بين التسهيلات التكنولوجية والمسؤوليات الأخلاقية والإنسانية في عالم يتجه نحو الرقمنة المتسارعة؟",
+      "content": "<p>يمر عالمنا اليوم بتحول تكنولوجي غير مسبوق في التاريخ. تشكل خوارزميات الذكاء الاصطناعي والأنظمة المستقلة وقدرات معالجة البيانات الضخمة كل جانب من جوانب حياتنا اليومية. ومع ذلك، فإن هذا التقدم السريع يطرح سؤالاً أساسياً: <strong>مع تقدم التكنولوجيا، كيف نحافظ على قيمنا الإنسانية وبوصلتنا الأخلاقية؟</strong></p><blockquote>[📸 اقتراح بصري: صورة دافئة تظهر التقاء الأيدي البشرية بالموجات الرقمية الحديثة]</blockquote><p>إن الأخلاق الإنسانية الشاملة والحكمة لا تعارض إنتاج المعرفة أو التكنولوجيا، بل تشجع على العلوم النافعة والابتكار الذي يخدم البشرية. ولكن كون الأداة نافعة أم ضارة يعتمد كلياً على نية الإنسان وموقفه الأخلاقي.</p><h3>التكنولوجيا وسيلة وليست غاية</h3><p>إن البرمجيات التي نطورها والتطبيقات التي نصممها لزيادة الإنتاجية اليومية ما هي إلا أدوات. الهدف الحقيقي يجب أن يكون تحسين جودة حياة الإنسان، واستغلال الوقت بفعالية، ونشر الخير. عندما تصبح التكنولوجيا غاية في حد ذاتها، نغامر بفقدان التعاطف والعمق في العلاقات الإنسانية.</p>"
+    }
+  },
+  {
+    "id": 2,
+    "category": "Sosyal Yaşam & Gelecek",
+    "category_en": "Social Life & Future",
+    "category_ar": "الحياة الاجتماعية والمستقبل",
+    "date": "08 Eylül 2026",
+    "readTime": "4 min",
+    "author": "MSK Labs",
+    "tr": {
+      "title": "Dijital Gürültünün Ortasında Odaklanma Sanatı",
+      "summary": "Sürekli bildirimlerin ve bilgi bombardımanının olduğu bir çağda zihinsel berraklığı ve samimi iletişimi yeniden kazanmanın yolları.",
+      "content": "<p>Her gün binlerce dijital uyarıcı, sosyal medya bildirimi ve e-posta akışı zihnimizi bölüyor. Odaklanma süresinin kısaldığı günümüzde, derinlemesine düşünmek ve kaliteli iş üretmek bir sanata dönüştü.</p><h3>Zihinsel Detoks ve Sağlıklı Sınırlar</h3><p>Teknolojiden tamamen kopmak gerçekçi bir çözüm değildir. Bunun yerine teknolojiyle olan ilişkimizi bilinçli bir düzeye çekmek gerekir. Günün belirli saatlerinde bildirimleri kapatmak, odaklanma zamanları oluşturmak ve ailemizle geçirdiğimiz anlarda ekranlardan uzak durmak, zihinsel sağlığımızı korumanın anahtarıdır.</p>"
+    },
+    "en": {
+      "title": "The Art of Focus Amidst Digital Noise",
+      "summary": "Ways to reclaim mental clarity and genuine communication in an era of constant notifications and information overload.",
+      "content": "<p>Every day, thousands of digital stimuli, social media alerts, and email streams fragment our attention. In an age where attention spans are shrinking, deep thinking and producing quality work have become a fine art.</p>"
+    },
+    "ar": {
+      "title": "فن التركيز وسط الضوضاء الرقمية",
+      "summary": "سبل استعادة الصفاء الذهني والتواصل الصادق في عصر التنبيهات المستمرة وطوفان المعلومات.",
+      "content": "<p>في كل يوم، تتسبب آلاف المنبهات الرقمية وتنبيهات وسائل التواصل الاجتماعي في تشتيت أذهاننا. في عصر يقل فيه مدى الانتباه، أصبح التفكير العميق وإنتاج الأعمال عالية الجودة فناً قائماً بذاته.</p>"
+    }
+  }
+]

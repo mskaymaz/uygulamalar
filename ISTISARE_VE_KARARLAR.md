@@ -78,6 +78,11 @@ Tüm modüller ssets/css/global.css?v=25 ile %100 uyumlu, destek.html temiz bey
 ---
 
 ## 🔐 4. Alınan Özel Güvenlik, Tasarım ve Kodlama Kuralları
+
+### 7️⃣ Mobil Uygulama & Web Reklam Stratejisi Kuralı / Mobile App & Web Monetization Policy Rule
+* **Türkçe:** Tüm MSK Labs mobil uygulamaları (Haydi Namaza, RekatSay, Emekli Sayaç, DeskPilot vb.) **%100 ÜCRETSİZ ve REKLAMSIZDIR.** Mobil uygulamaların içine hiçbir şartta reklam konulmaz. Reklamlar sadece web platformu (msklabs.org) üzerindeki reklam alanlarında yayınlanır.
+* **English:** All MSK Labs mobile applications are strictly **100% FREE and AD-FREE**. No in-app advertisements shall ever be placed inside mobile apps. Ad units are strictly restricted to the official web portal (msklabs.org).
+
 ## 🔐 4. Core Security, Design & AI Assistance Guidelines
 
 İleride geliştirme yapacak tüm AI asistanları ve yazılımcılar aşağıdaki kurallara **%100 uymakla yükümlüdür**:  
@@ -148,3 +153,27 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 * **Tüm Sayfalar Dizini / Site Directory Map:** https://msklabs.org/pages.html
 * **Canlı Duyuru API (Static JSON) / Announcement Data (JSON):** https://msklabs.org/announcements.json
 * **Remote Announcement API (Worker Endpoint):** https://msklabs.org/api/announcement?app=haydinamaza
+
+---
+
+## 🏛️ 8. "BİZCE" FİKİR PLATFORMU VE TEMİZ KLASÖR MİMARİSİ
+## 🏛️ 8. "BIZCE" THOUGHT PLATFORM & CLEAN REPOSITORY ARCHITECTURE
+
+### 📌 8.1 Vizyon ve Yayın Çizgisi / Vision & Editorial Focus
+* **Türkçe:** MSK Labs portföyü (20-30 uygulama) genel teknoloji, masaüstü otomasyonu (DeskPilot), verimlilik ve günlük araçlardan oluşur (İslami uygulamalar %10-15 civarındadır). Bizce blog platformu; **teknoloji, insanlık, bilim, sosyal yaşam, evrensel değerler ve gelecek** temalarını kaleme alır. Yazarın kendi inanç dünyasından (İslam) süzülen etik ilkeler, tüm insanlığa hitap eden evrensel ve medeni bir dille sunulur.
+* **English:** The MSK Labs application portfolio (20-30 apps) primarily consists of general technology, desktop automation (DeskPilot), productivity, and utility tools. The Bizce blog platform focuses on **technology, humanity, science, social dynamics, ethics, and future innovations**. Ethical values from the author's Muslim background are articulated in a universal, inclusive, and civilized tone.
+
+### 📁 8.2 Klasör Düzeni / Directory Structure
+* /: Ana kurumsal ve otomasyon sayfaları (index.html, bout.html, contact.html, who-we-are.html, destek.html, status.html, pages.html, ist.html).
+* /blog/: log.html (Bizce Platformu), izce.html (Köprü Yönlendirme), ssets/data/blog_posts.json (Yazı Veri Tabanı).
+* /apps/: Uygulama özel sayfaları (haydinamaza.html, ekatsay.html, emekli.html, enyakin.html, deskpilot.html, gcpiluyari.html).
+* /assets/: Ortak JS (ssets/js/), CSS (ssets/css/), Data (ssets/data/), Görseller (img/).
+
+### 🔊 8.3 Sesli Okuma Motoru (TTS - Text to Speech) Spesifikasyonu
+* **Varsayılan Ses:** Erkek (Bay) sesi varsayılan olarak başlar. Kullanıcı dilerse Kadın (Bayan) sesine geçebilir (👨 Erkek / 👩 Kadın).
+* **Anadili Diksiyon:** TR, EN ve AR dillerinde o dilin doğal ve fasih sentezleyicisi kullanılır.
+* **Okuma Hızı:** 1.0x, 1.25x, 1.5x hız kontrolleri.
+
+### 🔗 8.4 Blogger (Blogspot) Trafik Hunisi & SEO Stratejisi
+* Blogger'a yazının tamamı konulmaz (İkiz içerik cezasını engellemek için).
+* Sadece ilk 2-3 vurucu paragraf yer alır; altına 👉 [Yazının Tamamını Okumak ve Sesli Dinlemek İçin MSK Labs Bizce'ye Tıklayın →] butonu eklenerek 100% organik trafik msklabs.org/blog/blog.html adresine çekilir.

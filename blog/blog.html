@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bizce - Teknolojiye, Hayata ve İnsanlığa Derin Bakış | MSK Labs</title>
+  <meta name="description" content="MSK Labs Bizce düşünce platformu. Teknoloji, hayat, bilim, insanlık ve etik değerler üzerine inceleme yazıları.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css?v=42">
+  
+  <link rel="icon" type="image/png" href="../img/MSKLabs_favicon.png">
+  <link rel="shortcut icon" href="../img/MSKLabs_favicon.png" type="image/x-icon">
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+
+  <style>
+    :root {
+      --bizce-primary: #0284c7;
+      --bizce-dark: #0f172a;
+      --bizce-text: #1e293b;
+      --bizce-muted: #64748b;
+    }
+
+    body {
+      background: #f8fafc;
+      color: var(--bizce-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Fixed Compact Header with +20% Center Logo */
+    .bizce-header {
+      background: #ffffff;
+      border-bottom: 1px solid #cbd5e1;
+      padding: 0.5rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      max-height: 68px;
+      box-sizing: border-box;
+    }
+    .bizce-header-inner {
+      max-width: 1250px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+    .bizce-title-group h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--bizce-dark);
+      margin: 0;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .bizce-title-group p {
+      font-size: 0.75rem;
+      color: var(--bizce-primary);
+      margin: 0.15rem 0 0 0;
+      font-weight: 600;
+    }
+
+    /* Center Logo +20% enlarged, tight vertical constraints */
+    .bizce-center-logo-link {
+      display: flex;
+      align-items: center;
+      height: 48px;
+    }
+    .bizce-header-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .bizce-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-link-btn {
+      color: #334155;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      background: #f1f5f9;
+      transition: background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .nav-link-btn:hover {
+      background: #e2e8f0;
+      color: var(--bizce-primary);
+    }
+
+    /* Layout Wrapper with Side Ads */
+    .layout-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1300px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      gap: 1.5rem;
+    }
+    .main-content-area {
+      flex: 1;
+      max-width: 920px;
+      width: 100%;
+    }
+
+    /* Filter & Category Toolbar */
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.25rem;
+      gap: 0.75rem;
+    }
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .cat-pill {
+      background: #f1f5f9;
+      color: #475569;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cat-pill.active {
+      background: var(--bizce-primary);
+      color: #ffffff;
+    }
+
+    /* Article Card Grid */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.25rem;
+    }
+    .post-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    }
+    .card-img-placeholder {
+      height: 160px;
+      background: linear-gradient(135deg, #0284c7, #1e40af);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 2.8rem;
+    }
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--bizce-muted);
+      margin-bottom: 0.6rem;
+    }
+    .post-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    .post-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--bizce-dark);
+      margin: 0 0 0.6rem 0;
+      line-height: 1.35;
+    }
+    .post-excerpt {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.55;
+      margin: 0 0 1rem 0;
+    }
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.85rem;
+      border-top: 1px solid #f1f5f9;
+    }
+    .read-more-btn {
+      color: var(--bizce-primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .card-tts-badge {
+      background: #f0f9ff;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Multi-Page Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+    }
+    .page-num {
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #334155;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .page-num:hover {
+      border-color: var(--bizce-primary);
+      color: var(--bizce-primary);
+    }
+    .page-num.active {
+      background: var(--bizce-primary);
+      color: #ffffff;
+      border-color: var(--bizce-primary);
+    }
+
+    /* Article Reader View */
+    .reader-view {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    .back-btn {
+      background: #f1f5f9;
+      border: none;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--bizce-dark);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .reader-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--bizce-dark);
+      line-height: 1.25;
+      margin: 0 0 0.75rem 0;
+    }
+
+    /* TTS Audio Bar */
+    .tts-player-bar {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0 1.75rem 0;
+    }
+    .tts-header {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--bizce-dark);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tts-controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .tts-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tts-btn {
+      background: var(--bizce-primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tts-btn-secondary {
+      background: #e2e8f0;
+      color: var(--bizce-dark);
+    }
+    .tts-selects {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+    }
+    .audio-wave {
+      display: none;
+      align-items: center;
+      gap: 3px;
+      height: 14px;
+      margin-left: 0.5rem;
+    }
+    .audio-wave span {
+      width: 3px;
+      height: 100%;
+      background: var(--bizce-primary);
+      animation: wave 1.2s infinite ease-in-out;
+    }
+    .audio-wave span:nth-child(2) { animation-delay: -1.0s; }
+    .audio-wave span:nth-child(3) { animation-delay: -0.8s; }
+    @keyframes wave {
+      0%, 40%, 100% { transform: scaleY(0.3); }
+      20% { transform: scaleY(1.0); }
+    }
+
+    .article-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .article-body blockquote {
+      background: #f0f9ff;
+      border-left: 4px solid var(--bizce-primary);
+      margin: 1.25rem 0;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #0369a1;
+    }
+  </style>
+</head>
+<body>
+
+<header class="bizce-header">
+  <div class="bizce-header-inner">
+    <!-- Left: Bizce Title -->
+    <div class="bizce-title-group">
+      <h1>BİZCE</h1>
+      <p id="subSlogan">Teknolojiye, Hayata ve İnsanlığa Derin Bakış</p>
+    </div>
+    
+    <!-- Center: Corporate Logo +20% Enlarged in tight vertical header -->
+    <a href="../index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
+      <img src="../img/MSKLabsLogo.svg" alt="MSK Labs Logo" class="bizce-header-logo">
+    </a>
+
+    <!-- Right: Nav Links & Custom Arabic Button Language Switcher -->
+    <div class="bizce-nav-right">
+      <a href="../index.html" class="nav-link-btn">🏠 Ana Sayfa</a>
+      <button onclick="showList()" class="nav-link-btn">📑 Tüm Yazılar</button>
+      
+      <div class="lang-switcher">
+        <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+        <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+        <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="../img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout-wrapper">
+
+  <!-- Masaüstü Sol Reklam (120x300) - Standart Global CSS Yapısı -->
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content-area">
+
+    <!-- List View Container -->
+    <div id="listView">
+
+      <!-- Category Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="category-pills">
+          <button class="cat-pill active">🌟 Tüm Yazılar (124)</button>
+          <button class="cat-pill">💻 Teknoloji</button>
+          <button class="cat-pill">🌍 İnsanlık & Yaşam</button>
+          <button class="cat-pill">🧠 Düşünce</button>
+        </div>
+        <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;">Sayfa 1 / 12</span>
+      </div>
+
+      <div class="posts-grid" id="postsGrid">
+        <!-- Dynamic Posts Cards Injected Here -->
+      </div>
+
+      <!-- Multi-Page Pagination Bar -->
+      <div class="pagination-bar">
+        <button class="page-num" style="color: #94a3b8;">« Önceki</button>
+        <button class="page-num active">1</button>
+        <button class="page-num">2</button>
+        <button class="page-num">3</button>
+        <span style="color: #94a3b8; font-weight: 700; padding: 0 0.2rem;">...</span>
+        <button class="page-num">12</button>
+        <button class="page-num">Sonraki »</button>
+      </div>
+
+    </div>
+
+    <!-- Article Reader Container -->
+    <div id="readerView" class="reader-view">
+      <button onclick="showList()" class="back-btn">← <span id="lblBack">Tüm Yazılara Dön</span></button>
+      <div class="post-tag" id="readCategory">Kategori</div>
+      <h1 class="reader-title" id="readTitle">Yazı Başlığı</h1>
+      <div class="post-meta" style="margin-bottom: 1rem;">
+        <span id="readDate">Tarih</span>
+        <span id="readTime">⏱️ 5 dk okuma</span>
+      </div>
+
+      <!-- TTS Audio Control Bar -->
+      <div class="tts-player-bar">
+        <div class="tts-header">
+          <span>🔊 Sesli Okuma Motoru (Text-to-Speech)</span>
+          <div class="audio-wave" id="audioWave">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="tts-controls-row">
+          <div class="tts-btn-group">
+            <button onclick="playTTS()" class="tts-btn" id="btnPlay">▶️ Dinle</button>
+            <button onclick="pauseTTS()" class="tts-btn tts-btn-secondary" id="btnPause">⏸️ Duraklat</button>
+            <button onclick="stopTTS()" class="tts-btn tts-btn-secondary" id="btnStop">⏹️ Durdur</button>
+          </div>
+
+          <div class="tts-selects">
+            <label>🎙️ Ses:</label>
+            <select id="voiceGender" onchange="restartTTSIfPlaying()" style="padding: 0.35rem 0.6rem; border-radius: 6px; border: 1px solid #cbd5e1;">
+              <option value="male" selected>👨 Erkek (Varsayılan)</option>
+              <option value="female">👩 Kadın</option>
+            </select>
+
+            <label>⚡ Hız:</label>
+            <select id="voiceSpeed" onchange="restartTTSIfPlaying()" style="padding: 0.35rem 0.6rem; border-radius: 6px; border: 1px solid #cbd5e1;">
+              <option value="1.0" selected>1.0x (Normal)</option>
+              <option value="1.25">1.25x (Hızlı)</option>
+              <option value="1.5">1.5x (Çok Hızlı)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <article class="article-body" id="readContent">
+        <!-- Full Article Body -->
+      </article>
+
+      <!-- Sayfa Altı Reklam Alanı (Bottom Banner) - Standart Global CSS -->
+      <div class="infeed-ad-container" style="margin-top: 2.5rem;">
+        <div class="ad-placeholder">Sayfa Altı Reklam Alanı (Bottom Banner)</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Masaüstü Sağ Reklam (120x300) - Standart Global CSS Yapısı -->
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  var currentLang = 'tr';
+  var currentPost = null;
+  var synth = window.speechSynthesis;
+  var currentUtterance = null;
+
+  /* 3 Clean Sample Articles with ~500, ~700, and ~800 Character Lengths */
+  var blogPostsData = [
+    {
+      "id": 1,
+      "category": "Teknoloji & İnsanlık",
+      "category_en": "Tech & Humanity",
+      "category_ar": "التكنولوجيا والإنسانية",
+      "date": "10 Eylül 2026",
+      "readTime": "3 dk okuma",
+      "icon": "🤖",
+      "tr": {
+        "title": "MAKALE 1: Yapay Zeka Çağında İnsani Değerler (500 Karakter)",
+        "summary": "Teknolojinin sunduğu kolaylıklar ile insanın ahlaki sorumlulukları arasındaki dengeyi nasıl kuracağımıza dair örnek bir metin.",
+        "content": "<p>Günümüz dünyası, tarih boyunca görülmemiş bir teknolojik dönüşümün içerisinden geçiyor. Yapay zeka algoritmaları ve otomatik sistemler gündelik hayatımızın her alanını şekillendiriyor. Ancak bu hızlı gelişim beraberinde temel bir soruyu getiriyor: Teknoloji ilerlerken insani değerlerimizi nasıl koruyacağız? Geliştirdiğimiz yazılımlar sadece birer araçtır. Amaç insanın yaşam kalitesini artırmak ve faydalı işler üretmektir. Teknolojiyi insana hizmet eden etik bir araç olarak sunmak temel hedefimizdir.</p>"
+      },
+      "en": {
+        "title": "ARTICLE 1: Human Values in the Age of AI (500 Chars)",
+        "summary": "A sample text on how to balance technological convenience with human moral responsibilities.",
+        "content": "<p>Today's world is experiencing an unprecedented technological transformation. Artificial intelligence algorithms and automated systems shape every aspect of our daily lives. However, this rapid progress brings a fundamental question: As technology advances, how do we preserve our human values? The software we build are merely tools. The goal is to enhance human quality of life and produce meaningful work.</p>"
+      },
+      "ar": {
+        "title": "المقال 1: القيم الإنسانية في عصر الذكاء الاصطناعي",
+        "summary": "نص نموذجي حول كيفية إحداث التوازن بين التسهيلات التكنولوجية والمسؤوليات الأخلاقية.",
+        "content": "<p>يمر عالمنا اليوم بتحول تكنولوجي غير مسبوق في التاريخ. تشكل خوارزميات الذكاء الاصطناعي والأنظمة المستقلة كل جانب من جوانب حياتنا اليومية. ومع ذلك، فإن هذا التقدم السريع يطرح سؤالاً أساسياً: مع تقدم التكنولوجيا، كيف نحافظ على قيمنا الإنسانية؟ البرمجيات التي نطورها ما هي إلا أدوات والهدف هو تحسين جودة حياة الإنسان.</p>"
+      }
+    },
+    {
+      "id": 2,
+      "category": "Sosyal Yaşam & Gelecek",
+      "category_en": "Social Life & Future",
+      "category_ar": "الحياة الاجتماعية والمستقبل",
+      "date": "08 Eylül 2026",
+      "readTime": "4 dk okuma",
+      "icon": "🧠",
+      "tr": {
+        "title": "MAKALE 2: Dijital Gürültü ve Zihinsel Odaklanma (700 Karakter)",
+        "summary": "Sürekli bildirimlerin olduğu bir çağda zihinsel berraklığı yeniden kazanmanın yolları üzerine örnek çalışma.",
+        "content": "<p>Her gün binlerce dijital uyarıcı, sosyal medya bildirimi ve e-posta akışı zihnimizi bölüyor. Odaklanma süresinin kısaldığı günümüzde, derinlemesine düşünmek ve kaliteli iş üretmek bir sanata dönüştü. Teknoloji hayatımızı kolaylaştırırken zihinsel yükümüzü de artırıyor. Bu süreçte zihinsel detoks yapmak ve sağlıklı sınırlar koymak büyük önem taşıyor. Günün belirli saatlerinde ekranlardan uzak durmak, ailemize ve sevdiklerimize vakit ayırmak ruhsal dengemizi korumanın anahtarıdır. Dijital araçları bilinçli kullanarak verimliliğimizi artırabiliriz.</p>"
+      },
+      "en": {
+        "title": "ARTICLE 2: Digital Noise and Mental Focus (700 Chars)",
+        "summary": "A sample essay on ways to reclaim mental clarity in an era of constant notifications.",
+        "content": "<p>Every day, thousands of digital stimuli and email streams fragment our attention. In an age where attention spans are shrinking, deep thinking and producing quality work have become a fine art. While technology makes our lives easier, it also increases our mental load. In this process, practicing digital detox and setting healthy boundaries are of great importance. Taking time away from screens at certain hours of the day is the key to maintaining our mental balance.</p>"
+      },
+      "ar": {
+        "title": "المقال 2: الضوضاء الرقمية والتركيز الذهني",
+        "summary": "مقال نموذجي حول سبل استعادة الصفاء الذهني في عصر التنبيهات المستمرة.",
+        "content": "<p>في كل يوم، تتسبب آلاف المنبهات الرقمية وتنبيهات البريد الإلكتروني في تشتيت أذهاننا. في عصر يقل فيه مدى الانتباه، أصبح التفكير العميق وإنتاج الأعمال عالية الجودة فناً قائماً بذاته. بينما تجعل التكنولوجيا حياتنا أسهل، فإنها تزيد أيضاً من عبئنا الذهني. في هذه العملية، يكتسب الالتزام بحدود صحية أهمية كبيرة للحفاظ على توازننا النفسي.</p>"
+      }
+    },
+    {
+      "id": 3,
+      "category": "Yazılım & Verimlilik",
+      "category_en": "Software & Productivity",
+      "category_ar": "البرمجيات والإنتاجية",
+      "date": "05 Eylül 2026",
+      "readTime": "5 dk okuma",
+      "icon": "🖥️",
+      "tr": {
+        "title": "MAKALE 3: Sade Yaşam ve Minimalist Çalışma Düzeni (800 Karakter)",
+        "summary": "Masaüstünüzdeki karmaşayı azaltarak verimliliği artırma felsefesi üzerine hazırlanmış örnek makale.",
+        "content": "<p>Göz önündeki karmaşa, zihindeki karmaşayı tetikler. Bilgisayar masaüstümüzde biriken onlarca simge, açık onlarca pencereler aslında farkında olmadan zihinsel enerjimizi tüketir. Sadelik bir tercih değil, kaliteli bir yaşamın gerekliliğidir. DeskPilot uygulamamızı tasarlarken çıkış noktamız da tam olarak buydu: Kullanıcıya karmaşadan uzak, sade, hızlı ve ihtiyacı olan araca tek tıkla ulaşabileceği bir çalışma ortamı sunmak. Ekranlarımızda sadece ihtiyacımız olan araçları bulundurarak odaklanma kalitemizi artırabiliriz. Minimalist bir çalışma ortamı hem zaman kazandırır hem de üretkenliğimizi en üst seviyeye çıkarır.</p>"
+      },
+      "en": {
+        "title": "ARTICLE 3: Simple Living and Minimalist Workflow (800 Chars)",
+        "summary": "A sample article prepared on the philosophy of increasing productivity by reducing desktop clutter.",
+        "content": "<p>Visual clutter triggers mental clutter. Dozens of icons accumulated on our computer desktops silently drain our mental energy. Simplicity is not just a preference, but a requirement for a quality life. When designing our DeskPilot application, our starting point was exactly this: to offer the user a clean, fast, and simple workspace. By keeping only the tools we need on our screens, we can increase the quality of our focus and boost productivity.</p>"
+      },
+      "ar": {
+        "title": "المقال 3: الحياة البسيطة وتنظيم العمل الأدنى",
+        "summary": "مقال نموذجي حول فلسفة زيادة الإنتاجية من خلال تقليل الفوضى على سطح المكتب.",
+        "content": "<p>الفوضى البصرية تثير الفوضى الذهنية. العشرات من الأيقونات المتراكمة على سطح المكتب تستهلك طاقتنا الذهنية دون أن نشعر. البساطة ليست مجرد خيار، بل هي ضرورة لحياة عالية الجودة. عند تصميم تطبيق DeskPilot، كانت نقطة انطلاقنا هي التقديم للمستخدم بيئة عمل بسيطة وسريعة وخالية من الفوضى.</p>"
+      }
+    }
+  ];
+
+  function setLang(lang) {
+    currentLang = lang;
+    var btns = document.querySelectorAll('.lang-switcher button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('active');
+    }
+    
+    var activeBtn = document.querySelector('.lang-switcher button[data-lang="' + lang + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+
+    if (lang === 'ar') {
+      document.body.setAttribute('dir', 'rtl');
+      document.getElementById('subSlogan').innerText = 'نظرة عميقة على التكنولوجيا والحياة والإنسانية';
+      document.getElementById('lblBack').innerText = 'العودة إلى جميع المقالات';
+    } else if (lang === 'en') {
+      document.body.removeAttribute('dir');
+      document.getElementById('subSlogan').innerText = 'A Deep Perspective on Technology, Life, and Humanity';
+      document.getElementById('lblBack').innerText = 'Back to All Articles';
+    } else {
+      document.body.removeAttribute('dir');
+      document.getElementById('subSlogan').innerText = 'Teknolojiye, Hayata ve İnsanlığa Derin Bakış';
+      document.getElementById('lblBack').innerText = 'Tüm Yazılara Dön';
+    }
+
+    if (currentPost) {
+      openPost(currentPost.id);
+    } else {
+      renderPosts();
+    }
+  }
+
+  function renderPosts() {
+    var grid = document.getElementById('postsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    for (var i = 0; i < blogPostsData.length; i++) {
+      var post = blogPostsData[i];
+      var langData = post[currentLang] || post['tr'];
+      var category = post['category_' + currentLang] || post.category;
+
+      var card = document.createElement('div');
+      card.className = 'post-card';
+      card.setAttribute('data-id', post.id);
+      card.onclick = (function(pId) {
+        return function() { openPost(pId); };
+      })(post.id);
+
+      var btnText = (currentLang === 'ar' ? 'اقرأ المزيد ←' : (currentLang === 'en' ? 'Read Article →' : 'Devamını Oku →'));
+      var ttsText = (currentLang === 'ar' ? 'استماع' : (currentLang === 'en' ? 'Listen' : 'Sesli Dinle'));
+
+      card.innerHTML = '<div class="card-img-placeholder">' + (post.icon || '📝') + '</div>' +
+        '<div class="card-body">' +
+          '<div>' +
+            '<div class="post-meta">' +
+              '<span class="post-tag">' + category + '</span>' +
+              '<span>' + post.readTime + '</span>' +
+            '</div>' +
+            '<h2 class="post-title">' + langData.title + '</h2>' +
+            '<p class="post-excerpt">' + langData.summary + '</p>' +
+          '</div>' +
+          '<div class="card-actions">' +
+            '<span class="read-more-btn">' + btnText + '</span>' +
+            '<span class="card-tts-badge">🔊 ' + ttsText + '</span>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    }
+  }
+
+  function openPost(id) {
+    stopTTS();
+    currentPost = blogPostsData.find(function(p) { return p.id === id; });
+    if (!currentPost) return;
+
+    var langData = currentPost[currentLang] || currentPost['tr'];
+    var category = currentPost['category_' + currentLang] || currentPost.category;
+
+    document.getElementById('readCategory').innerText = category;
+    document.getElementById('readTitle').innerText = langData.title;
+    document.getElementById('readDate').innerText = currentPost.date;
+    document.getElementById('readTime').innerText = '⏱️ ' + currentPost.readTime;
+    document.getElementById('readContent').innerHTML = langData.content;
+
+    document.getElementById('listView').style.display = 'none';
+    document.getElementById('readerView').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showList() {
+    stopTTS();
+    currentPost = null;
+    document.getElementById('readerView').style.display = 'none';
+    document.getElementById('listView').style.display = 'block';
+    renderPosts();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* TTS Speech Synthesis Engine */
+  function playTTS() {
+    if (!synth) return alert("Tarayıcınız sesli okuma özelliğini desteklemiyor.");
+    if (synth.speaking && synth.paused) {
+      synth.resume();
+      document.getElementById('audioWave').style.display = 'inline-flex';
+      return;
+    }
+
+    synth.cancel();
+
+    var articleText = document.getElementById('readContent').innerText;
+    currentUtterance = new SpeechSynthesisUtterance(articleText);
+
+    if (currentLang === 'tr') currentUtterance.lang = 'tr-TR';
+    else if (currentLang === 'en') currentUtterance.lang = 'en-US';
+    else if (currentLang === 'ar') currentUtterance.lang = 'ar-SA';
+
+    var speed = parseFloat(document.getElementById('voiceSpeed').value || '1.0');
+    currentUtterance.rate = speed;
+
+    var voices = synth.getVoices();
+    var genderPref = document.getElementById('voiceGender').value;
+    
+    var matchedVoice = voices.find(function(v) {
+      return v.lang.startsWith(currentUtterance.lang.slice(0, 2)) && 
+      (genderPref === 'female' ? (v.name.includes('Female') || v.name.includes('Zira') || v.name.includes('Yelda')) : (v.name.includes('Male') || v.name.includes('David') || v.name.includes('Tolga')));
+    });
+    
+    if (!matchedVoice) {
+      matchedVoice = voices.find(function(v) { return v.lang.startsWith(currentUtterance.lang.slice(0, 2)); });
+    }
+    if (matchedVoice) currentUtterance.voice = matchedVoice;
+
+    currentUtterance.onstart = function() {
+      document.getElementById('audioWave').style.display = 'inline-flex';
+    };
+    currentUtterance.onend = function() {
+      document.getElementById('audioWave').style.display = 'none';
+    };
+
+    synth.speak(currentUtterance);
+  }
+
+  function pauseTTS() {
+    if (synth && synth.speaking) {
+      synth.pause();
+      document.getElementById('audioWave').style.display = 'none';
+    }
+  }
+
+  function stopTTS() {
+    if (synth) {
+      synth.cancel();
+      document.getElementById('audioWave').style.display = 'none';
+    }
+  }
+
+  function restartTTSIfPlaying() {
+    if (synth && synth.speaking) {
+      playTTS();
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    renderPosts();
+  });
+</script>
+
+</body>
+</html>
