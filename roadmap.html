@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gelecek Özellikler & Oylama | MSK Labs</title>
+  <meta name="description" content="MSK Labs uygulamalarına gelecek yeni özellikleri oylayın ve fikirlerinizi paylaşın.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    .roadmap-header-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(14, 165, 233, 0.2));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(12px);
+    }
+    .roadmap-header-card h2 {
+      font-size: 1.5rem;
+      color: #f8fafc;
+      margin: 0 0 0.5rem 0;
+    }
+    .roadmap-header-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin: 0 0 1.5rem 0;
+    }
+    .suggest-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #0ea5e9);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+      transition: all 0.25s ease;
+    }
+    .suggest-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .roadmap-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: all 0.25s ease;
+    }
+    .roadmap-card:hover {
+      border-color: #8b5cf6;
+      transform: translateY(-3px);
+    }
+    .roadmap-app-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      align-self: flex-start;
+    }
+    .roadmap-card h3 {
+      font-size: 1.15rem;
+      color: #f8fafc;
+      margin: 0.5rem 0 0.25rem 0;
+    }
+    .roadmap-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .upvote-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+    .upvote-count {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .upvote-btn {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .upvote-btn:hover, .upvote-btn.voted {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="lang-tr">
+
+<div class="main-layout">
+
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <div class="portfolio-container">
+  
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">← Portföye Dön</span>
+      <span class="lang-en">← Back to Portfolio</span>
+      <span class="lang-ar">← العودة إلى المحفظة</span>
+    </a>
+
+    <div class="roadmap-header-card">
+      <h2>💡 Gelecek Özellikler ve Topluluk Oylaması</h2>
+      <p>Hangi özelliğin ilk önce geliştirilmesini istersiniz? Oy verin, geliştirme önceliğini siz belirleyin!</p>
+      <a href="destek.html?category=istek" class="suggest-btn">➕ Yeni Özellik Öner</a>
+    </div>
+
+    <!-- Roadmap Feature Grid -->
+    <div class="roadmap-grid" id="roadmapGrid">
+      <!-- Dynamically Rendered -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek</span><span class="lang-en">Support</span></a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  const ROADMAP_ITEMS = [
+    {
+      id: 'item_1',
+      app: 'HaydiNamaza',
+      title: 'Ana Ekran Namaz Vakti Widget\'ı',
+      desc: 'Telefon ana ekranına (Home screen) canlı namaz vakitlerini ve kalan süreyi gösteren Widget eklenmesi.',
+      votes: 142
+    },
+    {
+      id: 'item_2',
+      app: 'RekatSay',
+      title: 'Sesli Rekat Sayacı Bildirimi',
+      desc: 'Secde tamamlandığında kulaklığa veya hoparlöre hafif sesli uyarı verilmesi.',
+      votes: 98
+    },
+    {
+      id: 'item_3',
+      app: 'Emekli Sayaç',
+      title: 'Kıdem ve İhbar Tazminatı Otomatik Güncelleme',
+      desc: 'Enflasyon ve yeni maaş katsayılarının otomatik güncellenmesi.',
+      votes: 76
+    },
+    {
+      id: 'item_4',
+      app: 'DeskPilot',
+      title: 'Koyu ve Açık Tema Kısayol Switcher',
+      desc: 'Masaüstünde sistem renk temasını tek tıkla değiştirecek araç.',
+      votes: 54
+    }
+  ];
+
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  function upvote(id, btn) {
+    let votedItems = JSON.parse(localStorage.getItem('voted_roadmap_items') || '[]');
+    if (votedItems.includes(id)) return;
+
+    votedItems.push(id);
+    localStorage.setItem('voted_roadmap_items', JSON.stringify(votedItems));
+
+    const countEl = document.getElementById('count_' + id);
+    let currentVotes = parseInt(countEl.innerText);
+    countEl.innerText = currentVotes + 1;
+
+    btn.classList.add('voted');
+    btn.innerHTML = '✓ Oylandı';
+  }
+
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const appId = (urlParams.get('app') || '').toLowerCase().trim();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+
+    setLang(langParam || savedLang || 'tr');
+
+    const votedItems = JSON.parse(localStorage.getItem('voted_roadmap_items') || '[]');
+    const grid = document.getElementById('roadmapGrid');
+    grid.innerHTML = '';
+
+    ROADMAP_ITEMS.forEach(item => {
+      const isVoted = votedItems.includes(item.id);
+      const card = document.createElement('div');
+      card.className = 'roadmap-card';
+      card.innerHTML = 
+        <div>
+          <span class="roadmap-app-tag">📱 </span>
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="upvote-box">
+          <span class="upvote-count">▲ <span id="count_"></span> Oy</span>
+          <button class="upvote-btn " onclick="upvote('', this)">
+            
+          </button>
+        </div>
+      ;
+      grid.appendChild(card);
+    });
+  })();
+</script>
+
+</body>
+</html>

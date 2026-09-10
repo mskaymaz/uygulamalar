@@ -109,8 +109,8 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 ### 📌 FAZ 5: İleri Düzey Yönetim & Geri Bildirim
 
 #### Adım 9: Kullanıcı Fikir Oylama & Yol Haritası (oadmap.html)
-- [ ] 9.1 Topluluk fikir önerme ve oylama (+1) kart yapısı.
-- [ ] 9.2 En çok istenen 3 özelliğin E-Tablo ve Telegram üzerinden 1 kişilik ekibe raporlanması.
+- [x] 9.1 Topluluk fikir önerme ve oylama (+1) kart yapısı (oadmap.html).
+- [x] 9.2 En çok istenen özelliklerin E-Tablo ve Telegram üzerinden 1 kişilik ekibe raporlanması.
 
 #### Adım 10: Sistem Durumu Sayfası (status.html)
 - [ ] 10.1 "Tüm Sistemler Çalışıyor" / "Bakım Çalışması Var" durum rozetleri.
