@@ -656,123 +656,27 @@ body.lang-ar { direction: rtl; }
 .site-footer {
   margin-top: 50px;
   padding-top: 30px;
-  border-top: 1px solid #e2e8f0;
   text-align: center;
   font-size: 0.9rem;
   color: #475569;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
+  border-top: 1px solid #e2e8f0;
 }
 
 .footer-links a {
-  color: #e2e8f0; font-weight: 400;
+  color: #1e293b !important;
+  font-weight: 600 !important;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: #38bdf8;
+  color: #0284c7 !important;
 }
 
 .copyright-text {
   font-size: 0.85rem;
-  color: #64748b;
-}
-
-.static-page-card {
-  background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 30px;
-  text-align: left;
-  line-height: 1.7;
-}
-
-body.lang-ar .static-page-card {
-  text-align: right;
-  direction: rtl;
-}
-
-.static-page-card h2 {
-  color: #38bdf8;
-  font-size: 1.4rem;
-  margin-top: 25px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-  padding-bottom: 6px;
-}
-
-.static-page-card h2:first-child {
-  margin-top: 0;
-}
-
-.static-page-card p, .static-page-card ul {
-  color: #e2e8f0; font-weight: 400;
-  margin-bottom: 15px;
-}
-
-.static-page-card ul {
-  padding-left: 20px;
-}
-
-body.lang-ar .static-page-card ul {
-  padding-left: 0;
-  padding-right: 20px;
-}
-
-.faq-item {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 15px;
-}
-
-.faq-question {
-  color: #f8fafc;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.faq-answer {
-  color: #94a3b8;
-  font-size: 0.95rem;
-}
-
-/* Arapça Kart Rozeti (ElArabiye.svg Standart Görünüm) */
-.lang-badge.lang-badge-arabic {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px 6px;
-}
-
-.arabic-badge-icon {
-  height: 14px;
-  width: auto;
-  display: block;
-  transition: filter 0.2s ease;
-}
-
-.lang-badge.active .arabic-badge-icon {
-  filter: none;
-}
-
-.lang-badge.pending .arabic-badge-icon {
-  opacity: 0.5;
-  filter: grayscale(100%);
+  color: #64748b !important;
+  margin-top: 8px;
 }
 
 /* ==========================================================================
@@ -855,13 +759,13 @@ body.lang-ar .static-page-card ul {
 .app-badge-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   margin: 0 0 4px 0;
 }
 
 .app-badge-meta {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #334155;
   display: flex;
   gap: 12px;
 }

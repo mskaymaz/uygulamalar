@@ -8,17 +8,16 @@
   <link rel="stylesheet" href="assets/css/global.css?v=16">
   <style>
     .status-banner-card {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
       border-radius: 20px;
       padding: 2rem;
       text-align: center;
       margin-bottom: 2.5rem;
-      backdrop-filter: blur(12px);
     }
     .status-banner-card.maintenance {
-      background: rgba(245, 158, 11, 0.15);
-      border-color: rgba(245, 158, 11, 0.3);
+      background: #fffbeb;
+      border-color: #fef3c7;
     }
     .status-icon-big {
       font-size: 3rem;
@@ -26,31 +25,34 @@
     }
     .status-banner-card h2 {
       font-size: 1.5rem;
-      color: #34d399;
+      color: #047857;
       margin: 0 0 0.5rem 0;
+      font-weight: 700;
     }
     .status-banner-card.maintenance h2 {
-      color: #fbbf24;
+      color: #b45309;
     }
     .status-banner-card p {
       font-size: 0.95rem;
-      color: #cbd5e1;
+      color: #065f46;
       margin: 0;
+      font-weight: 500;
     }
 
     .service-list-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     }
     .service-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid #f1f5f9;
     }
     .service-item:last-child {
       border-bottom: none;
@@ -58,7 +60,7 @@
     .service-name {
       font-size: 1rem;
       font-weight: 600;
-      color: #f8fafc;
+      color: #0f172a;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -66,16 +68,16 @@
     .service-status-pill {
       font-size: 0.8rem;
       font-weight: 700;
-      padding: 0.3rem 0.8rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 9999px;
       display: flex;
       align-items: center;
       gap: 0.4rem;
     }
     .status-online {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34d399;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #047857;
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,9 +150,11 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-links">
-        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span></a> |
-        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span></a> |
-        <a href="destek.html"><span class="lang-tr">Destek</span><span class="lang-en">Support</span></a>
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> |
+        <a href="contact.html"><span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span></a> |
+        <a href="privacy.html"><span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span></a>
       </div>
       <div class="copyright-text">
         © 2026 MSK Labs. All rights reserved.

@@ -68,7 +68,7 @@
       margin-bottom: 2rem;
     }
     .stat-card {
-      background: rgba(255, 255, 255, 0.08);
+      background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 1.5rem;
@@ -76,7 +76,7 @@
     }
     .stat-card h3 {
       font-size: 0.85rem;
-      color: #cbd5e1;
+      color: #334155;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin: 0 0 0.5rem 0;
@@ -94,7 +94,7 @@
     }
 
     .data-table-card {
-      background: rgba(255, 255, 255, 0.08);
+      background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 1.5rem;
@@ -115,7 +115,7 @@
       font-weight: 600;
     }
     .data-table td {
-      color: #cbd5e1;
+      color: #334155;
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,8 +132,8 @@
 <div class="pin-overlay" id="pinOverlay">
   <div class="pin-card">
     <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔐</div>
-    <h2 style="color: #f8fafc; margin: 0;">MSK Labs Yönetici Paneli</h2>
-    <p style="color: #cbd5e1; font-size: 0.85rem; margin-top: 0.25rem;">Lütfen erişim PIN kodunu giriniz.</p>
+    <h2 style="color: #0f172a; margin: 0;">MSK Labs Yönetici Paneli</h2>
+    <p style="color: #334155; font-size: 0.85rem; margin-top: 0.25rem;">Lütfen erişim PIN kodunu giriniz.</p>
     <input type="password" id="pinInput" class="pin-input" maxlength="6" placeholder="••••">
     <button onclick="checkPin()" class="pin-btn">Giriş Yap</button>
     <div id="pinError" style="color: #ef4444; font-size: 0.85rem; margin-top: 0.75rem; display: none;">Hatalı PIN Kodu!</div>
@@ -181,7 +181,7 @@
 
     <!-- App Download Counts Table -->
     <div class="data-table-card">
-      <h3 style="color: #f8fafc; margin-top: 0; margin-bottom: 1rem;">📱 Uygulama Bazlı İndirme & Tıklama Dağılımı</h3>
+      <h3 style="color: #0f172a; margin-top: 0; margin-bottom: 1rem;">📱 Uygulama Bazlı İndirme & Tıklama Dağılımı</h3>
       <table class="data-table">
         <thead>
           <tr>
