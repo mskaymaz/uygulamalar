@@ -1,4 +1,6 @@
-﻿# Bismillahirrahmânirrâhîm
+﻿> 📘 **Detaylı Entegrasyon, Google E-Tablo Veri Mimarisi ve Alınan Kararlar:**  
+> Lütfen tam rehber için [ISTISARE_VE_KARARLAR.md](file:///d:/Code/mskaymaz/webMSKLabs/ISTISARE_VE_KARARLAR.md) dokümanını inceleyiniz.
+# Bismillahirrahmânirrâhîm
 
 # MSK Labs 20+ Uygulama Merkezi Otomasyon Yol Haritası & İstemci Sözleşmesi (tasks_otomasyon.md)
 
