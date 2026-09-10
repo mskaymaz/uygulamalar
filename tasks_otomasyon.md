@@ -69,9 +69,9 @@ Tüm web ve mobil içerikler tek bir Google E-Tablo üzerinden kod yazmadan gör
 ### 📌 FAZ 2: Canlı Kontrol & Kullanıcı İletişimi (Mağaza Güncellemesi Yapmadan)
 
 #### Adım 3: Dinamik Duyuru & Canlı Güncelleme Banner Engine (nnouncements.json / Sheet API)
-- [ ] 3.1 Google E-Tablo Duyurular sekmesi entegrasyonu.
-- [ ] 3.2 Uygulamalar için hafif API uç noktası (msklabs.org/api/announcement).
-- [ ] 3.3 Kritik Güncelleme (Force Update) / Genel Duyuru / Bakım Modu bayrakları.
+- [x] 3.1 Google E-Tablo / JSON duyuru veritabanı şablonunun hazırlanması.
+- [x] 3.2 Uygulamalar için hafif API uç noktası (msklabs.org/api/announcement ve nnouncements.json).
+- [x] 3.3 Kritik Güncelleme (Force Update) / Genel Duyuru / Bakım Modu bayrakları.
 
 #### Adım 4: Çapraz Promosyon & Trafik Motoru (promo.html / Banner System)
 - [ ] 4.1 20+ Uygulama arasında organik kullanıcı trafiği döndürecek Öne Çıkan Uygulama kartı bileşeni.

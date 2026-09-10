@@ -1,0 +1,27 @@
+﻿{
+  "last_updated": "2026-09-10T10:50:00Z",
+  "announcements": {
+    "haydinamaza": {
+      "active": true,
+      "min_version": "2.0.0",
+      "force_update": false,
+      "title_tr": "🕌 HaydiNamaza v2.1 Yayında!",
+      "title_en": "🕌 HaydiNamaza v2.1 Released!",
+      "message_tr": "Yeni pusula kalibrasyon özelliği ve daha hassas namaz vakti algoritması eklendi.",
+      "message_en": "New compass calibration feature and precise prayer calculation algorithms added.",
+      "action_label_tr": "Güncelle / Detaylar",
+      "action_url": "https://msklabs.org/changelog.html?app=haydinamaza"
+    },
+    "deskpilot": {
+      "active": true,
+      "min_version": "1.0.0",
+      "force_update": false,
+      "title_tr": "🖥️ DeskPilot Masaüstü Güncellemesi",
+      "title_en": "🖥️ DeskPilot Desktop Update",
+      "message_tr": "Windows 11 uyumluluğu artırıldı.",
+      "message_en": "Windows 11 compatibility enhanced.",
+      "action_label_tr": "İncele",
+      "action_url": "https://msklabs.org/deskpilot.html"
+    }
+  }
+}
