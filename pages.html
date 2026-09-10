@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tüm Sayfalar ve Dizin | MSK Labs</title>
+  <meta name="description" content="MSK Labs web altyapısı ve mobil servislerinin tüm erişim bağlantıları dizini.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css?v=25">
+  
+  <!-- MSK Labs Favicon -->
+  <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
+  <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+
+  <style>
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-category-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+    .page-category-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0284c7;
+      margin: 0 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 1.5px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pages-link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .pages-link-item a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    .pages-link-item a:hover {
+      border-color: #0284c7;
+      background: #f0f9ff;
+      color: #0284c7;
+      transform: translateX(3px);
+    }
+    .pages-link-path {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body class="lang-tr">
+
+<div class="layout-wrapper">
+
+  <aside class="desktop-ad desktop-ad-left">
+    <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
+  </aside>
+
+  <div class="portfolio-container">
+  
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+
+    <div class="logo-container">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
+    </div>
+
+    <a href="index.html" class="back-btn">
+      <span class="lang-tr">Portföye Dön</span>
+      <span class="lang-en">Back to Portfolio</span>
+      <span class="lang-ar">العودة إلى المحفظة</span>
+    </a>
+
+    <h1 class="page-title">
+      <span class="lang-tr">Tüm Sayfalar ve Erişim Dizini</span>
+      <span class="lang-en">All Pages & Site Directory</span>
+      <span class="lang-ar">دليل الصفحات</span>
+    </h1>
+
+    <div class="pages-grid">
+
+      <!-- Category 1: Kurumsal & Yasal -->
+      <div class="page-category-card">
+        <h2 class="page-category-title">📜 Kurumsal & Yasal Sayfalar</h2>
+        <ul class="pages-link-list">
+          <li class="pages-link-item"><a href="index.html"><span>🏠 Ana Sayfa Portföyü</span><span class="pages-link-path">/index.html</span></a></li>
+          <li class="pages-link-item"><a href="about.html"><span>ℹ️ Hakkımızda</span><span class="pages-link-path">/about.html</span></a></li>
+          <li class="pages-link-item"><a href="who-we-are.html"><span>👥 Biz Kimiz</span><span class="pages-link-path">/who-we-are.html</span></a></li>
+          <li class="pages-link-item"><a href="contact.html"><span>📩 İletişim</span><span class="pages-link-path">/contact.html</span></a></li>
+          <li class="pages-link-item"><a href="privacy.html?app=haydinamaza"><span>📱 Gizlilik Politikası (Dinamik)</span><span class="pages-link-path">/privacy.html</span></a></li>
+          <li class="pages-link-item"><a href="terms.html?app=haydinamaza"><span>📜 Kullanım Şartları (Dinamik)</span><span class="pages-link-path">/terms.html</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Category 2: Otomasyon & Servisler -->
+      <div class="page-category-card">
+        <h2 class="page-category-title">🛠️ Mobil Otomasyon Servisleri</h2>
+        <ul class="pages-link-list">
+          <li class="pages-link-item"><a href="faq.html?app=haydinamaza"><span>❓ Sıkça Sorulan Sorular (SSS)</span><span class="pages-link-path">/faq.html</span></a></li>
+          <li class="pages-link-item"><a href="promo.html?app=haydinamaza"><span>🌟 Çapraz Promosyon Motoru</span><span class="pages-link-path">/promo.html</span></a></li>
+          <li class="pages-link-item"><a href="review-route.html?app=haydinamaza"><span>⭐ Mağaza Puanlama Yönlendirici</span><span class="pages-link-path">/review-route.html</span></a></li>
+          <li class="pages-link-item"><a href="dl.html?app=haydinamaza"><span>📲 Akıllı İndirme & QR Kodu</span><span class="pages-link-path">/dl.html</span></a></li>
+          <li class="pages-link-item"><a href="changelog.html?app=haydinamaza"><span>🚀 Sürüm Günlüğü & Yenilikler</span><span class="pages-link-path">/changelog.html</span></a></li>
+          <li class="pages-link-item"><a href="roadmap.html"><span>💡 Topluluk Fikir Oylama</span><span class="pages-link-path">/roadmap.html</span></a></li>
+          <li class="pages-link-item"><a href="status.html"><span>🟢 Canlı Sistem Durumu</span><span class="pages-link-path">/status.html</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Category 3: Destek & Yönetim -->
+      <div class="page-category-card">
+        <h2 class="page-category-title">🔐 Destek & Yönetim Paneli</h2>
+        <ul class="pages-link-list">
+          <li class="pages-link-item"><a href="destek.html"><span>📩 Canlı Destek & Bilet Formu</span><span class="pages-link-path">/destek.html</span></a></li>
+          <li class="pages-link-item"><a href="ist.html"><span>📊 Gizli İstatistik Paneli (PIN: 175)</span><span class="pages-link-path">/ist.html</span></a></li>
+          <li class="pages-link-item"><a href="announcements.json" target="_blank"><span>📢 Canlı Duyuru API (JSON)</span><span class="pages-link-path">/announcements.json</span></a></li>
+          <li class="pages-link-item"><a href="api/announcement?app=haydinamaza" target="_blank"><span>⚡ Remote Announcement API</span><span class="pages-link-path">/api/announcement</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> |
+        <a href="contact.html"><span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span></a> |
+        <a href="pages.html"><span class="lang-tr">Tüm Sayfalar</span><span class="lang-en">All Pages</span></a>
+      </div>
+      <div class="copyright-text">
+        © 2026 MSK Labs. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <aside class="desktop-ad desktop-ad-right">
+    <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
+  </aside>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    if (!lang) lang = 'tr';
+    try { localStorage.setItem('user_lang', lang); } catch(e) {}
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+    setLang(langParam || savedLang || 'tr');
+  })();
+</script>
+
+</body>
+</html>
