@@ -1,23 +1,158 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSKLabs.org - Gizlilik Politikası</title>
-    <meta name="description" content="MSK Labs ve yayınlanan mobil/masaüstü uygulamaların gizlilik politikası ve KVKK bilgilendirmesi.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css?v=13">
-    <!-- MSK Labs Favicon & Kısayol İkonları -->
-    <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
-    <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik Politikası | MSK Labs</title>
+  <meta name="description" content="MSK Labs uygulamaları için dinamik ve şeffaf Gizlilik Politikası ve Kişisel Veri Koruma Metni.">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    /* Privacy Page Specific Styles */
+    .privacy-badge-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .app-meta-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .app-meta-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+    }
+    .app-meta-info h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .app-meta-info p {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin: 0.2rem 0 0 0;
+    }
+    .badge-pill-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .badge-pill {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .permissions-table-wrapper {
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+    .permissions-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 23, 42, 0.4);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .permissions-table th, .permissions-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.9rem;
+    }
+    .permissions-table th {
+      background: rgba(30, 41, 59, 0.8);
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+    .permissions-table td {
+      color: #94a3b8;
+    }
+    .permissions-table td strong {
+      color: #f1f5f9;
+    }
+
+    .print-btn-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+    .print-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .print-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+      }
+      .desktop-ad, .print-btn-container, .back-btn, .lang-switcher, .site-footer {
+        display: none !important;
+      }
+      .portfolio-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .static-page-card, .privacy-badge-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+      }
+      .app-meta-info h2, h1, h2, h3 {
+        color: #0f172a !important;
+      }
+      .permissions-table th {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+      .permissions-table td {
+        color: #334155 !important;
+      }
+    }
+  </style>
 </head>
 <body class="lang-tr">
 
-<div class="layout-wrapper">
+<div class="main-layout">
 
   <aside class="desktop-ad desktop-ad-left">
     <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
@@ -35,11 +170,19 @@
       <img src="img/MSKLabsLogo.svg" alt="MSK Labs" class="main-logo">
     </div>
 
-    <a href="index.html" class="back-btn">
-      <span class="lang-tr">← Portföye Dön</span>
-      <span class="lang-en">← Back to Portfolio</span>
-      <span class="lang-ar">العودة إلى المعرض →</span>
-    </a>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="back-btn">
+        <span class="lang-tr">← Portföye Dön</span>
+        <span class="lang-en">← Back to Portfolio</span>
+        <span class="lang-ar">← العودة إلى المحفظة</span>
+      </a>
+
+      <div class="print-btn-container">
+        <button onclick="window.print()" class="print-btn">
+          🖨️ <span class="lang-tr">PDF / Yazdır</span><span class="lang-en">Print / PDF</span><span class="lang-ar">طباعة / PDF</span>
+        </button>
+      </div>
+    </div>
 
     <h1 class="page-title">
       <span class="lang-tr">Gizlilik Politikası</span>
@@ -47,82 +190,120 @@
       <span class="lang-ar">سياسة الخصوصية</span>
     </h1>
 
+    <!-- Dynamic App Badge -->
+    <div class="privacy-badge-card" id="appBadgeCard">
+      <div class="app-meta-box">
+        <div class="app-meta-icon" id="appIconBox">📱</div>
+        <div class="app-meta-info">
+          <h2 id="appNameText">MSK Labs Uygulaması</h2>
+          <p id="appMetaSub">Sürüm: <span id="appVerText">1.0.0</span> | Platform: <span id="appOsText">Genel</span></p>
+        </div>
+      </div>
+      <div class="badge-pill-group">
+        <span class="badge-pill">✓ Google Play Uyumlu</span>
+        <span class="badge-pill">✓ App Store Uyumlu</span>
+        <span class="badge-pill">📅 Güncelleme: 10 Eylül 2026</span>
+      </div>
+    </div>
+
+    <!-- Policy Content Card -->
     <div class="static-page-card">
       <div class="lang-tr">
-        <h2>1. Genel Bilgilendirme</h2>
-        <p>MSK Labs ("biz", "tarafımız"), kullanıcılarımızın kişisel verilerinin gizliliğine ve güvenliğine büyük önem vermektedir. Bu Gizlilik Politikası, msklabs.org web sitemiz ve yayınladığımız mobil/masaüstü uygulamalarımız (RekatSay, Emekli, HaydiNamaza, En Yakın vb.) aracılığıyla toplanan veya işlenen bilgilerin niteliğini açıklamaktadır.</p>
+        <h2>1. Genel Bilgilendirme ve Taahhüt</h2>
+        <p>MSK Labs ("biz", "tarafımız"), kullanıcılarımızın kişisel verilerinin gizliliğine ve güvenliğine en yüksek seviyede önem vermektedir. Bu Gizlilik Politikası, msklabs.org web sitemiz ve yayınladığımız mobil/masaüstü yazılımlarımız (<span class="app-name-holder">MSK Labs Uygulamaları</span>) aracılığıyla işlenen verilerin niteliğini, amacını ve haklarınızı açıklamak amacıyla hazırlanmıştır.</p>
 
-        <h2>2. Toplanan Veriler ve Kullanımı</h2>
-        <p>Geliştirdiğimiz uygulamalar kullanıcı odaklı olup, kişisel verilerinizi üçüncü şahıslara satmaz veya kiralamaz. Uygulamalarımızın çalışma prensipleri:</p>
+        <h2>2. Uygulamaya Özel İzinler ve Veri İşleme Tablosu</h2>
+        <p>Aşağıdaki tablo, <strong><span class="app-name-holder">seçili uygulamanın</span></strong> cihazınız üzerinde ihtiyaç duyduğu izinleri ve kullanım amaçlarını göstermektedir:</p>
+        
+        <div class="permissions-table-wrapper">
+          <table class="permissions-table" id="permissionsTableTr">
+            <thead>
+              <tr>
+                <th>İzin / Veri Türü</th>
+                <th>Kullanım Amacı</th>
+                <th>Depolama Lokasyonu</th>
+              </tr>
+            </thead>
+            <tbody id="permissionsTbodyTr">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. Reklam ve Üçüncü Taraf Hizmetleri (Google AdSense / AdMob)</h2>
+        <p>Uygulamalarımızda ücretsiz hizmet kalitesini sürdürebilmek adına Google AdMob / AdSense reklam ağları kullanılabilir.</p>
         <ul>
-          <li><strong>Konum Bilgisi (HaydiNamaza / En Yakın):</strong> Konum veriniz sadece cihazınızda namaz vakitlerini hesaplamak veya en yakın hizmeti bulmak amacıyla anlık kullanılır; sunucularımıza kaydedilmez.</li>
-          <li><strong>Yerel Veri Depolama:</strong> Uygulama içi ayarlar ve tercihler cihazınızın yerel hafızasında (Local Storage / SQLite) saklanır.</li>
-          <li><strong>Cihaz ve İstatistik Bilgileri:</strong> Uygulama performansını iyileştirmek amacıyla tamamen anonimleştirilmiş sistem/hata raporları kullanılabilir.</li>
+          <li>Google, reklam sunumunu kişiselleştirmek veya anonimleştirmek amacıyla reklam tanımlayıcılarını (Advertising ID) kullanabilir.</li>
+          <li>Kullanıcılar, <a href="https://www.google.com/settings/ads" target="_blank" style="color:#38bdf8; text-decoration: underline;">Google Reklam Ayarları</a> sayfasını ziyaret ederek kişiselleştirilmiş reklamcılığı diledikleri zaman devre dışı bırakabilirler.</li>
         </ul>
 
-        <h2>3. Çerezler (Cookies) ve Google AdSense</h2>
-        <p>Sitemizde kullanıcı deneyimini iyileştirmek ve içerik/reklam sunumunu sağlamak amacıyla çerezler kullanılabilir.</p>
-        <ul>
-          <li>Google ve üçüncü taraf tedarikçiler, sitemize veya diğer web sitelerine yapılan önceki ziyaretlere dayalı olarak reklam sunmak için çerezleri (örneğin DoubleClick DART çerezi) kullanır.</li>
-          <li>Kullanıcılar, <a href="https://www.google.com/settings/ads" target="_blank" style="color:#38bdf8;">Google Reklam Ayarları</a> sayfasını ziyaret ederek kişiselleştirilmiş reklamcılığı devre dışı bırakabilirler.</li>
-        </ul>
-
-        <h2>4. İletişim Bilgileri</h2>
-        <p>Gizlilik politikamız hakkında sorularınız veya talepleriniz için bizimle iletişime geçebilirsiniz:</p>
-        <p><strong>E-posta:</strong> <a href="mailto:msklabs.org@gmail.com" class="contact-email-link" style="color:#38bdf8;">msklabs.org@gmail.com</a></p>
+        <h2>4. Veri Silme Hakları ve İletişim</h2>
+        <p>KVKK ve GDPR uyarınca, uygulamalarımız bünyesinde yerel olarak saklanan verilerinizi uygulamanın "Verileri Temizle" seçeneğiyle silebilir veya doğrudan bizimle iletişime geçebilirsiniz.</p>
+        <p>📩 <strong>Veri Silme & Destek Talebi:</strong> <a href="destek.html?category=istek" style="color:#38bdf8; text-decoration: underline;">Canlı Destek Formu Kullanın</a> veya <a href="mailto:msklabs.org@gmail.com" style="color:#38bdf8;">msklabs.org@gmail.com</a> adresine e-posta gönderin.</p>
       </div>
 
       <div class="lang-en">
-        <h2>1. General Information</h2>
-        <p>MSK Labs ("we", "us") places the highest priority on the privacy and security of our users' personal data. This Privacy Policy explains how information is collected, used, and protected through our website msklabs.org and software applications (RekatSay, Retirement Counter, HaydiNamaza, etc.).</p>
+        <h2>1. General Information & Commitment</h2>
+        <p>MSK Labs ("we", "us") prioritizes user privacy and data security. This Privacy Policy outlines data handling practices for our software applications (<span class="app-name-holder">MSK Labs Applications</span>) and website msklabs.org.</p>
 
-        <h2>2. Data Collection and Usage</h2>
-        <p>Our applications are privacy-centric and do not sell or rent personal information to third parties:</p>
-        <ul>
-          <li><strong>Location Data:</strong> Device location is strictly used on-device to calculate prayer times or find nearby services and is never stored on external servers.</li>
-          <li><strong>Local Storage:</strong> User preferences and settings remain stored locally on your device.</li>
-          <li><strong>Anonymous Analytics:</strong> Completely anonymized system diagnostics may be processed solely to enhance software reliability.</li>
-        </ul>
+        <h2>2. Application Specific Permissions & Data Table</h2>
+        <p>The table below summarizes permissions required by <strong><span class="app-name-holder">this application</span></strong>:</p>
 
-        <h2>3. Cookies and Advertising (Google AdSense)</h2>
-        <p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to our website or other websites.</p>
-        <p>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" style="color:#38bdf8;">Google Ads Settings</a>.</p>
+        <div class="permissions-table-wrapper">
+          <table class="permissions-table" id="permissionsTableEn">
+            <thead>
+              <tr>
+                <th>Permission / Data Type</th>
+                <th>Purpose of Use</th>
+                <th>Storage Location</th>
+              </tr>
+            </thead>
+            <tbody id="permissionsTbodyEn">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
 
-        <h2>4. Contact Us</h2>
-        <p>If you have any questions regarding this Privacy Policy, please contact us at:</p>
-        <p><strong>Email:</strong> <a href="mailto:msklabs.org@gmail.com" class="contact-email-link" style="color:#38bdf8;">msklabs.org@gmail.com</a></p>
+        <h2>3. Advertising & Third-Party Services (Google AdMob / AdSense)</h2>
+        <p>Third-party vendors, including Google, use cookies and Advertising IDs to serve ads based on user interactions.</p>
+        <p>Users may manage advertising preferences via <a href="https://www.google.com/settings/ads" target="_blank" style="color:#38bdf8; text-decoration: underline;">Google Ads Settings</a>.</p>
+
+        <h2>4. Data Deletion & Contact</h2>
+        <p>Users retain full rights to wipe application data locally or request support via our <a href="destek.html" style="color:#38bdf8; text-decoration: underline;">Support Desk</a> or by emailing <a href="mailto:msklabs.org@gmail.com" style="color:#38bdf8;">msklabs.org@gmail.com</a>.</p>
       </div>
 
       <div class="lang-ar">
         <h2>1. معلومات عامة</h2>
-        <p>تولي MSK Labs أهمية قصوى لخصوصية وأمان البيانات الشخصية لمستخدمينا. تقتضي سياسة الخصوصية هذه توضيح كيفية التعامل مع المعلومات في موقعنا وتطبيقاتنا.</p>
-        <h2>2. جمع البيانات واستخدامها</h2>
-        <p>تطبيقاتنا لا تبيع ولا تشارك بياناتك الشخصية مع أي طرف ثالث.</p>
-        <h2>3. الاتصال بنا</h2>
-        <p>إذا كانت لديك أي أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر البريد الإلكتروني: <a href="mailto:msklabs.org@gmail.com" style="color:#38bdf8;">msklabs.org@gmail.com</a></p>
+        <p>تولي MSK Labs أولوية قصوى لخصوصية المستخدمين وأمان بياناتهم.</p>
+        <h2>2. أذونات التطبيق واستخدام البيانات</h2>
+        <div class="permissions-table-wrapper">
+          <table class="permissions-table" id="permissionsTableAr">
+            <thead>
+              <tr>
+                <th>الإذن / نوع البيانات</th>
+                <th>غرض الاستخدام</th>
+                <th>موقع التخزين</th>
+              </tr>
+            </thead>
+            <tbody id="permissionsTbodyAr">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+        <h2>3. التواصل والدعم</h2>
+        <p>لأي استفسار تواصل معنا عبر البريد الإلكتروني: <a href="mailto:msklabs.org@gmail.com" style="color:#38bdf8;">msklabs.org@gmail.com</a></p>
       </div>
     </div>
 
-        <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="site-footer">
       <div class="footer-links">
-        <a href="index.html">
-          <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
-        </a> |
-        <a href="about.html">
-          <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span>
-        </a> |
-        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> | <a href="contact.html">
-          <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">الاتصال</span>
-        </a> |
-        <a href="who-we-are.html">
-          <span class="lang-tr">Biz Kimiz</span><span class="lang-en">Who We Are</span><span class="lang-ar">من نكون</span>
-        </a> |
-        <a href="faq.html">
-          <span class="lang-tr">SSS</span><span class="lang-en">FAQ</span><span class="lang-ar">الأسئلة الشائعة</span>
-        </a> |
-        <a href="privacy.html">
-          <span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span>
-        </a>
+        <a href="index.html"><span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a> |
+        <a href="about.html"><span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">من نحن</span></a> |
+        <a href="destek.html"><span class="lang-tr">Destek & Talep</span><span class="lang-en">Support & Feedback</span></a> |
+        <a href="contact.html"><span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span></a> |
+        <a href="who-we-are.html"><span class="lang-tr">Biz Kimiz</span><span class="lang-en">Who We Are</span><span class="lang-ar">من نكون</span></a> |
+        <a href="privacy.html"><span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span></a>
       </div>
       <div class="copyright-text">
         © 2026 MSK Labs. All rights reserved.
@@ -138,7 +319,66 @@
 </div>
 
 <script>
-  var SITE_CONFIG = { contactEmail: "msklabs.org@gmail.com" };
+  // App Dynamic Database & Permissions Data Engine
+  const APPS_CONFIG = {
+    'haydinamaza': {
+      name: 'HaydiNamaza',
+      icon: '🕌',
+      permissions: [
+        { name: 'Konum İzni (GPS)', purpose: 'Namaz vakitlerinin ve kıble açısının doğru hesaplanması', storage: 'Cihaz İçi Anlık (Sunucuya Kaydedilmez)' },
+        { name: 'Bildirim İzni', purpose: 'Ezan ve namaz vakit hatırlatma alarmlarının çalması', storage: 'Yerel Cihaz Hafızası' },
+        { name: 'Arka Plan Çalışma', purpose: 'Vakit geldiğinde ezan sesinin zamanında tetiklenmesi', storage: 'Cihaz Sistem Servisi' }
+      ]
+    },
+    'rekatsay': {
+      name: 'RekatSay',
+      icon: '📿',
+      permissions: [
+        { name: 'Mesafe Sensörü (Proximity)', purpose: 'Secde esnasında rekat ve secde sayısının otomatik algılanması', storage: 'Geçici Cihaz RAM' },
+        { name: 'Titreşim İzni', purpose: 'Secde tamamlandığında kullanıcıya dokunsal geri bildirim', storage: 'Cihaz Donanımı' }
+      ]
+    },
+    'emekli': {
+      name: 'Emekli Sayaç',
+      icon: '⏳',
+      permissions: [
+        { name: 'Yerel Depolama (SQLite/Storage)', purpose: 'Emeklilik tarihi ve maaş hesaplama tercihlerinizin saklanması', storage: 'Cihaz İçi Hafıza' },
+        { name: 'Bildirim İzni', purpose: 'Emeklilik şafak sayar günlük hatırlatmaları', storage: 'Yerel Cihaz Hafızası' }
+      ]
+    },
+    'enyakin': {
+      name: 'En Yakın',
+      icon: '📍',
+      permissions: [
+        { name: 'Konum İzni (GPS)', purpose: 'Etrafınızdaki en yakın nöbetçi eczane, cami ve hizmetlerin bulunması', storage: 'Anlık Cihaz İçi (Sunucuya Gönderilmez)' }
+      ]
+    },
+    'deskpilot': {
+      name: 'DeskPilot',
+      icon: '🖥️',
+      permissions: [
+        { name: 'Saha/Kullanıcı Ayarları', purpose: 'Masaüstü kısayolları ve kullanıcı tercihleri', storage: 'Yerel Diskte Saklanır' }
+      ]
+    },
+    'gcpiluyari': {
+      name: 'GCP İl Uyarı',
+      icon: '⚠️',
+      permissions: [
+        { name: 'Bildirim İzni', purpose: 'Acil durum ve il bazlı hava/afet uyarılarının anlık iletilmesi', storage: 'Yerel Cihaz Hafızası' }
+      ]
+    }
+  };
+
+  // Fallback for unknown / generic apps
+  const DEFAULT_APP = {
+    name: 'MSK Labs Genel Uygulama',
+    icon: '📱',
+    permissions: [
+      { name: 'Yerel Depolama (Local Storage)', purpose: 'Uygulama içi ayarlar ve tercihlerinizin saklanması', storage: 'Yerel Cihaz Hafızası' },
+      { name: 'Anonim Sistem Bilgisi', purpose: 'Uygulama performans ve hata durumlarının tespiti', storage: 'Anonimleştirilmiş Sistem Logu' }
+    ]
+  };
+
   function setLang(lang) {
     if (!lang) lang = 'tr';
     try { localStorage.setItem('user_lang', lang); } catch(e) {}
@@ -148,12 +388,53 @@
       else btn.classList.remove('active');
     });
   }
+
+  // Initialize Dynamic Engine
   (function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var langParam = urlParams.get('lang');
-    var savedLang = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const appId = (urlParams.get('app') || '').toLowerCase().trim();
+    const appVer = urlParams.get('ver') || '1.0.0';
+    const appOs = (urlParams.get('os') || 'Mobil').toUpperCase();
+    const langParam = urlParams.get('lang');
+    let savedLang = null;
     try { savedLang = localStorage.getItem('user_lang'); } catch(e) {}
+    
     setLang(langParam || savedLang || 'tr');
+
+    // Get App Config or Fallback
+    const appData = APPS_CONFIG[appId] || DEFAULT_APP;
+
+    // Render Badge UI
+    document.getElementById('appNameText').innerText = appData.name;
+    document.getElementById('appIconBox').innerText = appData.icon;
+    document.getElementById('appVerText').innerText = appVer;
+    document.getElementById('appOsText').innerText = appOs;
+
+    // Update Holder Texts
+    document.querySelectorAll('.app-name-holder').forEach(el => {
+      el.innerText = appData.name;
+    });
+
+    // Render Permissions Tables
+    function renderTable(tbodyId) {
+      const tbody = document.getElementById(tbodyId);
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      appData.permissions.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = 
+          <td><strong></strong></td>
+          <td></td>
+          <td><span style="color:#38bdf8;"></span></td>
+        ;
+        tbody.appendChild(tr);
+      });
+    }
+
+    renderTable('permissionsTbodyTr');
+    renderTable('permissionsTbodyEn');
+    renderTable('permissionsTbodyAr');
+
   })();
 </script>
 

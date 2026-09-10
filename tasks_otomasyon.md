@@ -44,11 +44,11 @@ Uygulama açılırken (Splash/Main Screen):
 ### 📌 FAZ 1: Yasal & Kurumsal Temeller (Uygulama Boyutunu Düşürme)
 
 #### Adım 1: Dinamik Gizlilik Politikası & Kullanım Şartları Motoru (privacy.html)
-- [ ] 1.1 privacy.html temel modern duyarlı (responsive) şablonunun oluşturulması.
-- [ ] 1.2 URL parametresinden (?app=...&ver=...&os=...&lang=...) uygulama adı, versiyon ve dil bilgisinin dinamik okunması.
-- [ ] 1.3 Uygulamalara özel izinler tablosunun (Konum, Bildirim, Depolama, Kamera vb.) dinamik yükleme mimarisi (JSON/Data-config).
-- [ ] 1.4 Çoklu dil desteği (TR / EN / AR) ve otomatik Google Play / App Store yasal standart uyumu.
-- [ ] 1.5 Yazdırılabilir / PDF çıktı alınabilir temiz görünüm seçeneği (@media print).
+- [x] 1.1 privacy.html temel modern duyarlı (responsive) şablonunun oluşturulması.
+- [x] 1.2 URL parametresinden (?app=...&ver=...&os=...&lang=...) uygulama adı, versiyon ve dil bilgisinin dinamik okunması.
+- [x] 1.3 Uygulamalara özel izinler tablosunun (Konum, Bildirim, Depolama, Kamera vb.) dinamik yükleme mimarisi (JSON/Data-config).
+- [x] 1.4 Çoklu dil desteği (TR / EN / AR) ve otomatik Google Play / App Store yasal standart uyumu.
+- [x] 1.5 Yazdırılabilir / PDF çıktı alınabilir temiz görünüm seçeneği (@media print).
 
 ---
 
