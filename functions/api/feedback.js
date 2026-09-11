@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Cloudflare Pages Function - Destek & Talep API Endpoint
  * URL: https://msklabs.org/api/feedback
  */
@@ -64,7 +64,7 @@ export async function onRequestPost(context) {
     }
 
     // 2. Google Sheets Entegrasyonu (Otomatik E-Tabloya Satır Ekleme)
-    const sheetsUrl = env?.GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/AKfycbxgq4DYnnr8DXIzaW3YZ1Pbt4N2k1nwMejgbjoK85LvRdB7JqD5VWZkbvPfjaui7DwQJw/exec';
+    const sheetsUrl = env?.GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/AKfycbwwWuURK3MrUez1h7HwF6dVKeggD7CPgCB7dE82hh7_YTXKmgUdBwnb2JO65SmQD-AVYw/exec';
     
     try {
       await fetch(sheetsUrl, {

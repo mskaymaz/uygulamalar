@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MSK Labs - Master Configuration & Central Settings
  * Tüm web modülleri ve istemci uç noktaları bu konfigürasyon objesini okur.
  * Master Central Configuration object consumed across all web modules.
@@ -7,7 +7,7 @@ const SITE_CONFIG = {
   siteName: "MSK Labs",
   siteUrl: "https://msklabs.org",
   contactEmail: "msklabs.org@gmail.com",
-  googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbx_placeholder/exec",
+  googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbwwWuURK3MrUez1h7HwF6dVKeggD7CPgCB7dE82hh7_YTXKmgUdBwnb2JO65SmQD-AVYw/exec",
   adminPin: "175",
   version: "1.0.0",
   apps: {
