@@ -69,12 +69,62 @@
     });
   }
 
+  // 3. Centralized Dark Mode Theme Manager
+  function initTheme() {
+    var savedTheme = localStorage.getItem('user_theme');
+    if (!savedTheme) {
+      savedTheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    applyTheme(savedTheme);
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (document.body) document.body.classList.add('dark-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (document.body) document.body.classList.remove('dark-theme');
+    }
+    updateThemeToggleBtn(theme);
+  }
+
+  window.toggleTheme = function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    var nextTheme = (current === 'dark') ? 'light' : 'dark';
+    try { localStorage.setItem('user_theme', nextTheme); } catch(e) {}
+    applyTheme(nextTheme);
+  };
+
+  function updateThemeToggleBtn(theme) {
+    var btn = document.getElementById('themeToggleBtn');
+    if (!btn) {
+      var langSwitcher = document.querySelector('.lang-switcher');
+      if (langSwitcher) {
+        btn = document.createElement('button');
+        btn.id = 'themeToggleBtn';
+        btn.onclick = window.toggleTheme;
+        btn.style.cssText = 'background: transparent; border: 1px solid #cbd5e1; border-radius: 8px; padding: 2px 7px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;';
+        langSwitcher.appendChild(btn);
+      }
+    }
+    if (btn) {
+      btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      btn.title = theme === 'dark' ? 'Açık Mod / Light Mode' : 'Koyu Mod / Dark Mode';
+    }
+  }
+
+  // Pre-DOM theme apply
+  initTheme();
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
+      initTheme();
       renderFooter();
       highlightActiveTopNav();
     });
   } else {
+    initTheme();
     renderFooter();
     highlightActiveTopNav();
   }

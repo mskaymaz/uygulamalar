@@ -54,3 +54,9 @@ MSK Labs is developed and maintained by a single founder working alongside an AI
 - [x] Aktif sayfa vurgulamasının ve "Uygulamalarımız" linkinin çalıştığını doğrula.
 - [x] Bizce ve Anıltılar makale okuma modunda (Reader View) dil değişiminin sayfadan atmadan tüm başlık, içerik, TTS ve navigasyon verilerini canlı dönüştürmesini sağla.
 - [x] `git add .` ve `git commit` komutları ile yerel depoya kaydet (**Git push yapılmayacak**).
+
+### Faz 5: Koyu Tema (Dark Mode) Mimarisi ve CSS Değişkenleri Entegrasyonu
+- [x] `assets/css/global.css` içerisinde `:root` ve `[data-theme="dark"]` CSS değişkenlerini tanımla.
+- [x] `assets/js/layout.js` bileşeninde `initTheme()` ve `toggleTheme()` fonksiyonlarını oluştur, tema butonunu header dil seçicisi yanına ekle.
+- [x] `localStorage.getItem('user_theme')` entegrasyonu ile sayfa geçişlerinde tema tercihini koru.
+- [x] Tarayıcıda Açık/Koyu tema geçişlerini ve kontrast oranlarını test et.

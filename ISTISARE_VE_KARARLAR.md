@@ -202,3 +202,26 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 - **Otomatik Aktif Menü Vurgulama (Active Link Highlighting):** `layout.js`, aktif URL yoluna göre menüdeki ilgili linke `.active` stilini otomatik olarak uygular.
 - **Dinamik Sosyal Medya & SEO Etiketleri (Social OpenGraph Meta):** Dinamik uygulama sayfalarında title, description ve `og:image` verileri WhatsApp ve X paylaşım kartları için otomatik oluşturulur.
 - **SEO & FOUC Guard:** `<header id="site-header">` ve `<footer id="site-footer">` semantik etiketleri muhafaza edilerek arama motoru taranabilirliği ve miktar kaybı olmadan görünüm sağlanır.
+
+---
+
+## 🌙 10. KOYU TEMA (DARK MODE) MİMARİSİ VE STİL İLKELERİ
+## 🌙 10. DARK THEME ARCHITECTURE & COLOR SYSTEM SPECIFICATIONS
+
+### 📌 10.1 Açık Tema %10-15 Zemin Doygunluk İlkesi / Light Mode 15% Surface Tint Rule
+* **Türkçe:** Açık Tema (Default Light Mode) modunda hiçbir kart, banner, bildirim kutusu veya konteyner %10-15 doygunluğu geçen koyu zemin rengi kullanamaz. Tüm zemin renkleri açık gri/mavi tonlarında (`#f8fafc`, `#f1f5f9`) ve ince gri çerçeveli (`#cbd5e1`) tutulacak, metinler her zaman yüksek kontrastlı okunaklı tonlarda (`#0f172a`, `#334155`) olacaktır.
+* **English:** In default Light Mode, no container, card, or banner shall use solid dark backgrounds exceeding 10-15% surface tint. All container surfaces must use soft light tones (`#f8fafc`, `#f1f5f9`) with subtle borders (`#cbd5e1`), ensuring high-contrast readable typography (`#0f172a`, `#334155`).
+
+### 🎨 10.2 CSS Değişkenleri (CSS Custom Property Tokens) Mimarisi
+* **Türkçe:** Tüm renk tanımlamaları `global.css` içerisindeki `:root` (Açık Tema) ve `[data-theme="dark"]` / `body.dark-theme` (Koyu Tema) CSS değişkenlerinden çekilir:
+  - `--bg-page`: Sayfa arka plan rengi (`#f8fafc` ➔ `#0f172a`)
+  - `--bg-card`: Kart ve kutu zemin rengi (`#ffffff` ➔ `#1e293b`)
+  - `--bg-surface`: İç yüzey zemin rengi (`#f1f5f9` ➔ `#334155`)
+  - `--border-color`: Çerçeve çizgisi (`#cbd5e1` ➔ `#475569`)
+  - `--text-main`: Ana metin rengi (`#0f172a` ➔ `#f8fafc`)
+  - `--text-muted`: İkincil açıklama metin rengi (`#475569` ➔ `#cbd5e1`)
+* **English:** All visual color definitions inherit from centralized CSS Custom Properties defined on `:root` (Light Theme) and `[data-theme="dark"]` / `body.dark-theme` (Dark Theme) in `global.css`.
+
+### 🔄 10.3 Tek Merkezden Otomatik Tema Yönetimi (`assets/js/layout.js`)
+* **Türkçe:** Kullanıcının tema tercihi (`light` veya `dark`) `localStorage.getItem('user_theme')` anahtarında saklanır ve `layout.js` tarafından sayfa yüklenirken `document.documentElement` etiketine `data-theme` özniteliği enjekte edilir. Gelecekte eklenecek 500+ sayfa tek bir satır ekstra kod yazılmadan otomatik olarak Koyu/Açık Tema moduna uyum sağlar.
+* **English:** Theme preference (`light` or `dark`) is persisted in `localStorage.getItem('user_theme')`. `assets/js/layout.js` injects the `data-theme` attribute on `document.documentElement` upon DOM load, ensuring all current and future 500+ pages instantly toggle between Light and Dark modes without individual file maintenance.

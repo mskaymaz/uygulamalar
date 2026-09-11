@@ -2,24 +2,64 @@
    MSK LABS - GLOBAL DESIGN SYSTEM & STYLESHEET
    ====================================================== */
 
+:root {
+  /* Light Theme Tokens (Default) */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-surface: #f1f5f9;
+  --bg-surface-hover: #e2e8f0;
+  --border-color: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --accent-color: #0284c7;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"], body.dark-theme {
+  /* Dark Theme Tokens */
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-surface: #334155;
+  --bg-surface-hover: #475569;
+  --border-color: #334155;
+  --border-subtle: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
+  --primary-color: #3b82f6;
+  --primary-hover: #60a5fa;
+  --accent-color: #38bdf8;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
 /* Genel Ayarlar */
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+  background-color: var(--bg-page);
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #333;
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .layout-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px; /* Yan reklamların orta bloğa olabilecek en yakın mesafede durması için 8px */
+  gap: 8px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -1197,4 +1237,111 @@ body.lang-ar .static-page-card {
   display: block !important;
   margin: 0 auto !important;
   border-radius: 12px !important;
+}
+
+/* ======================================================
+   DARK THEME SYSTEM OVERRIDES
+   ====================================================== */
+[data-theme="dark"], body.dark-theme {
+  background-color: var(--bg-page) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .portfolio-card,
+[data-theme="dark"] .support-card,
+[data-theme="dark"] .static-page-card,
+[data-theme="dark"] .app-hero-card,
+[data-theme="dark"] .reader-view {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] .static-page-card p,
+[data-theme="dark"] .static-page-card li {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .top-main-nav a,
+[data-theme="dark"] .footer-links-row1 a,
+[data-theme="dark"] .footer-links-row2 a,
+[data-theme="dark"] .copyright-line {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .top-main-nav a:hover,
+[data-theme="dark"] .footer-links-row1 a:hover,
+[data-theme="dark"] .footer-links-row2 a:hover {
+  color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .app-badge-banner {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .app-badge-icon {
+  background: var(--bg-card) !important;
+  color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .app-badge-title {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .app-badge-meta {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .app-badge-tag {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .post-card,
+[data-theme="dark"] .post-list-item {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .post-title,
+[data-theme="dark"] .list-item-title {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .post-excerpt {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .tts-player-bar {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .btn-back-to-list {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
 }
