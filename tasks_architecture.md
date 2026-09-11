@@ -1,0 +1,55 @@
+# 📋 MSK Labs - Modüler Mimarî Görev Listesi & Yol Haritası
+# 📋 MSK Labs - Modular Architecture Roadmap & Task Checklist
+
+> **Doküman Tarihi / Date:** 11 Eylül 2026 / September 11, 2026  
+> **Durum / Status:** 🚀 Aktif Uygulama / Active Execution  
+
+---
+
+## 🏛️ MIMARI KARAR ÖZETİ / ARCHITECTURAL DECISION SUMMARY
+
+### 🇹🇷 Türkçe: Tek Kişilik Geliştirici + AI İşbirliği Modeli
+MSK Labs tek geliştirici ve AI yardımcısı ile yönetilmektedir. 500+ sayfalık gelecekteki ölçeklenmede her sayfada ayrı ayrı HTML düzenlemesi yapmak sürdürülemez. Web sitemizdeki tüm sayfalar 2 ana kategoriye ayrılmıştır:
+1. **Tip 1 - Kurumsal Çekirdek Sayfalar (Static Core Pages):** `index.html`, `about.html`, `destek.html`, `contact.html`, `who-we-are.html`, `faq.html`, `privacy.html`, `terms.html`. Sabit içeriklidir, ancak Header (Logo, Dil Butonları, Üst Menü) ve 2 Satırlı Footer bağlantıları `assets/js/layout.js` bileşeni tarafından dinamik olarak yüklenir.
+2. **Tip 2 - Dinamik İçerik & Şablon Sayfaları (Dynamic Content & Template Pages):**
+   - **2A: Uygulama Şablonu (App Showcase & Doc Template):** Uygulama tanıtım ve kullanım sayfaları (`haydinamaza`, `deskpilot` vb.). Tüm verileri `assets/js/apps-data.js` merkezi veri dosyasından çeker.
+   - **2B: Yayın & Makale Şablonu (Blog & Memoir Template):** Bizce ve Anıltılar yayınları (`blog/blog.html` + `blog/blog.js`).
+
+### 🇬🇧 English: Solo Developer + AI Operational Policy
+MSK Labs is developed and maintained by a single founder working alongside an AI coding assistant. Manual, file-by-file edits across 500+ future pages are strictly prohibited. The system adopts a two-tier architecture:
+1. **Type 1 - Static Core Pages:** Main institutional pages. Header (Logo, Language Switcher, Nav) and 2-Row Footer are injected dynamically via `assets/js/layout.js`.
+2. **Type 2 - Dynamic Content & Template Pages:**
+   - **2A: App Showcase & Doc Template:** App overview pages (`haydinamaza`, `deskpilot`, etc.) consuming structured data from `assets/js/apps-data.js`.
+   - **2B: Publishing & Memoir Template:** Blog articles and memoirs managed via `blog/blog.html` + `blog/blog.js`.
+
+---
+
+## 📋 UYGULAMA ADIMLARI VE GÖREV LİSTESİ / TASK CHECKLIST
+
+### Faz 1: Merkezi Layout Bileşeninin (`assets/js/layout.js`) Oluşturulması
+- [x] `assets/js/layout.js` dosyasını oluştur.
+- [x] Üst Header html yapısını (`MSKLabsLogo.svg`, 55px logo, 900px max-width alignment, %20 küçültülmüş dil butonları, `gap: 10px`) merkezi değişkene tanımla.
+- [x] Üst Alt Navigasyon menüsünü ("Anıltılar"dan sonra "Uygulamalarımız" linki eklenmiş olarak) tanımla.
+- [x] 2 Satırlı Alt Footer yapısını (1. Satır: Aktif/Ana Sayfalar, 2. Satır: Destek/Yasal Sayfalar) tanımla.
+- [x] Otomatik Aktif Sayfa Vurgulama (`active link highlighting`) algoritmasını ekle.
+- [x] Dinamik Sosyal Medya (OpenGraph `og:title`, `og:image`) güncelleyici fonksiyon altyapısını hazırla.
+
+### Faz 2: Tip 1 (Kurumsal Çekirdek) Sayfaların Modülerleştirilmesi
+- [x] `index.html` dosyasına `<header id="site-header"></header>`, `<footer id="site-footer"></footer>` ve `layout.js` entegre et, içteki tekrar eden kodları temizle.
+- [x] `about.html` dosyasına entegre et.
+- [x] `destek.html` dosyasına entegre et.
+- [x] `contact.html` dosyasına entegre et.
+- [x] `who-we-are.html` dosyasına entegre et.
+- [x] `faq.html` dosyasına entegre et.
+- [x] `privacy.html` dosyasına entegre et.
+- [x] `terms.html` dosyasına entegre et.
+
+### Faz 3: Tip 2A (Uygulama Veri Motoru & Şablonu) Yapısının Kurulması
+- [x] `assets/js/apps-data.js` dosyasını oluştur (Haydi Namaza, DeskPilot, En Yakın Camii, Emekli Sayaç, GÇP İl Uyarı, RekatSay verilerini ekle).
+- [x] `app.html` genel dinamik uygulama şablonunu oluştur.
+- [x] Sitedeki uygulama sayfalarını modüler `layout.js` ve dinamik `apps-data.js` altyapısına bağla.
+
+### Faz 4: Test, Doğrulama ve Yerel Git Commit
+- [x] Tarayıcıda `index.html`, `haydinamaza.html`, `destek.html`, `blog/blog.html` sayfalarını test et, konsolda 0 hata olduğunu doğrula.
+- [x] Aktif sayfa vurgulamasının ve "Uygulamalarımız" linkinin çalıştığını doğrula.
+- [ ] `git add .` ve `git commit` komutları ile yerel depoya kaydet (**Git push yapılmayacak**).

@@ -180,3 +180,25 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 ### 🔗 8.4 Blogger (Blogspot) Trafik Hunisi & SEO Stratejisi
 * Blogger'a yazının tamamı konulmaz (İkiz içerik cezasını engellemek için).
 * Sadece ilk 2-3 vurucu paragraf yer alır; altına 👉 [Yazının Tamamını Okumak ve Sesli Dinlemek İçin MSK Labs Bizce'ye Tıklayın →] butonu eklenerek 100% organik trafik msklabs.org/blog/blog.html adresine çekilir.
+
+---
+
+## 🏛️ 9. MODÜLER SAYFA VE ŞABLON MİMARİSİ KARARI
+## 🏛️ 9. MODULAR PAGE & TEMPLATE ARCHITECTURE DECISION
+
+### 📌 9.1 Tek Kişilik Geliştirici + AI İşbirliği İlkesi / Solo Developer + AI Operational Policy
+* **Türkçe:** MSK Labs bünyesinde tek bir kurucu/geliştirici ve AI asistanı bulunmaktadır. 500+ sayfa ölçeğine ulaşıldığında menü veya kod güncellemelerinin tek tek HTML dosyalarına yapılması sürdürülemez. Tüm sayfa yapıları modüler hale getirilecek, tek bir merkezi JavaScript bileşeninden (`assets/js/layout.js`) beslenecektir.
+* **English:** MSK Labs operates with a single founder/developer partnered with an AI assistant. Maintaining 500+ static HTML files individually for header/footer updates is strictly prohibited. The repository adopts a component-driven architecture powered by a single central layout injector (`assets/js/layout.js`).
+
+### 📐 9.2 Sayfa Sınıflandırması / Page Classification Taxonomy
+1. **Tip 1: Kurumsal Çekirdek Sayfalar (Static Core Pages):**
+   - **Kapsam / Scope:** `index.html`, `about.html`, `destek.html`, `contact.html`, `who-we-are.html`, `faq.html`, `privacy.html`, `terms.html`.
+   - **Yapı / Architecture:** Sabit gövde içeriği tutarlar. Header (Logo, Dil Değiştirici, Üst Menü) ve 2 Satırlı Footer bağlantıları `layout.js` tarafından otomatik olarak enjekte edilir.
+2. **Tip 2: Dinamik İçerik & Şablon Sayfaları (Dynamic Content & Template Pages):**
+   - **Sub-category 2A - Uygulama Şablonu (App Showcase & Doc Template):** `haydinamaza`, `deskpilot`, `enyakin`, `emekli`, `gcpiluyari`, `rekatsay` ve tüm yeni uygulamalar. Tüm içerik `assets/js/apps-data.js` veri dosyasından beslenir.
+   - **Sub-category 2B - Yayın & Makale Şablonu (Publishing & Memoir Template):** Bizce ve Anıltılar makaleleri. `blog/blog.html` ve `blog/blog.js` modüler altyapısı üzerinden dinamik olarak sunulur.
+
+### ⚡ 9.3 Otomatik Yetenekler / Automated Features & Quality Guards
+- **Otomatik Aktif Menü Vurgulama (Active Link Highlighting):** `layout.js`, aktif URL yoluna göre menüdeki ilgili linke `.active` stilini otomatik olarak uygular.
+- **Dinamik Sosyal Medya & SEO Etiketleri (Social OpenGraph Meta):** Dinamik uygulama sayfalarında title, description ve `og:image` verileri WhatsApp ve X paylaşım kartları için otomatik oluşturulur.
+- **SEO & FOUC Guard:** `<header id="site-header">` ve `<footer id="site-footer">` semantik etiketleri muhafaza edilerek arama motoru taranabilirliği ve miktar kaybı olmadan görünüm sağlanır.
