@@ -628,10 +628,13 @@ body.lang-ar { direction: rtl; }
   flex-shrink: 0;
 }
 
-/* Üst Sabit Header (site-header) Bulunan İç Sayfalarda (Bizce, Anıltılar, Blog ve Uygulama Detay) Reklam Başlangıcı */
+/* Üst Sabit Header (site-header / bizce-header) Bulunan İç Sayfalarda (Bizce, Anıltılar, Blog ve Uygulama Detay) Reklam Başlangıcı */
 body:has(.site-header) .desktop-ad,
+body:has(.bizce-header) .desktop-ad,
 .site-header ~ .layout-wrapper .desktop-ad,
-.site-header ~ nav ~ .layout-wrapper .desktop-ad {
+.bizce-header ~ .layout-wrapper .desktop-ad,
+.site-header ~ nav ~ .layout-wrapper .desktop-ad,
+.bizce-header ~ nav ~ .layout-wrapper .desktop-ad {
   margin-top: 0;
 }
 
