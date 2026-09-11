@@ -7,7 +7,7 @@ const SITE_CONFIG = {
   siteName: "MSK Labs",
   siteUrl: "https://msklabs.org",
   contactEmail: "msklabs.org@gmail.com",
-  googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbwwWuURK3MrUez1h7HwF6dVKeggD7CPgCB7dE82hh7_YTXKmgUdBwnb2JO65SmQD-AVYw/exec",
+  googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbxoT1OGEkYZ_1MJXv6XErJYjVe26qqtr2rZGIXiDXxbNG9gIzabfhWsPJhjInTlG3_NQw/exec",
   adminPin: "175",
   version: "1.0.0",
   apps: {

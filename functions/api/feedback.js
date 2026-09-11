@@ -64,7 +64,7 @@ export async function onRequestPost(context) {
     }
 
     // 2. Google Sheets Entegrasyonu (Otomatik E-Tabloya Satır Ekleme)
-    const sheetsUrl = env?.GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/AKfycbwwWuURK3MrUez1h7HwF6dVKeggD7CPgCB7dE82hh7_YTXKmgUdBwnb2JO65SmQD-AVYw/exec';
+    const sheetsUrl = env?.GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/AKfycbxoT1OGEkYZ_1MJXv6XErJYjVe26qqtr2rZGIXiDXxbNG9gIzabfhWsPJhjInTlG3_NQw/exec';
     
     try {
       await fetch(sheetsUrl, {
