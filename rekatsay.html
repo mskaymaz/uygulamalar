@@ -182,6 +182,52 @@
 </head>
 <body class="lang-tr">
 
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="site-header-title-group">
+      <h1><span class="lang-tr">📿 REKATSAY</span><span class="lang-en">📿 REKATSAY</span><span class="lang-ar">📿 عداد الركعات</span></h1>
+      <p><span class="lang-tr">İnteraktif Takip Aracı</span><span class="lang-en">Interactive Tracking Tool</span><span class="lang-ar">أداة تتبع تفاعلية</span></p>
+    </div>
+
+    <a href="index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
+      <img src="img/MSKLabsLogo.svg" alt="MSK Labs Logo" class="site-header-logo">
+    </a>
+
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+  </div>
+</header>
+
+<!-- Standart Ust Ana Navigasyon Menusu -->
+<nav class="top-main-nav" style="text-align: center; margin: 1rem 0 1.25rem 0; font-size: 0.88rem; font-weight: 600; color: #475569;">
+  <a href="index.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="blog/blog.html?type=bizce" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Bizce</span><span class="lang-en">Bizce</span><span class="lang-ar">بيزجه</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="blog/blog.html?type=anilts" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Anıltılar</span><span class="lang-en">Anıltılar</span><span class="lang-ar">Anıltılar</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="about.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">عن الشركة</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="destek.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Destek &amp; Talep</span><span class="lang-en">Support &amp; Feedback</span><span class="lang-ar">الدعم والطلبات</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="contact.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span>
+  </a>
+</nav>
+
 <div class="layout-wrapper">
 
   <!-- Masaüstü Sol Reklam -->
@@ -191,41 +237,6 @@
 
   <!-- Ana Detay İçeriği -->
   <div class="portfolio-container">
-    
-    <!-- Üst Bar: Hızlı Erişim Menüsü & Dil Seçici -->
-    <div class="top-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
-      <nav class="top-main-nav" style="text-align: center; margin: 0 auto; font-size: 0.88rem; font-weight: 600; color: #475569;">
-        <a href="index.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
-        </a>
-        <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
-        <a href="blog/blog.html?type=bizce" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">Bizce</span><span class="lang-en">Bizce</span><span class="lang-ar">بيزجه</span>
-        </a>
-        <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
-        <a href="blog/blog.html?type=anilts" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">Anıltılar</span><span class="lang-en">Anıltılar</span><span class="lang-ar">Anıltılar</span>
-        </a>
-        <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
-        <a href="about.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">عن الشركة</span>
-        </a>
-        <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
-        <a href="destek.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">Destek &amp; Talep</span><span class="lang-en">Support &amp; Feedback</span><span class="lang-ar">الدعم والطلبات</span>
-        </a>
-        <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
-        <a href="contact.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
-          <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span>
-        </a>
-      </nav>
-
-      <div class="lang-switcher" style="margin-bottom: 0;">
-        <button onclick="setLang('tr')" data-lang="tr" title="Türkçe">TR</button>
-        <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
-        <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
-      </div>
-    </div>
 
     <!-- Dil Destek Uyarısı & Çeviri Talebi Kutusu (Sadece EN ve AR dillerinde görünür) -->
     <div class="translation-request-box lang-en lang-ar">

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css?v=25">
+    <link rel="stylesheet" href="../assets/css/global.css?v=25">
     
     <style>
       /* Üst Navigasyon (Geri Dön & Dil) */
@@ -175,13 +175,59 @@
       }
     </style>
     <!-- MSK Labs Favicon & Kısayol İkonları -->
-    <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
-    <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/analytics.js"></script>
+    <link rel="icon" type="image/png" href="../img/MSKLabs_favicon.png">
+    <link rel="shortcut icon" href="../img/MSKLabs_favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../img/MSKLabs_favicon.png">
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/analytics.js"></script>
 </head>
 <body class="lang-tr">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="site-header-title-group">
+      <h1><span class="lang-tr">📱 HAYDİ NAMAZA</span><span class="lang-en">📱 HAYDI NAMAZA</span><span class="lang-ar">📱 حي على الصلاة</span></h1>
+      <p><span class="lang-tr">Mobil İbadet Rehberi</span><span class="lang-en">Mobile Worship Guide</span><span class="lang-ar">دليل العبادة</span></p>
+    </div>
+
+    <a href="../index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
+      <img src="../img/MSKLabsLogo.svg" alt="MSK Labs Logo" class="site-header-logo">
+    </a>
+
+    <div class="lang-switcher">
+      <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+      <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+      <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="../img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+    </div>
+  </div>
+</header>
+
+<!-- Standart Ust Ana Navigasyon Menusu -->
+<nav class="top-main-nav" style="text-align: center; margin: 1rem 0 1.25rem 0; font-size: 0.88rem; font-weight: 600; color: #475569;">
+  <a href="../index.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="../blog/blog.html?type=bizce" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Bizce</span><span class="lang-en">Bizce</span><span class="lang-ar">بيزجه</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="../blog/blog.html?type=anilts" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Anıltılar</span><span class="lang-en">Anıltılar</span><span class="lang-ar">Anıltılar</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="../about.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">عن الشركة</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="../destek.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">Destek &amp; Talep</span><span class="lang-en">Support &amp; Feedback</span><span class="lang-ar">الدعم والطلبات</span>
+  </a>
+  <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+  <a href="../contact.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+    <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span><span class="lang-ar">اتصل بنا</span>
+  </a>
+</nav>
 
 <div class="layout-wrapper">
 
@@ -193,21 +239,6 @@
   <!-- Ana Detay İçeriği -->
   <div class="portfolio-container">
     
-    <!-- Üst Bar: Geri Dönüş ve Dil Seçici -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">
-        <span class="lang-tr">← Portföye Dön</span>
-        <span class="lang-en">← Back to Portfolio</span>
-        <span class="lang-ar">العودة إلى المحفظة ←</span>
-      </a>
-
-      <div class="lang-switcher">
-        <button onclick="setLang('tr')" data-lang="tr" title="Türkçe">TR</button>
-        <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
-        <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
-      </div>
-    </div>
-
     <!-- Dil Destek Uyarısı & Çeviri Talebi Kutusu (Sadece EN ve AR dillerinde görünür) -->
     <div class="translation-request-box lang-en lang-ar">
       <div class="request-content">
