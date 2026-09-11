@@ -56,7 +56,20 @@
     footerEl.style.marginTop = '2.5rem';
   }
 
-  // 2. Safe Active Link Highlighter (DOM Mutation Only on ClassName)
+  // 2. Safe Active Link Highlighter & Nav Sync
+  function syncTopNav() {
+    var nav = document.querySelector('.top-main-nav');
+    if (!nav) return;
+    var html = nav.innerHTML;
+    if (html.indexOf('Uygulamalarımız') === -1 && html.indexOf('Our Apps') === -1) {
+      var aboutLink = nav.querySelector('a[href*="about.html"]');
+      if (aboutLink) {
+        var appLinkHTML = '<a href="' + basePath + 'index.html#apps" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;"><span class="lang-tr">Uygulamalarımız</span><span class="lang-en">Our Apps</span><span class="lang-ar">تطبيقاتنا</span></a> <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span> ';
+        aboutLink.insertAdjacentHTML('beforebegin', appLinkHTML);
+      }
+    }
+  }
+
   function highlightActiveTopNav() {
     var navLinks = document.querySelectorAll('.top-main-nav a, .site-subnav a');
     navLinks.forEach(function (link) {
@@ -120,11 +133,13 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       initTheme();
+      syncTopNav();
       renderFooter();
       highlightActiveTopNav();
     });
   } else {
     initTheme();
+    syncTopNav();
     renderFooter();
     highlightActiveTopNav();
   }

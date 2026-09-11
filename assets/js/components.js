@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
       <span class="lang-tr">Anıltılar</span><span class="lang-en">Anıltılar</span><span class="lang-ar">Anıltılar</span>
     </a>
     <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
+    <a href="${rel}index.html#apps" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
+      <span class="lang-tr">Uygulamalarımız</span><span class="lang-en">Our Apps</span><span class="lang-ar">تطبيقاتنا</span>
+    </a>
+    <span style="color: #cbd5e1; margin: 0 0.25rem;">|</span>
     <a href="${rel}about.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
       <span class="lang-tr">Hakkımızda</span><span class="lang-en">About Us</span><span class="lang-ar">عن الشركة</span>
     </a>
