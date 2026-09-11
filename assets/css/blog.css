@@ -92,10 +92,10 @@ body {
 .layout-wrapper {
   display: flex;
   justify-content: center;
-  max-width: 1300px;
+  max-width: 1180px;
   margin: 1.5rem auto;
   padding: 0 1rem;
-  gap: 1.5rem;
+  gap: 12px;
 }
 .main-content-area {
   flex: 1;

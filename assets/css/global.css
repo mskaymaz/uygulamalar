@@ -19,8 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 25px;
-  max-width: 1300px;
+  gap: 12px; /* Orta yapı ile yan reklamlar arası en fazla 10-15px (12px) */
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -651,8 +651,8 @@ body.lang-ar { direction: rtl; }
   height: 120px;
 }
 
-/* Mobil Telefon Duyarlılığı (2'li Yan Yana Düzlem) */
-@media (max-width: 1280px) {
+/* Masaüstü Yan Reklam Gizleme Breakpoint'i (1160px ve altı ekranlar) */
+@media (max-width: 1160px) {
   .desktop-ad {
     display: none;
   }
