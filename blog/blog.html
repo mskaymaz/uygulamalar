@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bizce - Teknolojiye, Hayata ve İnsanlığa Derin Bakış | MSK Labs</title>
-  <meta name="description" content="MSK Labs Bizce düşünce platformu. Teknoloji, hayat, bilim, insanlık ve etik değerler üzerine inceleme yazıları.">
+  <title>Bizce & Anıltılar - Teknolojiye, Hayata ve İnsanlığa Derin Bakış | MSK Labs</title>
+  <meta name="description" content="MSK Labs Bizce ve Anıltılar düşünce platformu. Teknoloji, hayat, bilim, insanlık, yaşanmış anılar ve tecrübe yazıları.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/global.css?v=42">
+  <link rel="stylesheet" href="../assets/css/global.css?v=45">
   
   <link rel="icon" type="image/png" href="../img/MSKLabs_favicon.png">
   <link rel="shortcut icon" href="../img/MSKLabs_favicon.png" type="image/x-icon">
@@ -67,7 +67,6 @@
       font-weight: 600;
     }
 
-    /* Center Logo +20% enlarged, tight vertical constraints */
     .bizce-center-logo-link {
       display: flex;
       align-items: center;
@@ -101,7 +100,6 @@
       color: var(--bizce-primary);
     }
 
-    /* Layout Wrapper with Side Ads */
     .layout-wrapper {
       display: flex;
       justify-content: center;
@@ -149,6 +147,16 @@
       background: var(--bizce-primary);
       color: #ffffff;
     }
+    .cat-pill-anilts {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+    .cat-pill-anilts.active {
+      background: #d97706;
+      color: #ffffff;
+      border-color: #d97706;
+    }
 
     /* Article Card Grid */
     .posts-grid {
@@ -180,6 +188,9 @@
       color: #ffffff;
       font-size: 2.8rem;
     }
+    .card-img-anilts {
+      background: linear-gradient(135deg, #d97706, #78350f) !important;
+    }
     .card-body {
       padding: 1.25rem;
       display: flex;
@@ -202,6 +213,10 @@
       border-radius: 6px;
       font-weight: 700;
       font-size: 0.75rem;
+    }
+    .post-tag-anilts {
+      background: #fef3c7;
+      color: #92400e;
     }
     .post-title {
       font-size: 1.15rem;
@@ -238,7 +253,6 @@
       font-weight: 600;
     }
 
-    /* Multi-Page Pagination Bar */
     .pagination-bar {
       display: flex;
       justify-content: center;
@@ -271,7 +285,6 @@
       border-color: var(--bizce-primary);
     }
 
-    /* Article Reader View */
     .reader-view {
       display: none;
       background: #ffffff;
@@ -302,7 +315,6 @@
       margin: 0 0 0.75rem 0;
     }
 
-    /* TTS Audio Bar */
     .tts-player-bar {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -394,18 +406,15 @@
 
 <header class="bizce-header">
   <div class="bizce-header-inner">
-    <!-- Left: Bizce Title -->
     <div class="bizce-title-group">
-      <h1>BİZCE</h1>
-      <p id="subSlogan">Teknolojiye, Hayata ve İnsanlığa Derin Bakış</p>
+      <h1>BİZCE & ANILTILAR</h1>
+      <p id="subSlogan">Teknolojiye, Hayata, İnsanlığa ve Anılara Derin Bakış</p>
     </div>
     
-    <!-- Center: Corporate Logo +20% Enlarged in tight vertical header -->
     <a href="../index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
       <img src="../img/MSKLabsLogo.svg" alt="MSK Labs Logo" class="bizce-header-logo">
     </a>
 
-    <!-- Right: Nav Links & Custom Arabic Button Language Switcher -->
     <div class="bizce-nav-right">
       <a href="../index.html" class="nav-link-btn">🏠 Ana Sayfa</a>
       <button onclick="showList()" class="nav-link-btn">📑 Tüm Yazılar</button>
@@ -421,33 +430,28 @@
 
 <div class="layout-wrapper">
 
-  <!-- Masaüstü Sol Reklam (120x300) - Standart Global CSS Yapısı -->
   <aside class="desktop-ad desktop-ad-left">
     <div class="ad-placeholder">Masaüstü Sol Reklam<br>(120x300)</div>
   </aside>
 
-  <!-- Main Content Area -->
   <main class="main-content-area">
 
-    <!-- List View Container -->
     <div id="listView">
 
-      <!-- Category Filter Toolbar -->
       <div class="filter-toolbar">
         <div class="category-pills">
-          <button class="cat-pill active">🌟 Tüm Yazılar (124)</button>
-          <button class="cat-pill">💻 Teknoloji</button>
-          <button class="cat-pill">🌍 İnsanlık & Yaşam</button>
-          <button class="cat-pill">🧠 Düşünce</button>
+          <button class="cat-pill active" onclick="filterPosts('all')">🌟 Tüm Yazılar</button>
+          <button class="cat-pill" onclick="filterPosts('tech')">💻 Teknoloji</button>
+          <button class="cat-pill" onclick="filterPosts('life')">🌍 İnsanlık & Yaşam</button>
+          <button class="cat-pill" onclick="filterPosts('thought')">🧠 Düşünce</button>
+          <button class="cat-pill cat-pill-anilts" onclick="filterPosts('anilts')">📖 Anıltılar (Anılar)</button>
         </div>
         <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;">Sayfa 1 / 12</span>
       </div>
 
       <div class="posts-grid" id="postsGrid">
-        <!-- Dynamic Posts Cards Injected Here -->
       </div>
 
-      <!-- Multi-Page Pagination Bar -->
       <div class="pagination-bar">
         <button class="page-num" style="color: #94a3b8;">« Önceki</button>
         <button class="page-num active">1</button>
@@ -460,7 +464,6 @@
 
     </div>
 
-    <!-- Article Reader Container -->
     <div id="readerView" class="reader-view">
       <button onclick="showList()" class="back-btn">← <span id="lblBack">Tüm Yazılara Dön</span></button>
       <div class="post-tag" id="readCategory">Kategori</div>
@@ -470,7 +473,6 @@
         <span id="readTime">⏱️ 5 dk okuma</span>
       </div>
 
-      <!-- TTS Audio Control Bar -->
       <div class="tts-player-bar">
         <div class="tts-header">
           <span>🔊 Sesli Okuma Motoru (Text-to-Speech)</span>
@@ -504,10 +506,8 @@
       </div>
 
       <article class="article-body" id="readContent">
-        <!-- Full Article Body -->
       </article>
 
-      <!-- Sayfa Altı Reklam Alanı (Bottom Banner) - Standart Global CSS -->
       <div class="infeed-ad-container" style="margin-top: 2.5rem;">
         <div class="ad-placeholder">Sayfa Altı Reklam Alanı (Bottom Banner)</div>
       </div>
@@ -515,7 +515,6 @@
 
   </main>
 
-  <!-- Masaüstü Sağ Reklam (120x300) - Standart Global CSS Yapısı -->
   <aside class="desktop-ad desktop-ad-right">
     <div class="ad-placeholder">Masaüstü Sağ Reklam<br>(120x300)</div>
   </aside>
@@ -525,13 +524,14 @@
 <script>
   var currentLang = 'tr';
   var currentPost = null;
+  var currentFilter = 'all';
   var synth = window.speechSynthesis;
   var currentUtterance = null;
 
-  /* 3 Clean Sample Articles with ~500, ~700, and ~800 Character Lengths */
   var blogPostsData = [
     {
       "id": 1,
+      "type": "bizce",
       "category": "Teknoloji & İnsanlık",
       "category_en": "Tech & Humanity",
       "category_ar": "التكنولوجيا والإنسانية",
@@ -539,23 +539,24 @@
       "readTime": "3 dk okuma",
       "icon": "🤖",
       "tr": {
-        "title": "MAKALE 1: Yapay Zeka Çağında İnsani Değerler (500 Karakter)",
-        "summary": "Teknolojinin sunduğu kolaylıklar ile insanın ahlaki sorumlulukları arasındaki dengeyi nasıl kuracağımıza dair örnek bir metin.",
-        "content": "<p>Günümüz dünyası, tarih boyunca görülmemiş bir teknolojik dönüşümün içerisinden geçiyor. Yapay zeka algoritmaları ve otomatik sistemler gündelik hayatımızın her alanını şekillendiriyor. Ancak bu hızlı gelişim beraberinde temel bir soruyu getiriyor: Teknoloji ilerlerken insani değerlerimizi nasıl koruyacağız? Geliştirdiğimiz yazılımlar sadece birer araçtır. Amaç insanın yaşam kalitesini artırmak ve faydalı işler üretmektir. Teknolojiyi insana hizmet eden etik bir araç olarak sunmak temel hedefimizdir.</p>"
+        "title": "MAKALE 1: Yapay Zeka Çağında İnsani Değerler",
+        "summary": "Teknolojinin sunduğu kolaylıklar ile insanın ahlaki sorumlulukları arasındaki dengeyi nasıl kuracağımıza dair inceleme.",
+        "content": "<p>Günümüz dünyası, tarih boyunca görülmemiş bir teknolojik dönüşümün içerisinden geçiyor. Yapay zeka algoritmaları ve otomatik sistemler gündelik hayatımızın her alanını şekillendiriyor. Ancak bu hızlı gelişim beraberinde temel bir soruyu getiriyor: Teknoloji ilerlerken insani değerlerimizi nasıl koruyacağız? Geliştirdiğimiz yazılımlar sadece birer araçtır. Amaç insanın yaşam kalitesini artırmak ve faydalı işler üretmektir.</p>"
       },
       "en": {
-        "title": "ARTICLE 1: Human Values in the Age of AI (500 Chars)",
-        "summary": "A sample text on how to balance technological convenience with human moral responsibilities.",
-        "content": "<p>Today's world is experiencing an unprecedented technological transformation. Artificial intelligence algorithms and automated systems shape every aspect of our daily lives. However, this rapid progress brings a fundamental question: As technology advances, how do we preserve our human values? The software we build are merely tools. The goal is to enhance human quality of life and produce meaningful work.</p>"
+        "title": "ARTICLE 1: Human Values in the Age of AI",
+        "summary": "An essay on how to balance technological convenience with human moral responsibilities.",
+        "content": "<p>Today's world is experiencing an unprecedented technological transformation. Artificial intelligence algorithms and automated systems shape every aspect of our daily lives. However, this rapid progress brings a fundamental question: As technology advances, how do we preserve our human values?</p>"
       },
       "ar": {
         "title": "المقال 1: القيم الإنسانية في عصر الذكاء الاصطناعي",
         "summary": "نص نموذجي حول كيفية إحداث التوازن بين التسهيلات التكنولوجية والمسؤوليات الأخلاقية.",
-        "content": "<p>يمر عالمنا اليوم بتحول تكنولوجي غير مسبوق في التاريخ. تشكل خوارزميات الذكاء الاصطناعي والأنظمة المستقلة كل جانب من جوانب حياتنا اليومية. ومع ذلك، فإن هذا التقدم السريع يطرح سؤالاً أساسياً: مع تقدم التكنولوجيا، كيف نحافظ على قيمنا الإنسانية؟ البرمجيات التي نطورها ما هي إلا أدوات والهدف هو تحسين جودة حياة الإنسان.</p>"
+        "content": "<p>يمر عالمنا اليوم بتحول تكنولوجي غير مسبوق في التاريخ. تشكل خوارزميات الذكاء الاصطناعي والأنظمة المستقلة كل جانب من جوانب حياتنا اليومية.</p>"
       }
     },
     {
       "id": 2,
+      "type": "bizce",
       "category": "Sosyal Yaşam & Gelecek",
       "category_en": "Social Life & Future",
       "category_ar": "الحياة الاجتماعية والمستقبل",
@@ -563,23 +564,24 @@
       "readTime": "4 dk okuma",
       "icon": "🧠",
       "tr": {
-        "title": "MAKALE 2: Dijital Gürültü ve Zihinsel Odaklanma (700 Karakter)",
-        "summary": "Sürekli bildirimlerin olduğu bir çağda zihinsel berraklığı yeniden kazanmanın yolları üzerine örnek çalışma.",
-        "content": "<p>Her gün binlerce dijital uyarıcı, sosyal medya bildirimi ve e-posta akışı zihnimizi bölüyor. Odaklanma süresinin kısaldığı günümüzde, derinlemesine düşünmek ve kaliteli iş üretmek bir sanata dönüştü. Teknoloji hayatımızı kolaylaştırırken zihinsel yükümüzü de artırıyor. Bu süreçte zihinsel detoks yapmak ve sağlıklı sınırlar koymak büyük önem taşıyor. Günün belirli saatlerinde ekranlardan uzak durmak, ailemize ve sevdiklerimize vakit ayırmak ruhsal dengemizi korumanın anahtarıdır. Dijital araçları bilinçli kullanarak verimliliğimizi artırabiliriz.</p>"
+        "title": "MAKALE 2: Dijital Gürültü ve Zihinsel Odaklanma",
+        "summary": "Sürekli bildirimlerin olduğu bir çağda zihinsel berraklığı yeniden kazanmanın yolları üzerine çalışma.",
+        "content": "<p>Her gün binlerce dijital uyarıcı zihnimizi bölüyor. Odaklanma süresinin kısaldığı günümüzde, derinlemesine düşünmek ve kaliteli iş üretmek bir sanata dönüştü. Teknoloji hayatımızı kolaylaştırırken zihinsel yükümüzü de artırıyor.</p>"
       },
       "en": {
-        "title": "ARTICLE 2: Digital Noise and Mental Focus (700 Chars)",
-        "summary": "A sample essay on ways to reclaim mental clarity in an era of constant notifications.",
-        "content": "<p>Every day, thousands of digital stimuli and email streams fragment our attention. In an age where attention spans are shrinking, deep thinking and producing quality work have become a fine art. While technology makes our lives easier, it also increases our mental load. In this process, practicing digital detox and setting healthy boundaries are of great importance. Taking time away from screens at certain hours of the day is the key to maintaining our mental balance.</p>"
+        "title": "ARTICLE 2: Digital Noise and Mental Focus",
+        "summary": "A study on ways to reclaim mental clarity in an era of constant notifications.",
+        "content": "<p>Every day, thousands of digital stimuli fragment our attention. In an age where attention spans are shrinking, deep thinking and producing quality work have become a fine art.</p>"
       },
       "ar": {
         "title": "المقال 2: الضوضاء الرقمية والتركيز الذهني",
-        "summary": "مقال نموذجي حول سبل استعادة الصفاء الذهني في عصر التنبيهات المستمرة.",
-        "content": "<p>في كل يوم، تتسبب آلاف المنبهات الرقمية وتنبيهات البريد الإلكتروني في تشتيت أذهاننا. في عصر يقل فيه مدى الانتباه، أصبح التفكير العميق وإنتاج الأعمال عالية الجودة فناً قائماً بذاته. بينما تجعل التكنولوجيا حياتنا أسهل، فإنها تزيد أيضاً من عبئنا الذهني. في هذه العملية، يكتسب الالتزام بحدود صحية أهمية كبيرة للحفاظ على توازننا النفسي.</p>"
+        "summary": "مقال حول سبل استعادة الصفاء الذهني في عصر التنبيهات المستمرة.",
+        "content": "<p>في كل يوم، تتسبب آلاف المنبهات الرقمية وتنبيهات البريد الإلكتروني في تشتيت أذهاننا.</p>"
       }
     },
     {
       "id": 3,
+      "type": "bizce",
       "category": "Yazılım & Verimlilik",
       "category_en": "Software & Productivity",
       "category_ar": "البرمجيات والإنتاجية",
@@ -587,19 +589,44 @@
       "readTime": "5 dk okuma",
       "icon": "🖥️",
       "tr": {
-        "title": "MAKALE 3: Sade Yaşam ve Minimalist Çalışma Düzeni (800 Karakter)",
-        "summary": "Masaüstünüzdeki karmaşayı azaltarak verimliliği artırma felsefesi üzerine hazırlanmış örnek makale.",
-        "content": "<p>Göz önündeki karmaşa, zihindeki karmaşayı tetikler. Bilgisayar masaüstümüzde biriken onlarca simge, açık onlarca pencereler aslında farkında olmadan zihinsel enerjimizi tüketir. Sadelik bir tercih değil, kaliteli bir yaşamın gerekliliğidir. DeskPilot uygulamamızı tasarlarken çıkış noktamız da tam olarak buydu: Kullanıcıya karmaşadan uzak, sade, hızlı ve ihtiyacı olan araca tek tıkla ulaşabileceği bir çalışma ortamı sunmak. Ekranlarımızda sadece ihtiyacımız olan araçları bulundurarak odaklanma kalitemizi artırabiliriz. Minimalist bir çalışma ortamı hem zaman kazandırır hem de üretkenliğimizi en üst seviyeye çıkarır.</p>"
+        "title": "MAKALE 3: Sade Yaşam ve Minimalist Çalışma Düzeni",
+        "summary": "Masaüstünüzdeki karmaşayı azaltarak verimliliği artırma felsefesi.",
+        "content": "<p>Göz önündeki karmaşa, zihindeki karmaşayı tetikler. Bilgisayar masaüstümüzde biriken onlarca simge aslında zihinsel enerjimizi tüketir. Sadelik bir tercih değil, kaliteli bir yaşamın gerekliliğidir.</p>"
       },
       "en": {
-        "title": "ARTICLE 3: Simple Living and Minimalist Workflow (800 Chars)",
-        "summary": "A sample article prepared on the philosophy of increasing productivity by reducing desktop clutter.",
-        "content": "<p>Visual clutter triggers mental clutter. Dozens of icons accumulated on our computer desktops silently drain our mental energy. Simplicity is not just a preference, but a requirement for a quality life. When designing our DeskPilot application, our starting point was exactly this: to offer the user a clean, fast, and simple workspace. By keeping only the tools we need on our screens, we can increase the quality of our focus and boost productivity.</p>"
+        "title": "ARTICLE 3: Simple Living and Minimalist Workflow",
+        "summary": "The philosophy of increasing productivity by reducing desktop clutter.",
+        "content": "<p>Visual clutter triggers mental clutter. Dozens of icons accumulated on our computer desktops drain our mental energy.</p>"
       },
       "ar": {
         "title": "المقال 3: الحياة البسيطة وتنظيم العمل الأدنى",
-        "summary": "مقال نموذجي حول فلسفة زيادة الإنتاجية من خلال تقليل الفوضى على سطح المكتب.",
-        "content": "<p>الفوضى البصرية تثير الفوضى الذهنية. العشرات من الأيقونات المتراكمة على سطح المكتب تستهلك طاقتنا الذهنية دون أن نشعر. البساطة ليست مجرد خيار، بل هي ضرورة لحياة عالية الجودة. عند تصميم تطبيق DeskPilot، كانت نقطة انطلاقنا هي التقديم للمستخدم بيئة عمل بسيطة وسريعة وخالية من الفوضى.</p>"
+        "summary": "مقال حول فلسفة زيادة الإنتاجية من خلال تقليل الفوضى.",
+        "content": "<p>الفوضى البصرية تثير الفوضى الذهنية. العشرات من الأيقونات المتراكمة تستهلك طاقتنا الذهنية.</p>"
+      }
+    },
+    {
+      "id": 4,
+      "type": "anilts",
+      "category": "Anıltılar (Yaşanmış Anı)",
+      "category_en": "Anıltılar (Memoir)",
+      "category_ar": "Anıltılar (ذكريات)",
+      "date": "11 Eylül 2026",
+      "readTime": "6 dk okuma",
+      "icon": "📖",
+      "tr": {
+        "title": "ANILTILAR 1: İsimsiz Bir Nezaket ve Unutulmayan Ders",
+        "summary": "Gerçek isimler verilmeden kaleme alınmış, yoğun bir çalışma gününde yaşanan ve hayata bakışı değiştiren samimi bir tecrübe hikayesi.",
+        "content": "<p>Yıllar önce yoğun bir projenin tam ortasındayken, beklenmedik bir aksaklıkla karşılaştık. Herkesin stresli olduğu o anlarda, kurumdaki sessiz bir çalışan hiç yükümlülüğü olmadığı halde yanımıza gelip tek bir soru sordu: 'Nasıl yardımcı olabilirim?'</p><p>O gün bize gösterilen o karşılıksız destek, unvanların ve hiyerarşinin ötesinde insani dayanışmanın ne kadar kıymetli olduğunu öğretti. Gerçek liderlik ve ahlak, kimsenin görmediği anlarda gösterilen karşılıksız nezakette saklıdır.</p>"
+      },
+      "en": {
+        "title": "ANILTILAR 1: An Anonymous Act of Kindness & Unforgettable Lesson",
+        "summary": "A sincere memoir story written anonymously, reflecting a life-changing experience on a hectic work day.",
+        "content": "<p>Years ago, right in the middle of an intense project, we encountered an unexpected breakdown. At a moment when everyone was stressed, a quiet colleague walked up to us with a single question: 'How can I help?'</p>"
+      },
+      "ar": {
+        "title": "ANILTILAR 1: موقف إنساني ودرس لا يُنسى",
+        "summary": "قصة واقيعة مجهولة الأسماء تعكس تجربة إنسانية غيرت وجهة نظرنا في الحياة.",
+        "content": "<p>قبل سنوات، وفي منتصف مشروع مكثف، واجهنا عقبة غير متوقعة. في لحظة كان فيها الجميع متوتراً، تقدم زميل هادئ بسؤال واحد: 'كيف يمكنني المساعدة؟'</p>"
       }
     }
   ];
@@ -616,15 +643,15 @@
 
     if (lang === 'ar') {
       document.body.setAttribute('dir', 'rtl');
-      document.getElementById('subSlogan').innerText = 'نظرة عميقة على التكنولوجيا والحياة والإنسانية';
+      document.getElementById('subSlogan').innerText = 'نظرة عميقة على التكنولوجيا والحياة والذكريات';
       document.getElementById('lblBack').innerText = 'العودة إلى جميع المقالات';
     } else if (lang === 'en') {
       document.body.removeAttribute('dir');
-      document.getElementById('subSlogan').innerText = 'A Deep Perspective on Technology, Life, and Humanity';
+      document.getElementById('subSlogan').innerText = 'A Deep Perspective on Tech, Life, Humanity, and Memoirs';
       document.getElementById('lblBack').innerText = 'Back to All Articles';
     } else {
       document.body.removeAttribute('dir');
-      document.getElementById('subSlogan').innerText = 'Teknolojiye, Hayata ve İnsanlığa Derin Bakış';
+      document.getElementById('subSlogan').innerText = 'Teknolojiye, Hayata, İnsanlığa ve Anılara Derin Bakış';
       document.getElementById('lblBack').innerText = 'Tüm Yazılara Dön';
     }
 
@@ -635,15 +662,34 @@
     }
   }
 
+  function filterPosts(type) {
+    currentFilter = type;
+    var btns = document.querySelectorAll('.category-pills button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('active');
+    }
+    if (event && event.target) {
+      event.target.classList.add('active');
+    }
+    renderPosts();
+  }
+
   function renderPosts() {
     var grid = document.getElementById('postsGrid');
     if (!grid) return;
     grid.innerHTML = '';
 
-    for (var i = 0; i < blogPostsData.length; i++) {
-      var post = blogPostsData[i];
+    var filtered = blogPostsData.filter(function(p) {
+      if (currentFilter === 'all') return true;
+      if (currentFilter === 'anilts') return p.type === 'anilts';
+      return p.type === 'bizce';
+    });
+
+    for (var i = 0; i < filtered.length; i++) {
+      var post = filtered[i];
       var langData = post[currentLang] || post['tr'];
       var category = post['category_' + currentLang] || post.category;
+      var isAnilts = (post.type === 'anilts');
 
       var card = document.createElement('div');
       card.className = 'post-card';
@@ -652,14 +698,17 @@
         return function() { openPost(pId); };
       })(post.id);
 
-      var btnText = (currentLang === 'ar' ? 'اقرأ المزيد ←' : (currentLang === 'en' ? 'Read Article →' : 'Devamını Oku →'));
+      var btnText = (currentLang === 'ar' ? 'اقرأ المزيد ←' : (currentLang === 'en' ? 'Read Story →' : 'Devamını Oku →'));
       var ttsText = (currentLang === 'ar' ? 'استماع' : (currentLang === 'en' ? 'Listen' : 'Sesli Dinle'));
 
-      card.innerHTML = '<div class="card-img-placeholder">' + (post.icon || '📝') + '</div>' +
+      var imgClass = 'card-img-placeholder' + (isAnilts ? ' card-img-anilts' : '');
+      var tagClass = 'post-tag' + (isAnilts ? ' post-tag-anilts' : '');
+
+      card.innerHTML = '<div class="' + imgClass + '">' + (post.icon || '📝') + '</div>' +
         '<div class="card-body">' +
           '<div>' +
             '<div class="post-meta">' +
-              '<span class="post-tag">' + category + '</span>' +
+              '<span class="' + tagClass + '">' + category + '</span>' +
               '<span>' + post.readTime + '</span>' +
             '</div>' +
             '<h2 class="post-title">' + langData.title + '</h2>' +
@@ -702,7 +751,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  /* TTS Speech Synthesis Engine */
   function playTTS() {
     if (!synth) return alert("Tarayıcınız sesli okuma özelliğini desteklemiyor.");
     if (synth.speaking && synth.paused) {
@@ -767,6 +815,10 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('cat') === 'anilts') {
+      currentFilter = 'anilts';
+    }
     renderPosts();
   });
 </script>
