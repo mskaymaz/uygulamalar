@@ -88,8 +88,8 @@ export async function onRequestPost(context) {
     }
 
     // 3. Telegram Anlık Bildirimi
-    const tgToken = env?.TELEGRAM_BOT_TOKEN || '8877286726:AAG53mI7oy7SJeRwFgmzn8a_ppnX3ol9dGE';
-    const tgChatId = env?.TELEGRAM_CHAT_ID || '1388449593';
+    const tgToken = env?.TELEGRAM_BOT_TOKEN;
+    const tgChatId = env?.TELEGRAM_CHAT_ID;
 
     if (tgToken && tgChatId) {
       try {
