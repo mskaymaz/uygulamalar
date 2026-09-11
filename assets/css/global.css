@@ -628,11 +628,11 @@ body.lang-ar { direction: rtl; }
   flex-shrink: 0;
 }
 
-/* Üst Sabit Header (site-header) Bulunan İÇ Sayfalarda (Blog ve App Detay) Reklam Başlangıcı */
+/* Üst Sabit Header (site-header) Bulunan İç Sayfalarda (Bizce, Anıltılar, Blog ve Uygulama Detay) Reklam Başlangıcı */
 body:has(.site-header) .desktop-ad,
 .site-header ~ .layout-wrapper .desktop-ad,
 .site-header ~ nav ~ .layout-wrapper .desktop-ad {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .ad-placeholder {
