@@ -163,8 +163,14 @@ var blogPostsData = [
 ];
 
 function switchSection(sec) {
+  stopTTS();
   currentSection = sec;
   currentSubFilter = 'all';
+
+  var listView = document.getElementById('listView');
+  var readerView = document.getElementById('readerView');
+  if (readerView) readerView.style.display = 'none';
+  if (listView) listView.style.display = 'block';
 
   var btnBizce = document.getElementById('tabBizce');
   var btnAnilts = document.getElementById('tabAnilts');
@@ -187,6 +193,7 @@ function switchSection(sec) {
 
   renderSubCategories();
   renderPosts();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderSubCategories() {
@@ -340,6 +347,16 @@ function openPost(id) {
   stopTTS();
   currentPost = blogPostsData.find(function(p) { return p.id === id; });
   if (!currentPost) return;
+
+  var btnBizce = document.getElementById('tabBizce');
+  var btnAnilts = document.getElementById('tabAnilts');
+  if (currentPost.type === 'anilts') {
+    if (btnBizce) btnBizce.className = 'section-tab-btn';
+    if (btnAnilts) btnAnilts.className = 'section-tab-btn active-anilts';
+  } else {
+    if (btnBizce) btnBizce.className = 'section-tab-btn active-bizce';
+    if (btnAnilts) btnAnilts.className = 'section-tab-btn';
+  }
 
   var langData = currentPost[currentLang] || currentPost['tr'];
   var category = currentPost['category_' + currentLang] || currentPost.category;
