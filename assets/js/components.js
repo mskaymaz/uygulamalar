@@ -57,7 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="${rel}privacy.html" style="color: #475569; text-decoration: none; margin: 0 0.35rem;"><span class="lang-tr">Gizlilik Politikası</span><span class="lang-en">Privacy Policy</span><span class="lang-ar">سياسة الخصوصية</span></a> |
       <a href="${rel}terms.html" style="color: #475569; text-decoration: none; margin: 0 0.35rem;"><span class="lang-tr">Kullanım Koşulları</span><span class="lang-en">Terms of Service</span><span class="lang-ar">شروط الخدمة</span></a>
     </div>
-    <p class="copyright-line" style="margin: 0;">© 2026 MSK Labs. Tüm hakları saklıdır.</p>
+    <p class="copyright-line" style="margin: 0;">
+      <span class="lang-tr">© 2026 MSK Labs. Tüm hakları saklıdır.</span>
+      <span class="lang-en">© 2026 MSK Labs. All rights reserved.</span>
+      <span class="lang-ar">© 2026 MSK Labs. جميع الحقوق محفوظة.</span>
+    </p>
   </footer>`;
 
   // Auto-inject Top Nav if element #topNavMount or .top-main-nav missing
