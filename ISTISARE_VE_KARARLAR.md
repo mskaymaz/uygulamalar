@@ -1,4 +1,4 @@
-﻿# 📜 MSK Labs - Sistem Mimarisi, İstişare Notları ve Kararlar Dokümanı
+# 📜 MSK Labs - Sistem Mimarisi, İstişare Notları ve Kararlar Dokümanı
 # 📜 MSK Labs - System Architecture, Decision Log & Technical Specifications
 
 > **Doküman Oluşturulma Tarihi / Creation Date:** 10 Eylül 2026 / September 10, 2026  
@@ -103,9 +103,12 @@ Tüm modüller ssets/css/global.css?v=25 ile %100 uyumlu, destek.html temiz bey
 5. **Telegram Bot Fallback ve Taslak Koruma Protocol / Telegram Fallback & Draft Preservation Protocol:**  
    destek.html formunda Telegram veya ağ bağlantısı başarısız olsa dahi bilet E-Tabloya yazılmalı, bilet numarası yerel cihazda (localStorage) saklanmalı ve kullanıcıya hata hissettirilmeden bilet makbuzu gösterilmelidir.  
    *English:* If Telegram notification API fails during ticket submission, the ticket payload MUST be persisted locally in localStorage and sent to Google Sheets, ensuring zero ticket loss.
-6. **Önbellek Yenileme (Cache-Busting =XX) Standardı / CSS Cache-Busting Rule:**  
+6. **Önbellek Yenileme (Cache-Busting ?v=XX) Standardı / CSS Cache-Busting Rule:**  
    CSS ve script dosyalarında yapılan güncellemelerin kullanıcının tarayıcısına anında yansıması için HTML dosyalarında href="assets/css/global.css?v=XX" sürüm parametresi artırılmalıdır.  
    *English:* Whenever global.css is modified, bump the query parameter ?v=XX across all HTML files to force immediate browser cache eviction.
+7. **Token Ekonomisi & Bağlam Optimizasyonu Kuralı / Token Economy & Context Optimization Policy:**  
+   AI asistan yanıtları gereksiz uzunluktan arındırılmalı, öz ve nokta atışı olmalıdır. Dosya incelemelerinde tüm dosyayı çekmek yerine `grep_search` veya belirli satır aralıkları (`view_file`) tercih edilmeli; gereksiz araç çağrılarından ve büyük dökümlerden kaçınılarak token tasarrufu sağlanmalıdır.  
+   *English:* AI responses MUST remain concise, direct, and token-efficient. Avoid dumping massive file contents or executing redundant tool loops; use targeted searches (`grep_search`) and precise line slices (`view_file`) to preserve model context.
 
 ---
 
