@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -193,7 +193,7 @@
     /* Article Card Grid */
     .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 1.25rem;
     }
     .post-card {
@@ -206,6 +206,67 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
+      max-width: 480px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Kompakt Liste Görünümü (4. Yazıdan Sonrakiler İçin) */
+    .posts-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .post-list-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .post-list-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-color: #0284c7;
+    }
+    .list-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #1e40af);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .list-item-icon.anilts-icon {
+      background: linear-gradient(135deg, #d97706, #78350f) !important;
+    }
+    .list-item-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .list-item-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 0.3rem 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .list-item-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.76rem;
+      color: #64748b;
     }
     .post-card:hover {
       transform: translateY(-3px);
@@ -518,6 +579,15 @@
       <div class="posts-grid" id="postsGrid">
       </div>
 
+      <!-- 4'ten Sonraki Yazılar İçin Kompakt Liste Yapısı -->
+      <div class="posts-list-section" id="postsListSection" style="display: none; margin-top: 2rem;">
+        <h3 class="list-section-title" id="listSectionTitle" style="font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem;">
+          📋 Diğer Tüm Yazılar
+        </h3>
+        <div class="posts-list-container" id="postsListContainer">
+        </div>
+      </div>
+
       <div class="pagination-bar">
         <button class="page-num" style="color: #94a3b8;">« Önceki</button>
         <button class="page-num active">1</button>
@@ -691,6 +761,56 @@
         "summary": "قصة واقيعة مجهولة الأسماء تعكس تجربة إنسانية غيرت وجهة نظرنا في الحياة.",
         "content": "<p>قبل سنوات، وفي منتصف مشروع مكثف، واجهنا عقبة غير متوقعة. في لحظة كان فيها الجميع متوتراً، تقدم زميل هادئ بسؤال واحد: 'كيف يمكنني المساعدة؟'</p>"
       }
+    },
+    {
+      "id": 5,
+      "type": "bizce",
+      "category": "Teknoloji & İnsanlık",
+      "category_en": "Tech & Humanity",
+      "category_ar": "التكنولوجيا والإنسانية",
+      "date": "04 Eylül 2026",
+      "readTime": "4 dk okuma",
+      "icon": "⚡",
+      "tr": {
+        "title": "MAKALE 4: Geleceğin Yazılım Mimarileri",
+        "summary": "Modüler ve ölçeklenebilir sistem tasarımlarında dikkat edilmesi gereken temel prensipler.",
+        "content": "<p>Yazılım geliştirmede sürdürülebilirlik en önemli kriterdir.</p>"
+      },
+      "en": {
+        "title": "ARTICLE 4: Future Software Architectures",
+        "summary": "Core principles in building modular and scalable systems.",
+        "content": "<p>Sustainability is key in modern software engineering.</p>"
+      },
+      "ar": {
+        "title": "المقال 4: معماريات البرمجيات المستقبلية",
+        "summary": "المبادئ الأساسية لبناء أنظمة قابلة للتوسع.",
+        "content": "<p>الاستدامة هي المفتاح في هندسة البرمجيات الحديثة.</p>"
+      }
+    },
+    {
+      "id": 6,
+      "type": "bizce",
+      "category": "Düşünce & Fikir",
+      "category_en": "Thought & Idea",
+      "category_ar": "الفكر والأفكار",
+      "date": "01 Eylül 2026",
+      "readTime": "3 dk okuma",
+      "icon": "🌱",
+      "tr": {
+        "title": "MAKALE 5: Sürekli Öğrenme ve Gelişim Kültürü",
+        "summary": "Teknoloji dünyasında güncel kalmanın ve kişisel gelişimin sürdürülebilir yolları.",
+        "content": "<p>Öğrenmek ömür boyu devam eden bir yolculuktur.</p>"
+      },
+      "en": {
+        "title": "ARTICLE 5: Culture of Continuous Learning",
+        "summary": "Sustainable approaches to personal growth in tech.",
+        "content": "<p>Learning is a lifelong journey.</p>"
+      },
+      "ar": {
+        "title": "المقال 5: ثقافة التعلم المستمر",
+        "summary": "نهج مستدام للنمو الشخصي في التكنولوجيا.",
+        "content": "<p>التعلم رحلة مدى الحياة.</p>"
+      }
     }
   ];
 
@@ -766,16 +886,25 @@
 
   function renderPosts() {
     var grid = document.getElementById('postsGrid');
+    var listSection = document.getElementById('postsListSection');
+    var listContainer = document.getElementById('postsListContainer');
+    var listTitle = document.getElementById('listSectionTitle');
+
     if (!grid) return;
     grid.innerHTML = '';
+    if (listContainer) listContainer.innerHTML = '';
 
     // KESİN AYRIŞTIRMA: Sadece geçerli section ('bizce' veya 'anilts') filtrelenir!
     var filtered = blogPostsData.filter(function(p) {
       return p.type === currentSection;
     });
 
-    for (var i = 0; i < filtered.length; i++) {
-      var post = filtered[i];
+    var featuredPosts = filtered.slice(0, 4);
+    var remainingPosts = filtered.slice(4);
+
+    // 1. İLK 4 ÖNE ÇIKAN KART
+    for (var i = 0; i < featuredPosts.length; i++) {
+      var post = featuredPosts[i];
       var langData = post[currentLang] || post['tr'];
       var category = post['category_' + currentLang] || post.category;
       var isAnilts = (post.type === 'anilts');
@@ -810,6 +939,45 @@
           '</div>' +
         '</div>';
       grid.appendChild(card);
+    }
+
+    // 2. 4'TEN SONRAKİ YAZILAR İÇİN KOMPAKT LİSTE
+    if (remainingPosts.length > 0 && listSection && listContainer) {
+      listSection.style.display = 'block';
+      if (listTitle) {
+        listTitle.innerText = (currentLang === 'ar' ? '📋 مقالات أخرى' : (currentLang === 'en' ? '📋 Other Articles' : '📋 Diğer Tüm Yazılar'));
+      }
+
+      for (var j = 0; j < remainingPosts.length; j++) {
+        var rPost = remainingPosts[j];
+        var rLangData = rPost[currentLang] || rPost['tr'];
+        var rCategory = rPost['category_' + currentLang] || rPost.category;
+        var rIsAnilts = (rPost.type === 'anilts');
+
+        var listItem = document.createElement('div');
+        listItem.className = 'post-list-item';
+        listItem.setAttribute('data-id', rPost.id);
+        listItem.onclick = (function(pId) {
+          return function() { openPost(pId); };
+        })(rPost.id);
+
+        var iconClass = 'list-item-icon' + (rIsAnilts ? ' anilts-icon' : '');
+        var rTagClass = 'post-tag' + (rIsAnilts ? ' post-tag-anilts' : '');
+
+        listItem.innerHTML = '<div class="' + iconClass + '">' + (rPost.icon || '📝') + '</div>' +
+          '<div class="list-item-content">' +
+            '<h4 class="list-item-title">' + rLangData.title + '</h4>' +
+            '<div class="list-item-meta">' +
+              '<span class="' + rTagClass + '">' + rCategory + '</span>' +
+              '<span>📅 ' + rPost.date + '</span>' +
+              '<span>⏱️ ' + rPost.readTime + '</span>' +
+            '</div>' +
+          '</div>';
+
+        listContainer.appendChild(listItem);
+      }
+    } else if (listSection) {
+      listSection.style.display = 'none';
     }
   }
 

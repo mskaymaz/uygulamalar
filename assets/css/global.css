@@ -1,4 +1,7 @@
-﻿/* ======================================================
+/* ======================================================
+   MSK LABS - GLOBAL DESIGN SYSTEM & STYLESHEET
+   ====================================================== */
+/* ======================================================
    MSK LABS - GLOBAL DESIGN SYSTEM & STYLESHEET
    ====================================================== */
 
@@ -13,6 +16,53 @@ body {
   background-color: #fafafa;
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+/* ======================================================
+   ÇOK DİLLİ SİSTEM GÖRÜNÜRLÜK KURALLARI (TR / EN / AR)
+   ====================================================== */
+.lang-tr, .lang-en, .lang-ar {
+  display: none !important;
+}
+
+/* Varsayılan Dil: Türkçe (Sınıf Atanmamışsa veya .lang-tr ise) */
+body:not(.lang-en):not(.lang-ar) .lang-tr,
+body.lang-tr .lang-tr {
+  display: inline !important;
+}
+body.lang-en .lang-en {
+  display: inline !important;
+}
+body.lang-ar .lang-ar {
+  display: inline !important;
+}
+
+/* Blok Seviyesindeki Elemanlar İçin (div, p, h1, h2, h3 vb.) */
+body:not(.lang-en):not(.lang-ar) div.lang-tr,
+body:not(.lang-en):not(.lang-ar) p.lang-tr,
+body:not(.lang-en):not(.lang-ar) h1.lang-tr,
+body:not(.lang-en):not(.lang-ar) h2.lang-tr,
+body:not(.lang-en):not(.lang-ar) h3.lang-tr,
+body.lang-tr div.lang-tr,
+body.lang-tr p.lang-tr,
+body.lang-tr h1.lang-tr,
+body.lang-tr h2.lang-tr,
+body.lang-tr h3.lang-tr {
+  display: block !important;
+}
+body.lang-en div.lang-en,
+body.lang-en p.lang-en,
+body.lang-en h1.lang-en,
+body.lang-en h2.lang-en,
+body.lang-en h3.lang-en {
+  display: block !important;
+}
+body.lang-ar div.lang-ar,
+body.lang-ar p.lang-ar,
+body.lang-ar h1.lang-ar,
+body.lang-ar h2.lang-ar,
+body.lang-ar h3.lang-ar {
+  display: block !important;
 }
 
 .layout-wrapper {
@@ -122,11 +172,11 @@ body {
   transform: scale(1.03);
 }
 
-/* Detay Sayfası Büyük İkon Stili (2 Katı Büyüklük) */
+/* Detay Sayfası Büyük İkon Stili (2 Katı Büyüklük - Kare & Kesintisiz) */
 .app-big-icon {
-  width: 120px;
-  height: 160px;
-  background-color: #f5f7fa;
+  width: 150px;
+  height: 150px;
+  background-color: #ffffff;
   border-radius: 28px;
   display: flex;
   align-items: center;
@@ -135,13 +185,15 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0,0,0,0.05);
   flex-shrink: 0;
   overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .app-big-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 28px;
+  object-fit: contain;
+  border-radius: 20px;
 }
 
 .app-name {
@@ -215,419 +267,6 @@ body.lang-ar { direction: rtl; }
 .arabic-btn-icon {
   height: 28px;
     width: auto;
-    max-height: 32px;
-  display: block;
-  transition: filter 0.2s ease;
-}
-
-.lang-switcher button.active .arabic-btn-icon {
-  filter: brightness(0) invert(1);
-}
-
-/* Kart Üzerindeki Dil Rozetleri */
-.lang-badges {
-  display: flex;
-  gap: 6px;
-  margin-top: 12px;
-  font-size: 0.72rem;
-  align-items: center;
-}
-
-.lang-badge {
-  padding: 3px 7px;
-  border-radius: 4px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.lang-badge.active {
-  background: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #bae6fd;
-}
-
-.lang-badge.pending {
-  background: #f3f4f6;
-  color: #9ca3af;
-  border: 1px dashed #d1d5db;
-}
-
-/* Çeviri Talep Kutusu (Sadece EN ve AR dillerinde görünür) */
-.translation-request-box {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 24px;
-}
-
-.request-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.request-text {
-  font-size: 0.95rem;
-  color: #1e40af;
-  flex: 1;
-  min-width: 220px;
-  line-height: 1.45;
-}
-
-.request-btn {
-  background: #2563eb;
-  color: #ffffff !important;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.request-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-}
-
-/* Başlık Yanı / Sağ Taraf Global Dil Durum Paneli */
-.app-header-right {
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.global-status-panel {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-}
-
-.global-status-panel .status-tag {
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
-.global-status-panel .status-tag.active {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-
-.global-status-panel .status-tag.dev {
-  background: #fef3c7;
-  color: #b45309;
-}
-
-.lab-request-btn {
-  background: #2563eb;
-  color: #ffffff !important;
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
-  transition: all 0.2s ease;
-}
-
-.lab-request-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-}
-
-.email-note {
-  font-size: 0.78rem;
-  color: #64748b;
-  margin-top: 2px;
-  display: block;
-}
-
-.email-note strong {
-  color: #1e293b;
-  user-select: all; /* Tek tıkla kolayca kopyalama özelliği */
-  background: #f1f5f9;
-  padding: 1px 5px;
-  border-radius: 4px;
-  border: 1px solid #e2e8f0;
-}
-
-/* Hero İndirme Butonu ve İndirme Alanı Stilleri */
-.hero-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #27ae60;
-  color: #ffffff !important;
-  padding: 10px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-top: 12px;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(39, 174, 96, 0.35);
-  width: fit-content;
-}
-
-.hero-download-btn:hover {
-  background: #219150;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(39, 174, 96, 0.45);
-  color: #ffffff !important;
-}
-
-.download-section {
-  margin-top: 35px;
-  padding-top: 25px;
-  border-top: 2px dashed #f0f0f0;
-}
-
-.download-section-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.download-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.download-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.download-card:hover:not(.disabled) {
-  border-color: #4f46e5;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-}
-
-.download-card.disabled {
-  background: #f9fafb;
-  border-color: #f3f4f6;
-  opacity: 0.85;
-  cursor: not-allowed;
-}
-
-.download-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.download-card-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-
-.store-brand-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.download-card.disabled .store-brand-icon {
-  filter: grayscale(30%) opacity(0.8);
-}
-
-.download-card-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.download-card-status {
-  font-size: 0.85rem;
-  color: #6b7280;
-  line-height: 1.4;
-}
-
-.download-card.disabled .download-card-status {
-  color: #d97706;
-  font-weight: 600;
-}
-
-.download-tag {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 6px;
-  margin-top: 4px;
-  width: fit-content;
-}
-
-.tag-soon {
-  background: #fffbeb;
-  color: #b45309;
-  border: 1px solid #fef3c7;
-}
-
-.tag-active {
-  background: #ecfdf5;
-  color: #047857;
-  border: 1px solid #a7f3d0;
-}
-
-@media (max-width: 600px) {
-  .app-header {
-    flex-wrap: wrap;
-  }
-  .app-header-right {
-    margin-left: 0;
-    width: 100%;
-    align-items: flex-start;
-    margin-top: 10px;
-  }
-  .download-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Reklam Alanları */
-.desktop-ad {
-  width: 120px;
-  margin-top: 60px;
-  position: sticky;
-  top: 20px;
-  flex-shrink: 0;
-}
-
-.ad-placeholder {
-  background: #f4f5f7;
-  border: 1px dashed #cccccc;
-  border-radius: 8px;
-  color: #888888;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.desktop-ad .ad-placeholder {
-  height: 300px;
-}
-
-.infeed-ad-container {
-  margin: 45px 0 25px 0;
-  width: 100%;
-}
-
-.infeed-ad-container .ad-placeholder {
-  height: 120px;
-}
-
-/* Mobil Telefon Duyarlılığı (2'li Yan Yana Düzlem) */
-@media (max-width: 1280px) {
-  .desktop-ad {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .portfolio-container {
-    padding: 25px 12px;
-  }
-
-  .logo-container {
-    margin-bottom: 35px;
-  }
-
-  .main-logo {
-    width: 210px;
-  }
-
-  .page-title {
-    font-size: 1.75rem;
-    margin-bottom: 30px;
-  }
-
-  .category-title {
-    font-size: 1.2rem;
-    margin: 25px 0 15px 0;
-  }
-
-  .app-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .app-card {
-    padding: 14px 12px;
-    border-radius: 10px;
-  }
-
-  .app-icon {
-    width: 80px;
-    height: 80px;
-    font-size: 44px;
-    margin-bottom: 12px;
-    border-radius: 16px;
-  }
-
-  .app-icon img {
-    border-radius: 16px;
-  }
-
-  .app-big-icon {
-    width: 100px;
-    height: 100px;
-    font-size: 54px;
-    border-radius: 20px;
-  }
-
-  .app-big-icon img {
-    border-radius: 20px;
-  }
-
-  .app-name {
-    font-size: 0.95rem;
-    margin: 0 0 6px 0;
   }
 
   .app-vision {
