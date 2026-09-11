@@ -52,4 +52,4 @@ MSK Labs is developed and maintained by a single founder working alongside an AI
 ### Faz 4: Test, Doğrulama ve Yerel Git Commit
 - [x] Tarayıcıda `index.html`, `haydinamaza.html`, `destek.html`, `blog/blog.html` sayfalarını test et, konsolda 0 hata olduğunu doğrula.
 - [x] Aktif sayfa vurgulamasının ve "Uygulamalarımız" linkinin çalıştığını doğrula.
-- [ ] `git add .` ve `git commit` komutları ile yerel depoya kaydet (**Git push yapılmayacak**).
+- [x] `git add .` ve `git commit` komutları ile yerel depoya kaydet (**Git push yapılmayacak**).
