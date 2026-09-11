@@ -119,14 +119,14 @@ body {
 
 /* Uygulama Kartı Tasarımı */
 .app-card {
-  background: #ffffff;
-  border: 1px solid #f0f0f0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 24px;
   text-decoration: none;
-  color: inherit;
+  color: var(--text-main);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -134,15 +134,16 @@ body {
 
 .app-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-  border-color: #e0e0e0;
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+  background-color: var(--bg-card);
 }
 
 /* İkon ve Metin Stilleri */
 .app-icon {
   width: 120px;
   height: 120px;
-  background-color: #f5f7fa;
+  background-color: var(--bg-surface);
   border-radius: 22px;
   margin-bottom: 20px;
   display: flex;
@@ -151,7 +152,7 @@ body {
   font-size: 64px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-sm);
 }
 
 .app-icon img {
@@ -162,7 +163,7 @@ body {
 }
 
 .app-card:hover .app-icon {
-  background-color: #eef2f6;
+  background-color: var(--bg-surface-hover);
   transform: scale(1.03);
 }
 
@@ -170,13 +171,14 @@ body {
 .app-big-icon {
   width: 150px;
   height: 150px;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 84px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
   overflow: hidden;
   padding: 8px;
@@ -194,11 +196,12 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 8px 0;
+  color: var(--text-main);
 }
 
 .app-vision {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.5;
   margin: 0;
 }
@@ -1247,24 +1250,48 @@ body.lang-ar .static-page-card {
   color: var(--text-main) !important;
 }
 
+/* Page Containers & Hero Cards */
+[data-theme="dark"] .portfolio-container,
 [data-theme="dark"] .portfolio-card,
 [data-theme="dark"] .support-card,
 [data-theme="dark"] .static-page-card,
 [data-theme="dark"] .app-hero-card,
-[data-theme="dark"] .reader-view {
+[data-theme="dark"] .detail-card,
+[data-theme="dark"] .reader-view,
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .bizce-header {
   background-color: var(--bg-card) !important;
   color: var(--text-main) !important;
   border-color: var(--border-color) !important;
   box-shadow: var(--shadow-md) !important;
 }
 
+/* App Cards on Index & Sub-pages */
+[data-theme="dark"] .app-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+[data-theme="dark"] .app-card:hover {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .app-name,
+[data-theme="dark"] .app-title-group h1,
 [data-theme="dark"] .page-title,
+[data-theme="dark"] .category-title,
 [data-theme="dark"] .section-title,
 [data-theme="dark"] .card-title,
 [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
   color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
 }
 
+[data-theme="dark"] .app-vision,
+[data-theme="dark"] .app-card p,
 [data-theme="dark"] p,
 [data-theme="dark"] li,
 [data-theme="dark"] .static-page-card p,
@@ -1272,6 +1299,60 @@ body.lang-ar .static-page-card {
   color: var(--text-muted) !important;
 }
 
+[data-theme="dark"] .app-icon,
+[data-theme="dark"] .app-big-icon,
+[data-theme="dark"] .app-header-logo-container {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Badges & Meta Pills */
+[data-theme="dark"] .meta-pill,
+[data-theme="dark"] .badge,
+[data-theme="dark"] .badge-platform,
+[data-theme="dark"] .badge-status,
+[data-theme="dark"] .badge-cost {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .lang-badge.pending {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-subtle) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .lang-badge.active {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .secondary-btn,
+[data-theme="dark"] .back-btn,
+[data-theme="dark"] .btn-back-to-list,
+[data-theme="dark"] .section-tab-btn,
+[data-theme="dark"] .cat-pill {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .secondary-btn:hover,
+[data-theme="dark"] .back-btn:hover,
+[data-theme="dark"] .cat-pill.active {
+  background-color: var(--bg-surface-hover) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .feature-list li,
+[data-theme="dark"] .feature-item {
+  border-bottom-color: var(--border-color) !important;
+  color: var(--text-muted) !important;
+}
+
+/* Nav & Footer Links */
 [data-theme="dark"] .top-main-nav a,
 [data-theme="dark"] .footer-links-row1 a,
 [data-theme="dark"] .footer-links-row2 a,
@@ -1335,12 +1416,6 @@ body.lang-ar .static-page-card {
 }
 
 [data-theme="dark"] .tts-player-bar {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border-color) !important;
-  color: var(--text-main) !important;
-}
-
-[data-theme="dark"] .btn-back-to-list {
   background-color: var(--bg-surface) !important;
   border-color: var(--border-color) !important;
   color: var(--text-main) !important;
