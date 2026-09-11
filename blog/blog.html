@@ -20,7 +20,26 @@
 </head>
 <body>
 
-<header id="site-header" class="site-header"></header>
+<header class="site-header bizce-header">
+  <div class="bizce-header-inner">
+    <div class="bizce-title-group">
+      <h1 id="headerMainTitle">✍️ BİZCE</h1>
+      <p id="subSlogan">Teknolojiye, Hayata ve İnsanlığa Derin Bakış</p>
+    </div>
+    
+    <a href="../index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
+      <img src="../img/MSKLabsLogo.svg" alt="MSK Labs Logo" class="bizce-header-logo">
+    </a>
+
+    <div class="bizce-nav-right">
+      <div class="lang-switcher">
+        <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
+        <button onclick="setLang('en')" data-lang="en" title="English">EN</button>
+        <button onclick="setLang('ar')" data-lang="ar" title="العربية" class="lang-btn-arabic"><img src="../img/ElArabiye.svg" alt="العربية" class="arabic-btn-icon"></button>
+      </div>
+    </div>
+  </div>
+</header>
   <!-- Standart Ust Ana Navigasyon Menusu -->
   <nav class="top-main-nav" style="text-align: center; margin: 1rem 0 1.25rem 0; font-size: 0.88rem; font-weight: 600; color: #475569;">
     <a href="../index.html" style="color: #334155; text-decoration: none; padding: 0.25rem 0.5rem; transition: color 0.2s;">
@@ -96,6 +115,11 @@
     </div>
 
     <div id="readerView" class="reader-view">
+      <div style="margin-bottom: 1.25rem;">
+        <button onclick="showList()" id="lblBack" class="btn-back-to-list" style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 0.45rem 0.9rem; border-radius: 8px; font-weight: 600; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; transition: background 0.2s;">
+          ← Listeye Dön
+        </button>
+      </div>
       <div class="post-tag" id="readCategory">Kategori</div>
       <h1 class="reader-title" id="readTitle">Yazı Başlığı</h1>
       <div class="post-meta" style="margin-bottom: 1rem;">

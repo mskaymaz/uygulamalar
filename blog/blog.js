@@ -162,35 +162,66 @@ var blogPostsData = [
   }
 ];
 
+function updateHeaderAndTabs() {
+  var mainTitle = document.getElementById('headerMainTitle');
+  var subSlogan = document.getElementById('subSlogan');
+  var btnBizce = document.getElementById('tabBizce');
+  var btnAnilts = document.getElementById('tabAnilts');
+
+  if (currentSection === 'anilts') {
+    if (btnBizce) btnBizce.className = 'section-tab-btn';
+    if (btnAnilts) btnAnilts.className = 'section-tab-btn active-anilts';
+
+    if (mainTitle) {
+      if (currentLang === 'ar') mainTitle.innerText = '📖 أنيلتيلار';
+      else if (currentLang === 'en') mainTitle.innerText = '📖 ANILTILAR';
+      else mainTitle.innerText = '📖 ANILTILAR';
+    }
+    if (subSlogan) {
+      if (currentLang === 'ar') subSlogan.innerText = 'قصص وحكايات واقعية وتجارب إنسانية';
+      else if (currentLang === 'en') subSlogan.innerText = 'Real-life Memoirs & Inspiring Life Stories';
+      else subSlogan.innerText = 'Yaşanmış Tecrübeler, Hayat Dersleri ve İz Bırakan Anılar';
+    }
+  } else {
+    if (btnBizce) btnBizce.className = 'section-tab-btn active-bizce';
+    if (btnAnilts) btnAnilts.className = 'section-tab-btn';
+
+    if (mainTitle) {
+      if (currentLang === 'ar') mainTitle.innerText = '✍️ بيزجه';
+      else if (currentLang === 'en') mainTitle.innerText = '✍️ BİZCE';
+      else mainTitle.innerText = '✍️ BİZCE';
+    }
+    if (subSlogan) {
+      if (currentLang === 'ar') subSlogan.innerText = 'نظرة عميقة على التكنولوجيا والحياة';
+      else if (currentLang === 'en') subSlogan.innerText = 'A Deep Perspective on Tech, Life & Humanity';
+      else subSlogan.innerText = 'Teknolojiye, Hayata ve İnsanlığa Derin Bakış';
+    }
+  }
+
+  if (btnBizce) {
+    if (currentLang === 'ar') btnBizce.innerText = '✍️ بيزجه (مقالات الفكر والأفكار)';
+    else if (currentLang === 'en') btnBizce.innerText = '✍️ BİZCE (Thought & Idea Articles)';
+    else btnBizce.innerText = '✍️ BİZCE (Düşünce & Fikir Makaleleri)';
+  }
+  if (btnAnilts) {
+    if (currentLang === 'ar') btnAnilts.innerText = '📖 أنيلتيلار (التجارب الحية والذكريات)';
+    else if (currentLang === 'en') btnAnilts.innerText = '📖 ANILTILAR (Memoirs & Life Experiences)';
+    else btnAnilts.innerText = '📖 ANILTILAR (Yaşanmış Tecrübeler & Anılar)';
+  }
+}
+
 function switchSection(sec) {
   stopTTS();
   currentSection = sec;
   currentSubFilter = 'all';
+  currentPost = null;
 
   var listView = document.getElementById('listView');
   var readerView = document.getElementById('readerView');
   if (readerView) readerView.style.display = 'none';
   if (listView) listView.style.display = 'block';
 
-  var btnBizce = document.getElementById('tabBizce');
-  var btnAnilts = document.getElementById('tabAnilts');
-
-  if (sec === 'anilts') {
-    if (btnBizce) btnBizce.className = 'section-tab-btn';
-    if (btnAnilts) btnAnilts.className = 'section-tab-btn active-anilts';
-    var mainTitle = document.getElementById('headerMainTitle');
-    var subSlogan = document.getElementById('subSlogan');
-    if (mainTitle) mainTitle.innerText = '📖 ANILTILAR';
-    if (subSlogan) subSlogan.innerText = (currentLang === 'ar' ? 'قصص وحكايات واقعية وتجارب إنسانية' : (currentLang === 'en' ? 'Real-life Memoirs & Inspiring Life Stories' : 'Yaşanmış Tecrübeler, Hayat Dersleri ve İz Bırakan Anılar'));
-  } else {
-    if (btnBizce) btnBizce.className = 'section-tab-btn active-bizce';
-    if (btnAnilts) btnAnilts.className = 'section-tab-btn';
-    var mainTitle = document.getElementById('headerMainTitle');
-    var subSlogan = document.getElementById('subSlogan');
-    if (mainTitle) mainTitle.innerText = '✍️ BİZCE';
-    if (subSlogan) subSlogan.innerText = (currentLang === 'ar' ? 'نظرة عميقة على التكنولوجيا والحياة' : (currentLang === 'en' ? 'A Deep Perspective on Tech, Life & Humanity' : 'Teknolojiye, Hayata ve İnsanlığa Derin Bakış'));
-  }
-
+  updateHeaderAndTabs();
   renderSubCategories();
   renderPosts();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -201,15 +232,23 @@ function renderSubCategories() {
   if (!pillsContainer) return;
 
   if (currentSection === 'anilts') {
+    var tAll = (currentLang === 'ar' ? '🌟 جميع الذكريات' : (currentLang === 'en' ? '🌟 All Memoirs' : '🌟 Tüm Anıltılar'));
+    var tLife = (currentLang === 'ar' ? '🌿 دروس الحياة' : (currentLang === 'en' ? '🌿 Life Lessons' : '🌿 Hayat Dersleri'));
+    var tWork = (currentLang === 'ar' ? '🤝 حياة العمل' : (currentLang === 'en' ? '🤝 Work Life' : '🤝 Çalışma Hayatı'));
+
     pillsContainer.innerHTML = 
-      '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">🌟 Tüm Anıltılar</button>' +
-      '<button class="cat-pill ' + (currentSubFilter === 'life' ? 'active' : '') + '" onclick="setSubFilter(\'life\')">🌿 Hayat Dersleri</button>' +
-      '<button class="cat-pill ' + (currentSubFilter === 'work' ? 'active' : '') + '" onclick="setSubFilter(\'work\')">🤝 Çalışma Hayatı</button>';
+      '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">' + tAll + '</button>' +
+      '<button class="cat-pill ' + (currentSubFilter === 'life' ? 'active' : '') + '" onclick="setSubFilter(\'life\')">' + tLife + '</button>' +
+      '<button class="cat-pill ' + (currentSubFilter === 'work' ? 'active' : '') + '" onclick="setSubFilter(\'work\')">' + tWork + '</button>';
   } else {
+    var tAllBizce = (currentLang === 'ar' ? '🌟 جميع مقالات بيزجه' : (currentLang === 'en' ? '🌟 All Bizce Articles' : '🌟 Tüm Bizce Yazıları'));
+    var tTech = (currentLang === 'ar' ? '💻 التكنولوجيا' : (currentLang === 'en' ? '💻 Technology' : '💻 Teknoloji'));
+    var tThought = (currentLang === 'ar' ? '🧠 الفكر والأفكار' : (currentLang === 'en' ? '🧠 Thought & Ideas' : '🧠 Düşünce & Fikir'));
+
     pillsContainer.innerHTML = 
-      '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">🌟 Tüm Bizce Yazıları</button>' +
-      '<button class="cat-pill ' + (currentSubFilter === 'tech' ? 'active' : '') + '" onclick="setSubFilter(\'tech\')">💻 Teknoloji</button>' +
-      '<button class="cat-pill ' + (currentSubFilter === 'thought' ? 'active' : '') + '" onclick="setSubFilter(\'thought\')">🧠 Düşünce & Fikir</button>';
+      '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">' + tAllBizce + '</button>' +
+      '<button class="cat-pill ' + (currentSubFilter === 'tech' ? 'active' : '') + '" onclick="setSubFilter(\'tech\')">' + tTech + '</button>' +
+      '<button class="cat-pill ' + (currentSubFilter === 'thought' ? 'active' : '') + '" onclick="setSubFilter(\'thought\')">' + tThought + '</button>';
   }
 }
 
@@ -219,31 +258,110 @@ function setSubFilter(sub) {
   renderPosts();
 }
 
-function setLang(lang) {
-  currentLang = lang;
-  var btns = document.querySelectorAll('.lang-switcher button');
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].classList.remove('active');
-  }
-  
-  var activeBtn = document.querySelector('.lang-switcher button[data-lang="' + lang + '"]');
-  if (activeBtn) activeBtn.classList.add('active');
+function updateReaderViewLanguage() {
+  if (!currentPost) return;
 
-  if (lang === 'ar') {
+  var langData = currentPost[currentLang] || currentPost['tr'];
+  var category = currentPost['category_' + currentLang] || currentPost.category;
+
+  var elCategory = document.getElementById('readCategory');
+  var elTitle = document.getElementById('readTitle');
+  var elDate = document.getElementById('readDate');
+  var elTime = document.getElementById('readTime');
+  var elContent = document.getElementById('readContent');
+  var lblBack = document.getElementById('lblBack');
+
+  if (elCategory) elCategory.innerText = category;
+  if (elTitle) elTitle.innerText = langData.title;
+  if (elDate) elDate.innerText = currentPost.date;
+
+  var readTimeStr = currentPost.readTime;
+  if (currentLang === 'en') {
+    readTimeStr = readTimeStr.replace('dk okuma', 'min read');
+  } else if (currentLang === 'ar') {
+    readTimeStr = readTimeStr.replace(/(\d+)\s*dk okuma/, 'قراءة $1 دقائق');
+  }
+  if (elTime) elTime.innerText = '⏱️ ' + readTimeStr;
+
+  if (elContent) elContent.innerHTML = langData.content;
+
+  if (lblBack) {
+    var backText = (currentLang === 'ar' ? '← العودة إلى القائمة' : (currentLang === 'en' ? '← Back to List' : '← Listeye Dön'));
+    lblBack.innerText = backText;
+  }
+
+  // TTS UI elements
+  var ttsHeader = document.querySelector('.tts-header span');
+  if (ttsHeader) {
+    if (currentLang === 'ar') ttsHeader.innerText = '🔊 محرك القراءة الصوتية (TTS)';
+    else if (currentLang === 'en') ttsHeader.innerText = '🔊 Voice Reading Engine (TTS)';
+    else ttsHeader.innerText = '🔊 Sesli Okuma Motoru (Text-to-Speech)';
+  }
+
+  var btnPlay = document.getElementById('btnPlay');
+  var btnPause = document.getElementById('btnPause');
+  var btnStop = document.getElementById('btnStop');
+
+  if (btnPlay) btnPlay.innerText = (currentLang === 'ar' ? '▶️ استماع' : (currentLang === 'en' ? '▶️ Listen' : '▶️ Dinle'));
+  if (btnPause) btnPause.innerText = (currentLang === 'ar' ? '⏸️ إيقاف مؤقت' : (currentLang === 'en' ? '⏸️ Pause' : '⏸️ Duraklat'));
+  if (btnStop) btnStop.innerText = (currentLang === 'ar' ? '⏹️ إيقاف' : (currentLang === 'en' ? '⏹️ Stop' : '⏹️ Durdur'));
+
+  var voiceLabels = document.querySelectorAll('.tts-selects label');
+  if (voiceLabels && voiceLabels.length >= 2) {
+    voiceLabels[0].innerText = (currentLang === 'ar' ? '🎙️ الصوت:' : (currentLang === 'en' ? '🎙️ Voice:' : '🎙️ Ses:'));
+    voiceLabels[1].innerText = (currentLang === 'ar' ? '⚡ السرعة:' : (currentLang === 'en' ? '⚡ Speed:' : '⚡ Hız:'));
+  }
+
+  var genderSel = document.getElementById('voiceGender');
+  if (genderSel && genderSel.options.length >= 2) {
+    genderSel.options[0].text = (currentLang === 'ar' ? '👨 رجل (افتراضي)' : (currentLang === 'en' ? '👨 Male (Default)' : '👨 Erkek (Varsayılan)'));
+    genderSel.options[1].text = (currentLang === 'ar' ? '👩 امرأة' : (currentLang === 'en' ? '👩 Female' : '👩 Kadın'));
+  }
+
+  var speedSel = document.getElementById('voiceSpeed');
+  if (speedSel && speedSel.options.length >= 3) {
+    speedSel.options[0].text = (currentLang === 'ar' ? '1.0x (عادي)' : (currentLang === 'en' ? '1.0x (Normal)' : '1.0x (Normal)'));
+    speedSel.options[1].text = (currentLang === 'ar' ? '1.25x (سريع)' : (currentLang === 'en' ? '1.25x (Fast)' : '1.25x (Hızlı)'));
+    speedSel.options[2].text = (currentLang === 'ar' ? '1.5x (سريع جداً)' : (currentLang === 'en' ? '1.5x (Very Fast)' : '1.5x (Çok Hızlı)'));
+  }
+}
+
+function setLang(lang) {
+  currentLang = lang || 'tr';
+  try {
+    localStorage.setItem('user_lang', currentLang);
+  } catch(e) {}
+
+  document.body.className = 'lang-' + currentLang;
+  if (currentLang === 'ar') {
     document.body.setAttribute('dir', 'rtl');
-    var lbl = document.getElementById('lblBack');
-    if (lbl) lbl.innerText = 'العودة إلى القائمة';
-  } else if (lang === 'en') {
-    document.body.removeAttribute('dir');
-    var lbl = document.getElementById('lblBack');
-    if (lbl) lbl.innerText = 'Back to List';
   } else {
     document.body.removeAttribute('dir');
-    var lbl = document.getElementById('lblBack');
-    if (lbl) lbl.innerText = 'Listeye Dön';
   }
 
-  switchSection(currentSection);
+  var btns = document.querySelectorAll('.lang-switcher button');
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].getAttribute('data-lang') === currentLang) {
+      btns[i].classList.add('active');
+    } else {
+      btns[i].classList.remove('active');
+    }
+  }
+
+  updateHeaderAndTabs();
+
+  var readerView = document.getElementById('readerView');
+  var isReading = (currentPost !== null && readerView && readerView.style.display !== 'none');
+
+  if (isReading) {
+    updateReaderViewLanguage();
+    if (synth && synth.speaking) {
+      playTTS();
+    }
+  } else {
+    renderSubCategories();
+    renderPosts();
+  }
 }
 
 function renderPosts() {
@@ -255,6 +373,19 @@ function renderPosts() {
   if (!grid) return;
   grid.innerHTML = '';
   if (listContainer) listContainer.innerHTML = '';
+
+  var pageInd = document.getElementById('pageIndicator');
+  if (pageInd) {
+    if (currentLang === 'ar') pageInd.innerText = 'صفحة 1 / 1';
+    else if (currentLang === 'en') pageInd.innerText = 'Page 1 / 1';
+    else pageInd.innerText = 'Sayfa 1 / 1';
+  }
+
+  var pagButtons = document.querySelectorAll('.pagination-bar button');
+  if (pagButtons && pagButtons.length >= 3) {
+    pagButtons[0].innerText = (currentLang === 'ar' ? '« السابق' : (currentLang === 'en' ? '« Previous' : '« Önceki'));
+    pagButtons[2].innerText = (currentLang === 'ar' ? 'التالي »' : (currentLang === 'en' ? 'Next »' : 'Sonraki »'));
+  }
 
   // KESİN AYRIŞTIRMA: Sadece geçerli section ('bizce' veya 'anilts') filtrelenir!
   var filtered = blogPostsData.filter(function(p) {
@@ -285,12 +416,19 @@ function renderPosts() {
     var tagClass = 'post-tag' + (isAnilts ? ' post-tag-anilts' : '');
     var readMoreClass = 'read-more-btn' + (isAnilts ? ' read-more-anilts' : '');
 
+    var readTimeStr = post.readTime;
+    if (currentLang === 'en') {
+      readTimeStr = readTimeStr.replace('dk okuma', 'min read');
+    } else if (currentLang === 'ar') {
+      readTimeStr = readTimeStr.replace(/(\d+)\s*dk okuma/, 'قراءة $1 دقائق');
+    }
+
     card.innerHTML = '<div class="' + imgClass + '">' + (post.icon || '📝') + '</div>' +
       '<div class="card-body">' +
         '<div>' +
           '<div class="post-meta">' +
             '<span class="' + tagClass + '">' + category + '</span>' +
-            '<span>' + post.readTime + '</span>' +
+            '<span>' + readTimeStr + '</span>' +
           '</div>' +
           '<h2 class="post-title">' + langData.title + '</h2>' +
           '<p class="post-excerpt">' + langData.summary + '</p>' +
@@ -326,13 +464,20 @@ function renderPosts() {
       var iconClass = 'list-item-icon' + (rIsAnilts ? ' anilts-icon' : '');
       var rTagClass = 'post-tag' + (rIsAnilts ? ' post-tag-anilts' : '');
 
+      var rReadTimeStr = rPost.readTime;
+      if (currentLang === 'en') {
+        rReadTimeStr = rReadTimeStr.replace('dk okuma', 'min read');
+      } else if (currentLang === 'ar') {
+        rReadTimeStr = rReadTimeStr.replace(/(\d+)\s*dk okuma/, 'قراءة $1 دقائق');
+      }
+
       listItem.innerHTML = '<div class="' + iconClass + '">' + (rPost.icon || '📝') + '</div>' +
         '<div class="list-item-content">' +
           '<h4 class="list-item-title">' + rLangData.title + '</h4>' +
           '<div class="list-item-meta">' +
             '<span class="' + rTagClass + '">' + rCategory + '</span>' +
             '<span>📅 ' + rPost.date + '</span>' +
-            '<span>⏱️ ' + rPost.readTime + '</span>' +
+            '<span>⏱️ ' + rReadTimeStr + '</span>' +
           '</div>' +
         '</div>';
 
@@ -348,30 +493,9 @@ function openPost(id) {
   currentPost = blogPostsData.find(function(p) { return p.id === id; });
   if (!currentPost) return;
 
-  var btnBizce = document.getElementById('tabBizce');
-  var btnAnilts = document.getElementById('tabAnilts');
-  if (currentPost.type === 'anilts') {
-    if (btnBizce) btnBizce.className = 'section-tab-btn';
-    if (btnAnilts) btnAnilts.className = 'section-tab-btn active-anilts';
-  } else {
-    if (btnBizce) btnBizce.className = 'section-tab-btn active-bizce';
-    if (btnAnilts) btnAnilts.className = 'section-tab-btn';
-  }
-
-  var langData = currentPost[currentLang] || currentPost['tr'];
-  var category = currentPost['category_' + currentLang] || currentPost.category;
-
-  var elCategory = document.getElementById('readCategory');
-  var elTitle = document.getElementById('readTitle');
-  var elDate = document.getElementById('readDate');
-  var elTime = document.getElementById('readTime');
-  var elContent = document.getElementById('readContent');
-
-  if (elCategory) elCategory.innerText = category;
-  if (elTitle) elTitle.innerText = langData.title;
-  if (elDate) elDate.innerText = currentPost.date;
-  if (elTime) elTime.innerText = '⏱️ ' + currentPost.readTime;
-  if (elContent) elContent.innerHTML = langData.content;
+  currentSection = currentPost.type;
+  updateHeaderAndTabs();
+  updateReaderViewLanguage();
 
   var listView = document.getElementById('listView');
   var readerView = document.getElementById('readerView');
@@ -387,6 +511,8 @@ function showList() {
   var listView = document.getElementById('listView');
   if (readerView) readerView.style.display = 'none';
   if (listView) listView.style.display = 'block';
+  updateHeaderAndTabs();
+  renderSubCategories();
   renderPosts();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -463,10 +589,15 @@ function restartTTSIfPlaying() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  var storedLang = localStorage.getItem('user_lang') || 'tr';
+  currentLang = storedLang;
+
   var params = new URLSearchParams(window.location.search);
+  var sec = 'bizce';
   if (params.get('cat') === 'anilts' || params.get('type') === 'anilts') {
-    switchSection('anilts');
-  } else {
-    switchSection('bizce');
+    sec = 'anilts';
   }
+
+  currentSection = sec;
+  setLang(currentLang);
 });
