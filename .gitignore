@@ -1,0 +1,12 @@
+﻿# Local Environment Variables & Secret Files (NEVER COMMIT TO GIT)
+.env
+.env.*
+.dev.vars
+*.secret
+
+# IDE & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+node_modules/
