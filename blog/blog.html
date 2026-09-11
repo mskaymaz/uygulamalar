@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bizce & Anıltılar - Teknolojiye, Hayata ve İnsanlığa Derin Bakış | MSK Labs</title>
-  <meta name="description" content="MSK Labs Bizce ve Anıltılar düşünce platformu. Teknoloji, hayat, bilim, insanlık, yaşanmış anılar ve tecrübe yazıları.">
+  <title>MSK Labs - Bizce & Anıltılar Yayın Platformu</title>
+  <meta name="description" content="MSK Labs Bizce ve Anıltılar düşünce ve anı platformu. Teknoloji, hayat, bilim, insanlık ve yaşanmış anı yazıları.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/global.css?v=45">
+  <link rel="stylesheet" href="../assets/css/global.css?v=48">
   
   <link rel="icon" type="image/png" href="../img/MSKLabs_favicon.png">
   <link rel="shortcut icon" href="../img/MSKLabs_favicon.png" type="image/x-icon">
@@ -22,6 +22,7 @@
       --bizce-dark: #0f172a;
       --bizce-text: #1e293b;
       --bizce-muted: #64748b;
+      --anilts-primary: #d97706;
     }
 
     body {
@@ -32,7 +33,7 @@
       padding: 0;
     }
 
-    /* Fixed Compact Header with +20% Center Logo */
+    /* Header */
     .bizce-header {
       background: #ffffff;
       border-bottom: 1px solid #cbd5e1;
@@ -53,12 +54,15 @@
       height: 100%;
     }
     .bizce-title-group h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--bizce-dark);
       margin: 0;
       letter-spacing: -0.03em;
       line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .bizce-title-group p {
       font-size: 0.75rem;
@@ -70,10 +74,10 @@
     .bizce-center-logo-link {
       display: flex;
       align-items: center;
-      height: 48px;
+      height: 44px;
     }
     .bizce-header-logo {
-      height: 48px;
+      height: 44px;
       width: auto;
       object-fit: contain;
     }
@@ -114,6 +118,44 @@
       width: 100%;
     }
 
+    /* Main Tab Selector (Bizce vs Anıltılar) */
+    .section-tab-bar {
+      display: flex;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 0.35rem;
+      margin-bottom: 1.25rem;
+      gap: 0.35rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .section-tab-btn {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .section-tab-btn.active-bizce {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+    .section-tab-btn.active-anilts {
+      background: #d97706;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    }
+
     /* Filter & Category Toolbar */
     .filter-toolbar {
       display: flex;
@@ -146,16 +188,6 @@
     .cat-pill.active {
       background: var(--bizce-primary);
       color: #ffffff;
-    }
-    .cat-pill-anilts {
-      background: #fffbeb;
-      color: #b45309;
-      border: 1px solid #fde68a;
-    }
-    .cat-pill-anilts.active {
-      background: #d97706;
-      color: #ffffff;
-      border-color: #d97706;
     }
 
     /* Article Card Grid */
@@ -242,6 +274,9 @@
       color: var(--bizce-primary);
       font-weight: 700;
       font-size: 0.85rem;
+    }
+    .read-more-anilts {
+      color: var(--anilts-primary) !important;
     }
     .card-tts-badge {
       background: #f0f9ff;
@@ -407,8 +442,8 @@
 <header class="bizce-header">
   <div class="bizce-header-inner">
     <div class="bizce-title-group">
-      <h1>BİZCE & ANILTILAR</h1>
-      <p id="subSlogan">Teknolojiye, Hayata, İnsanlığa ve Anılara Derin Bakış</p>
+      <h1 id="headerMainTitle">✍️ BİZCE</h1>
+      <p id="subSlogan">Teknolojiye, Hayata ve İnsanlığa Derin Bakış</p>
     </div>
     
     <a href="../index.html" class="bizce-center-logo-link" title="MSK Labs Ana Sayfa">
@@ -417,7 +452,6 @@
 
     <div class="bizce-nav-right">
       <a href="../index.html" class="nav-link-btn">🏠 Ana Sayfa</a>
-      <button onclick="showList()" class="nav-link-btn">📑 Tüm Yazılar</button>
       
       <div class="lang-switcher">
         <button onclick="setLang('tr')" data-lang="tr" class="active" title="Türkçe">TR</button>
@@ -436,17 +470,23 @@
 
   <main class="main-content-area">
 
+    <!-- Ana Yayın Türü Sekmeleri (BİZCE vs ANILTILAR) -->
+    <div class="section-tab-bar">
+      <button class="section-tab-btn active-bizce" id="tabBizce" onclick="switchSection('bizce')">
+        ✍️ BİZCE (Düşünce & Fikir Makaleleri)
+      </button>
+      <button class="section-tab-btn" id="tabAnilts" onclick="switchSection('anilts')">
+        📖 ANILTILAR (Yaşanmış Tecrübeler & Anılar)
+      </button>
+    </div>
+
     <div id="listView">
 
       <div class="filter-toolbar">
-        <div class="category-pills">
-          <button class="cat-pill active" onclick="filterPosts('all')">🌟 Tüm Yazılar</button>
-          <button class="cat-pill" onclick="filterPosts('tech')">💻 Teknoloji</button>
-          <button class="cat-pill" onclick="filterPosts('life')">🌍 İnsanlık & Yaşam</button>
-          <button class="cat-pill" onclick="filterPosts('thought')">🧠 Düşünce</button>
-          <button class="cat-pill cat-pill-anilts" onclick="filterPosts('anilts')">📖 Anıltılar (Anılar)</button>
+        <div class="category-pills" id="subCategoryPills">
+          <!-- Dinamik Alt Kategoriler -->
         </div>
-        <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;">Sayfa 1 / 12</span>
+        <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;" id="pageIndicator">Sayfa 1 / 1</span>
       </div>
 
       <div class="posts-grid" id="postsGrid">
@@ -455,17 +495,13 @@
       <div class="pagination-bar">
         <button class="page-num" style="color: #94a3b8;">« Önceki</button>
         <button class="page-num active">1</button>
-        <button class="page-num">2</button>
-        <button class="page-num">3</button>
-        <span style="color: #94a3b8; font-weight: 700; padding: 0 0.2rem;">...</span>
-        <button class="page-num">12</button>
-        <button class="page-num">Sonraki »</button>
+        <button class="page-num" style="color: #94a3b8;">Sonraki »</button>
       </div>
 
     </div>
 
     <div id="readerView" class="reader-view">
-      <button onclick="showList()" class="back-btn">← <span id="lblBack">Tüm Yazılara Dön</span></button>
+      <button onclick="showList()" class="back-btn">← <span id="lblBack">Listeye Dön</span></button>
       <div class="post-tag" id="readCategory">Kategori</div>
       <h1 class="reader-title" id="readTitle">Yazı Başlığı</h1>
       <div class="post-meta" style="margin-bottom: 1rem;">
@@ -523,8 +559,9 @@
 
 <script>
   var currentLang = 'tr';
+  var currentSection = 'bizce'; // 'bizce' or 'anilts'
+  var currentSubFilter = 'all';
   var currentPost = null;
-  var currentFilter = 'all';
   var synth = window.speechSynthesis;
   var currentUtterance = null;
 
@@ -607,9 +644,9 @@
     {
       "id": 4,
       "type": "anilts",
-      "category": "Anıltılar (Yaşanmış Anı)",
-      "category_en": "Anıltılar (Memoir)",
-      "category_ar": "Anıltılar (ذكريات)",
+      "category": "Yaşanmış Anı",
+      "category_en": "Real Memoir",
+      "category_ar": "ذكريات واقعية",
       "date": "11 Eylül 2026",
       "readTime": "6 dk okuma",
       "icon": "📖",
@@ -631,6 +668,52 @@
     }
   ];
 
+  function switchSection(sec) {
+    currentSection = sec;
+    currentSubFilter = 'all';
+
+    var btnBizce = document.getElementById('tabBizce');
+    var btnAnilts = document.getElementById('tabAnilts');
+
+    if (sec === 'anilts') {
+      btnBizce.className = 'section-tab-btn';
+      btnAnilts.className = 'section-tab-btn active-anilts';
+      document.getElementById('headerMainTitle').innerText = '📖 ANILTILAR';
+      document.getElementById('subSlogan').innerText = (currentLang === 'ar' ? 'قصص وحكايات واقعية وتجارب إنسانية' : (currentLang === 'en' ? 'Real-life Memoirs & Inspiring Life Stories' : 'Yaşanmış Tecrübeler, Hayat Dersleri ve İz Bırakan Anılar'));
+    } else {
+      btnBizce.className = 'section-tab-btn active-bizce';
+      btnAnilts.className = 'section-tab-btn';
+      document.getElementById('headerMainTitle').innerText = '✍️ BİZCE';
+      document.getElementById('subSlogan').innerText = (currentLang === 'ar' ? 'نظرة عميقة على التكنولوجيا والحياة' : (currentLang === 'en' ? 'A Deep Perspective on Tech, Life & Humanity' : 'Teknolojiye, Hayata ve İnsanlığa Derin Bakış'));
+    }
+
+    renderSubCategories();
+    renderPosts();
+  }
+
+  function renderSubCategories() {
+    var pillsContainer = document.getElementById('subCategoryPills');
+    if (!pillsContainer) return;
+
+    if (currentSection === 'anilts') {
+      pillsContainer.innerHTML = 
+        '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">🌟 Tüm Anıltılar</button>' +
+        '<button class="cat-pill ' + (currentSubFilter === 'life' ? 'active' : '') + '" onclick="setSubFilter(\'life\')">🌿 Hayat Dersleri</button>' +
+        '<button class="cat-pill ' + (currentSubFilter === 'work' ? 'active' : '') + '" onclick="setSubFilter(\'work\')">🤝 Çalışma Hayatı</button>';
+    } else {
+      pillsContainer.innerHTML = 
+        '<button class="cat-pill ' + (currentSubFilter === 'all' ? 'active' : '') + '" onclick="setSubFilter(\'all\')">🌟 Tüm Bizce Yazıları</button>' +
+        '<button class="cat-pill ' + (currentSubFilter === 'tech' ? 'active' : '') + '" onclick="setSubFilter(\'tech\')">💻 Teknoloji</button>' +
+        '<button class="cat-pill ' + (currentSubFilter === 'thought' ? 'active' : '') + '" onclick="setSubFilter(\'thought\')">🧠 Düşünce & Fikir</button>';
+    }
+  }
+
+  function setSubFilter(sub) {
+    currentSubFilter = sub;
+    renderSubCategories();
+    renderPosts();
+  }
+
   function setLang(lang) {
     currentLang = lang;
     var btns = document.querySelectorAll('.lang-switcher button');
@@ -643,35 +726,16 @@
 
     if (lang === 'ar') {
       document.body.setAttribute('dir', 'rtl');
-      document.getElementById('subSlogan').innerText = 'نظرة عميقة على التكنولوجيا والحياة والذكريات';
-      document.getElementById('lblBack').innerText = 'العودة إلى جميع المقالات';
+      document.getElementById('lblBack').innerText = 'العودة إلى القائمة';
     } else if (lang === 'en') {
       document.body.removeAttribute('dir');
-      document.getElementById('subSlogan').innerText = 'A Deep Perspective on Tech, Life, Humanity, and Memoirs';
-      document.getElementById('lblBack').innerText = 'Back to All Articles';
+      document.getElementById('lblBack').innerText = 'Back to List';
     } else {
       document.body.removeAttribute('dir');
-      document.getElementById('subSlogan').innerText = 'Teknolojiye, Hayata, İnsanlığa ve Anılara Derin Bakış';
-      document.getElementById('lblBack').innerText = 'Tüm Yazılara Dön';
+      document.getElementById('lblBack').innerText = 'Listeye Dön';
     }
 
-    if (currentPost) {
-      openPost(currentPost.id);
-    } else {
-      renderPosts();
-    }
-  }
-
-  function filterPosts(type) {
-    currentFilter = type;
-    var btns = document.querySelectorAll('.category-pills button');
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].classList.remove('active');
-    }
-    if (event && event.target) {
-      event.target.classList.add('active');
-    }
-    renderPosts();
+    switchSection(currentSection);
   }
 
   function renderPosts() {
@@ -679,10 +743,9 @@
     if (!grid) return;
     grid.innerHTML = '';
 
+    // KESİN AYRIŞTIRMA: Sadece geçerli section ('bizce' veya 'anilts') filtrelenir!
     var filtered = blogPostsData.filter(function(p) {
-      if (currentFilter === 'all') return true;
-      if (currentFilter === 'anilts') return p.type === 'anilts';
-      return p.type === 'bizce';
+      return p.type === currentSection;
     });
 
     for (var i = 0; i < filtered.length; i++) {
@@ -703,6 +766,7 @@
 
       var imgClass = 'card-img-placeholder' + (isAnilts ? ' card-img-anilts' : '');
       var tagClass = 'post-tag' + (isAnilts ? ' post-tag-anilts' : '');
+      var readMoreClass = 'read-more-btn' + (isAnilts ? ' read-more-anilts' : '');
 
       card.innerHTML = '<div class="' + imgClass + '">' + (post.icon || '📝') + '</div>' +
         '<div class="card-body">' +
@@ -715,7 +779,7 @@
             '<p class="post-excerpt">' + langData.summary + '</p>' +
           '</div>' +
           '<div class="card-actions">' +
-            '<span class="read-more-btn">' + btnText + '</span>' +
+            '<span class="' + readMoreClass + '">' + btnText + '</span>' +
             '<span class="card-tts-badge">🔊 ' + ttsText + '</span>' +
           '</div>' +
         '</div>';
@@ -816,10 +880,11 @@
 
   document.addEventListener("DOMContentLoaded", function() {
     var params = new URLSearchParams(window.location.search);
-    if (params.get('cat') === 'anilts') {
-      currentFilter = 'anilts';
+    if (params.get('cat') === 'anilts' || params.get('type') === 'anilts') {
+      switchSection('anilts');
+    } else {
+      switchSection('bizce');
     }
-    renderPosts();
   });
 </script>
 
