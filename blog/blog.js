@@ -313,6 +313,7 @@ function updateReaderViewLanguage() {
     genderSel.options[0].text = (currentLang === 'ar' ? '👨 رجل' : (currentLang === 'en' ? '👨 Male' : '👨 Erkek'));
     genderSel.options[1].text = (currentLang === 'ar' ? '👩 امرأة' : (currentLang === 'en' ? '👩 Female' : '👩 Kadın'));
   }
+  checkAndDetectDeviceVoices();
 
   var speedSel = document.getElementById('voiceSpeed');
   if (speedSel && speedSel.options.length >= 3) {
@@ -660,6 +661,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* --- Erişilebilirlik: Okuma Metni Boyutu Ölçekleme (Font Resizer) --- */
 var currentFontOffset = parseInt(localStorage.getItem('msk_font_offset') || '0', 10);
+
+function checkAndDetectDeviceVoices() {
+  if (!synth) return;
+  var voices = synth.getVoices();
+  if (!voices || voices.length === 0) return;
+
+  var langPrefix = (currentLang || 'tr').slice(0, 2).toLowerCase();
+  var langVoices = voices.filter(function(v) {
+    return v.lang.toLowerCase().startsWith(langPrefix);
+  });
+
+  var femaleKeywords = ['female', 'zira', 'yelda', 'seda', 'emel', 'filiz', 'dilara', 'ayşegül', 'gül', 'woman', 'lady'];
+  var hasFemale = langVoices.some(function(v) {
+    var lower = v.name.toLowerCase();
+    return femaleKeywords.some(function(kw) { return lower.includes(kw); });
+  });
+
+  var genderSel = document.getElementById('voiceGender');
+  if (genderSel && genderSel.options.length >= 2) {
+    if (!hasFemale && langVoices.length > 0) {
+      genderSel.options[1].text = (currentLang === 'ar' 
+        ? '👩 امرأة (غير متوفر)' 
+        : (currentLang === 'en' ? '👩 Female (Not on device)' : '👩 Kadın (Cihazınızda Yok)'));
+    } else {
+      genderSel.options[1].text = (currentLang === 'ar' ? '👩 امرأة' : (currentLang === 'en' ? '👩 Female' : '👩 Kadın'));
+    }
+  }
+}
+
+if (synth) {
+  synth.onvoiceschanged = checkAndDetectDeviceVoices;
+}
 
 function applyFontSize() {
   var elContent = document.getElementById('readContent');
