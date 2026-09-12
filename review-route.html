@@ -249,9 +249,9 @@
     setLang(langParam || savedLang || 'tr');
 
     if (selectedAppId && APPS_CONFIG[selectedAppId]) {
-      document.getElementById('appNameText').innerText = ${APPS_CONFIG[selectedAppId].name} Değerlendirmesi;
+      document.getElementById('appNameText').innerText = `${APPS_CONFIG[selectedAppId].name} Değerlendirmesi`;
       document.getElementById('appIconBox').innerText = APPS_CONFIG[selectedAppId].icon;
-      document.getElementById('supportLinkBtn').href = destek.html?app=&category=hata;
+      document.getElementById('supportLinkBtn').href = `destek.html?app=${encodeURIComponent(selectedAppId)}&category=hata`;
     }
   })();
 </script>

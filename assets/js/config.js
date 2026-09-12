@@ -8,7 +8,6 @@ const SITE_CONFIG = {
   siteUrl: "https://msklabs.org",
   contactEmail: "msklabs.org@gmail.com",
   googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbxoT1OGEkYZ_1MJXv6XErJYjVe26qqtr2rZGIXiDXxbNG9gIzabfhWsPJhjInTlG3_NQw/exec",
-  adminPin: "175",
   version: "1.0.0",
   apps: {
     haydinamaza: { name: "Haydi Namaza", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.haydinamaza" },

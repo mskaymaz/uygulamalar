@@ -242,3 +242,20 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 ### ↔️ 11.3 Sıfır Mobil Taşma (Zero Horizontal Scroll / Fluid Layout) Standardı
 * **Türkçe:** Mobil ekranlarda (320px iPhone SE ve 360px Android cihazlar dahil) hiçbir bileşen yatay kaydırma çubuğu oluşturamaz. Grid kolon genişlikleri `minmax(280px, 1fr)` seviyesine ayarlanacak, medya breakpoint'leri `600px` ve `768px` snap-point'leri ile standartlaştırılacaktır.
 * **English:** No element shall trigger horizontal viewport scrolling on mobile screens (including 320px and 360px devices). Grid column minimum widths must be set to `minmax(280px, 1fr)`, with standardized breakpoints at `600px` and `768px`.
+
+---
+
+## 🔒 12. BÜTÜNLEŞİK SİSTEM MİMARİSİ, GÜVENLİK VE VERİ STANDARTLARI
+## 🔒 12. UNIFIED SYSTEM ARCHITECTURE, SECURITY & DATA SPECIFICATIONS
+
+### 🛡️ 12.1 İstemci Gizliliği ve Sıfır Şifre / Secrets & Client Security Rule (P0)
+* **Türkçe:** İstemci tarafına teslim edilen hiçbir JavaScript dosyası (`config.js`, `analytics.js` vb.) gizli yönetici PIN'i, API anahtarı veya yetkilendirme parolası içeremez. Yönetici paneli ve istatistik doğrulama kararları sunucu tarafında (Cloudflare Workers / API uç noktası) yürütülecektir.
+* **English:** No client-side JavaScript file delivered to the browser shall contain hardcoded admin PINs, API secrets, or authentication credentials. Authorization decisions must execute server-side (e.g., Cloudflare Workers).
+
+### 🗄️ 12.2 Tek Yetkili Veri Kaynağı / Single Source of Truth Metadata Rule (P1)
+* **Türkçe:** Tüm uygulama isimleri, ikonları, sürümleri ve izin bildirimleri `assets/js/apps-data.js` üzerinde tek bir yetkili kaynak olarak tutulacak; `privacy.html`, `terms.html`, `index.html` ve detay sayfaları bu merkezi veriyi okuyacaktır. Dosyalar arasında mükerrer veya çelişen veri tutulması kesinlikle yasaktır.
+* **English:** All application names, icons, platform statuses, and privacy permissions shall originate from a single authoritative metadata database (`assets/js/apps-data.js`). Duplicating hardcoded metadata across static HTML files is strictly prohibited.
+
+### 📄 12.3 Hukuki Metin ve Ürün Söylemi Hizalaması / Legal Policy Alignment Rule (P1)
+* **Türkçe:** Ana sayfadaki "Ücretsiz ve Reklamsız" söylemi ile `privacy.html` / `terms.html` içindeki AdMob/AdSense çerez bildirimleri 100% uyumlu hale getirilecek; ürünün gerçek durumuyla hukuki metinleri çelişmeyecektir.
+* **English:** Homepage "Free & Ad-free" portfolio messaging must be harmonized with Privacy Policy and Terms of Service cookie/advertising disclosures.
