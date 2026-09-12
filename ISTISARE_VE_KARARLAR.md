@@ -166,11 +166,11 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 * **Türkçe:** MSK Labs portföyü (20-30 uygulama) genel teknoloji, masaüstü otomasyonu (DeskPilot), verimlilik ve günlük araçlardan oluşur (İslami uygulamalar %10-15 civarındadır). Bizce blog platformu; **teknoloji, insanlık, bilim, sosyal yaşam, evrensel değerler ve gelecek** temalarını kaleme alır. Yazarın kendi inanç dünyasından (İslam) süzülen etik ilkeler, tüm insanlığa hitap eden evrensel ve medeni bir dille sunulur.
 * **English:** The MSK Labs application portfolio (20-30 apps) primarily consists of general technology, desktop automation (DeskPilot), productivity, and utility tools. The Bizce blog platform focuses on **technology, humanity, science, social dynamics, ethics, and future innovations**. Ethical values from the author's Muslim background are articulated in a universal, inclusive, and civilized tone.
 
-### 📁 8.2 Klasör Düzeni / Directory Structure
-* /: Ana kurumsal ve otomasyon sayfaları (index.html, bout.html, contact.html, who-we-are.html, destek.html, status.html, pages.html, ist.html).
-* /blog/: log.html (Bizce Platformu), izce.html (Köprü Yönlendirme), ssets/data/blog_posts.json (Yazı Veri Tabanı).
-* /apps/: Uygulama özel sayfaları (haydinamaza.html, ekatsay.html, emekli.html, enyakin.html, deskpilot.html, gcpiluyari.html).
-* /assets/: Ortak JS (ssets/js/), CSS (ssets/css/), Data (ssets/data/), Görseller (img/).
+### 📁 8.2 Klasör Düzeni & Çift Dosya Engelleme İlkesi / Directory Structure & Single Source Rules
+* **/** (Ana Dizin): Sadece Tip 1 Kurumsal Çekirdek Sayfaları tutar (`index.html`, `about.html`, `contact.html`, `who-we-are.html`, `destek.html`, `status.html`, `pages.html`, `ist.html`). Ana dizinde yer alan eski uygulama isimli dosyalar (`haydinamaza.html`, `rekatsay.html` vb.) sadece 1 satırlık kesintisiz HTTP meta-refresh yönlendirme görevi görür.
+* **/apps/** (Uygulama Sayfaları): Tüm aktif uygulama detay sayfalarının TEK YETKİLİ adresidir (`apps/haydinamaza.html`, `apps/rekatsay.html`, `apps/emekli.html`, `apps/enyakin.html`, `apps/deskpilot.html`, `apps/gcpiluyari.html`). Geliştirici ve AI asistanı TÜM uygulama güncellemelerini YALNIZCA `/apps/` klasöründeki bu dosyalar üzerinde gerçekleştirir.
+* **/blog/** (Yayın Platformu): `blog.html` (Bizce & Anıltılar platformu), `blog.js` (Yayın motoru ve TTS) dosyalarını barındırır. Ana dizindeki `bizce.html` 1 satırlık köprü yönlendirmedir.
+* **/assets/**: Ortak JS (`assets/js/`), CSS (`assets/css/`), Data (`assets/js/apps-data.js`), Görseller (`img/`, `media/`).
 
 ### 🔊 8.3 Sesli Okuma Motoru (TTS - Text to Speech) Spesifikasyonu
 * **Varsayılan Ses:** Erkek (Bay) sesi varsayılan olarak başlar. Kullanıcı dilerse Kadın (Bayan) sesine geçebilir (👨 Erkek / 👩 Kadın).
