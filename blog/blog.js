@@ -285,11 +285,6 @@ function updateReaderViewLanguage() {
 
   if (elContent) elContent.innerHTML = langData.content;
 
-  if (lblBack) {
-    var backText = (currentLang === 'ar' ? '← العودة إلى القائمة' : (currentLang === 'en' ? '← Back to List' : '← Listeye Dön'));
-    lblBack.innerText = backText;
-  }
-
   // TTS UI elements
   var ttsHeader = document.querySelector('.tts-header span');
   if (ttsHeader) {
