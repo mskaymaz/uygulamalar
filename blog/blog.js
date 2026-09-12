@@ -314,15 +314,15 @@ function updateReaderViewLanguage() {
 
   var genderSel = document.getElementById('voiceGender');
   if (genderSel && genderSel.options.length >= 2) {
-    genderSel.options[0].text = (currentLang === 'ar' ? '👨 رجل (افتراضي)' : (currentLang === 'en' ? '👨 Male (Default)' : '👨 Erkek (Varsayılan)'));
+    genderSel.options[0].text = (currentLang === 'ar' ? '👨 رجل' : (currentLang === 'en' ? '👨 Male' : '👨 Erkek'));
     genderSel.options[1].text = (currentLang === 'ar' ? '👩 امرأة' : (currentLang === 'en' ? '👩 Female' : '👩 Kadın'));
   }
 
   var speedSel = document.getElementById('voiceSpeed');
   if (speedSel && speedSel.options.length >= 3) {
-    speedSel.options[0].text = (currentLang === 'ar' ? '1.0x (عادي)' : (currentLang === 'en' ? '1.0x (Normal)' : '1.0x (Normal)'));
-    speedSel.options[1].text = (currentLang === 'ar' ? '1.25x (سريع)' : (currentLang === 'en' ? '1.25x (Fast)' : '1.25x (Hızlı)'));
-    speedSel.options[2].text = (currentLang === 'ar' ? '1.5x (سريع جداً)' : (currentLang === 'en' ? '1.5x (Very Fast)' : '1.5x (Çok Hızlı)'));
+    speedSel.options[0].text = '1.0x';
+    speedSel.options[1].text = '1.25x';
+    speedSel.options[2].text = '1.5x';
   }
 }
 
