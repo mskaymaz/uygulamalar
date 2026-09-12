@@ -281,9 +281,10 @@ function updateReaderViewLanguage() {
   } else if (currentLang === 'ar') {
     readTimeStr = readTimeStr.replace(/(\d+)\s*dk okuma/, 'قراءة $1 دقائق');
   }
-  if (elTime) elTime.innerText = '⏱️ ' + readTimeStr;
-
-  if (elContent) elContent.innerHTML = langData.content;
+  if (elContent) {
+    elContent.innerHTML = langData.content;
+    applyFontSize();
+  }
 
   // TTS UI elements
   var ttsHeader = document.querySelector('.tts-header span');
@@ -318,6 +319,15 @@ function updateReaderViewLanguage() {
     speedSel.options[0].text = '1.0x';
     speedSel.options[1].text = '1.25x';
     speedSel.options[2].text = '1.5x';
+  }
+
+  var lblFontSizer = document.getElementById('lblFontSizer');
+  var btnFontReset = document.getElementById('btnFontReset');
+  if (lblFontSizer) {
+    lblFontSizer.innerText = (currentLang === 'ar' ? 'حجم الخط:' : (currentLang === 'en' ? 'Text Size:' : 'Yazı Boyutu:'));
+  }
+  if (btnFontReset) {
+    btnFontReset.innerText = (currentLang === 'ar' ? 'إعادة ضبط' : (currentLang === 'en' ? 'Reset' : 'Sıfırla'));
   }
 }
 
@@ -595,4 +605,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
   currentSection = sec;
   setLang(currentLang);
+  applyFontSize();
 });
+
+/* --- Erişilebilirlik: Okuma Metni Boyutu Ölçekleme (Font Resizer) --- */
+var currentFontOffset = parseInt(localStorage.getItem('msk_font_offset') || '0', 10);
+
+function applyFontSize() {
+  var elContent = document.getElementById('readContent');
+  if (!elContent) return;
+
+  var basePx = 17; // base ~1.05rem
+  var newPx = basePx + currentFontOffset;
+
+  elContent.style.fontSize = newPx + 'px';
+  elContent.style.lineHeight = Math.round(newPx * 1.65) + 'px';
+
+  var subElements = elContent.querySelectorAll('p, li, span, blockquote, div');
+  subElements.forEach(function(el) {
+    el.style.fontSize = newPx + 'px';
+    el.style.lineHeight = Math.round(newPx * 1.65) + 'px';
+  });
+
+  try {
+    localStorage.setItem('msk_font_offset', currentFontOffset.toString());
+  } catch(e) {}
+}
+
+function changeFontSize(delta) {
+  if (currentFontOffset < 12) { // Max +12pt offset
+    currentFontOffset += delta;
+    applyFontSize();
+  }
+}
+
+function resetFontSize() {
+  currentFontOffset = 0;
+  applyFontSize();
+}
