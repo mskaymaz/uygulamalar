@@ -225,3 +225,20 @@ Aşağıdaki bağlantılar Cloudflare Pages üzerinde canlı yayında olan tüm 
 ### 🔄 10.3 Tek Merkezden Otomatik Tema Yönetimi (`assets/js/layout.js`)
 * **Türkçe:** Kullanıcının tema tercihi (`light` veya `dark`) `localStorage.getItem('user_theme')` anahtarında saklanır ve `layout.js` tarafından sayfa yüklenirken `document.documentElement` etiketine `data-theme` özniteliği enjekte edilir. Gelecekte eklenecek 500+ sayfa tek bir satır ekstra kod yazılmadan otomatik olarak Koyu/Açık Tema moduna uyum sağlar.
 * **English:** Theme preference (`light` or `dark`) is persisted in `localStorage.getItem('user_theme')`. `assets/js/layout.js` injects the `data-theme` attribute on `document.documentElement` upon DOM load, ensuring all current and future 500+ pages instantly toggle between Light and Dark modes without individual file maintenance.
+
+---
+
+## 📱 11. BÜTÜNLEŞİK MOBİL VE ERİŞİLEBİLİRLİK (WCAG) STANDARTLARI
+## 📱 11. UNIFIED MOBILE USABILITY & ACCESSIBILITY (WCAG) SPECIFICATIONS
+
+### 📌 11.1 %100 Dark Mode ve CSS Değişken Bağlılığı / 100% Dark Mode & Token Binding Rule
+* **Türkçe:** Hiçbir CSS dosyasında (`blog.css`, `global.css`) `body` veya temel bileşenler için sabit (hardcoded) arka plan rengi (Örn: `#f8fafc`, `#ffffff`) kullanılamaz. Tüm zemin ve metin renkleri istisnasız CSS değişkenlerine (`var(--bg-page)`, `var(--bg-card)`, `var(--text-main)`) bağlanmak zorundadır.
+* **English:** Hardcoded surface background colors (e.g., `#f8fafc`, `#ffffff`) on `body` or core containers in any stylesheet are strictly prohibited. All surface and text colors must bind directly to CSS Custom Properties (`var(--bg-page)`, `var(--bg-card)`, `var(--text-main)`).
+
+### 📱 11.2 Mobil Dokunma Alanı (WCAG 2.5.5 Touch Target) Standardı
+* **Türkçe:** Sitedeki tüm butonlar, dil seçiciler, tab sekmeleri ve aksiyon öğeleri mobilde minimum **44x44px** (küçük ikincil butonlar için min **36x36px**) dokunma alanına sahip olmak zorundadır.
+* **English:** All interactive mobile buttons, language switchers, tabs, and action links must satisfy WCAG 2.5.5 touch target size of minimum **44x44px** (min **36x36px** for secondary micro-buttons).
+
+### ↔️ 11.3 Sıfır Mobil Taşma (Zero Horizontal Scroll / Fluid Layout) Standardı
+* **Türkçe:** Mobil ekranlarda (320px iPhone SE ve 360px Android cihazlar dahil) hiçbir bileşen yatay kaydırma çubuğu oluşturamaz. Grid kolon genişlikleri `minmax(280px, 1fr)` seviyesine ayarlanacak, medya breakpoint'leri `600px` ve `768px` snap-point'leri ile standartlaştırılacaktır.
+* **English:** No element shall trigger horizontal viewport scrolling on mobile screens (including 320px and 360px devices). Grid column minimum widths must be set to `minmax(280px, 1fr)`, with standardized breakpoints at `600px` and `768px`.
