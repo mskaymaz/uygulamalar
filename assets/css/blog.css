@@ -447,8 +447,30 @@ body {
 .tts-selects {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.25rem;
   font-size: 0.82rem;
+}
+.tts-select-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.tts-selects label {
+  white-space: nowrap;
+  font-weight: 600;
+  color: #475569;
+}
+.tts-selects select {
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 .audio-wave {
   display: none;
@@ -586,37 +608,41 @@ body {
     white-space: nowrap !important;
   }
 
-  /* Ses ve Hız Seçimleri Izgarası */
+  /* Kibar ve Kompakt Yan Yana Ses ve Hız Düzeni */
   .tts-selects {
-    display: grid !important;
-    grid-template-columns: auto 1fr auto 1fr !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
-    gap: 6px !important;
+    justify-content: center !important;
+    gap: 12px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    font-size: 0.8rem !important;
+    margin-top: 2px !important;
+  }
+
+  .tts-select-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
   }
 
   .tts-selects label {
     white-space: nowrap !important;
     font-weight: 600 !important;
+    font-size: 0.82rem !important;
   }
 
   .tts-selects select {
-    width: 100% !important;
-    min-width: 0 !important;
-    padding: 0.35rem 0.3rem !important;
-    font-size: 0.8rem !important;
-    box-sizing: border-box !important;
-    text-overflow: ellipsis !important;
-  }
-}
-
-/* Ekstra Dar Ekranlar (<=420px): Ses ve Hız Seçimlerini 2 Temiz Satıra Bölme */
-@media (max-width: 420px) {
-  .tts-selects {
-    grid-template-columns: auto 1fr !important;
-    row-gap: 8px !important;
-    column-gap: 8px !important;
+    width: auto !important;
+    min-width: 75px !important;
+    padding: 0.3rem 0.55rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    background-color: #ffffff !important;
+    cursor: pointer !important;
   }
 }
