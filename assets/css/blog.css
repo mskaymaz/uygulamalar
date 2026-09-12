@@ -484,3 +484,84 @@ body {
   font-style: italic;
   color: #0369a1;
 }
+
+/* ======================================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES
+   ====================================================== */
+@media (max-width: 680px) {
+  .bizce-header {
+    max-height: none !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  .bizce-header-inner {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+  }
+
+  .bizce-title-group h1 {
+    font-size: 1.15rem !important;
+  }
+
+  .bizce-center-logo-link {
+    height: 42px !important;
+  }
+
+  .bizce-header-logo {
+    height: 42px !important;
+  }
+
+  .section-tab-bar {
+    display: flex !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .section-tab-btn, .tab-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: 0.88rem !important;
+    padding: 10px 6px !important;
+  }
+
+  .category-filter-bar {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .category-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-pill {
+    flex-shrink: 0 !important;
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .post-card {
+    padding: 1.1rem !important;
+    border-radius: 14px !important;
+  }
+
+  .post-title {
+    font-size: 1.15rem !important;
+  }
+
+  .tts-controls-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .tts-selects {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+}

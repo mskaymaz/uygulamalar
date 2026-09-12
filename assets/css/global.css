@@ -708,91 +708,172 @@ body:has(.bizce-header) .desktop-ad,
   height: 120px;
 }
 
-/* Yan Reklam Gizleme Breakpoint'i (Sadece Mobil 768px ve altı cihazlar) */
-@media (max-width: 768px) {
+/* Yan Reklam Gizleme Breakpoint'i (Tablet ve Mobil 1080px ve altı cihazlar) */
+@media (max-width: 1080px) {
   .desktop-ad {
-    display: none;
+    display: none !important;
   }
 }
 
-@media (max-width: 600px) {
-  .portfolio-container {
-    padding: 25px 12px;
-  }
-
-  .logo-container {
-    margin-bottom: 35px;
-  }
-
-  .main-logo {
-    width: 210px;
-  }
-
-  .page-title {
-    font-size: 1.75rem;
-    margin-bottom: 30px;
-  }
-
-  .category-title {
-    font-size: 1.2rem;
-    margin: 25px 0 15px 0;
-  }
-
+/* Tablet Breakpoint (541px - 850px) */
+@media (max-width: 850px) and (min-width: 541px) {
   .app-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+/* Mobil ve Tablet Dokunmatik Navigasyon & Header (<=768px) */
+@media (max-width: 768px) {
+  .top-main-nav {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px !important;
+    padding: 8px 4px !important;
+    margin: 0.75rem 0 1.25rem 0 !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
   }
 
-  .app-card {
-    padding: 14px 12px;
-    border-radius: 10px;
+  .top-main-nav::-webkit-scrollbar {
+    display: none;
   }
 
-  .app-icon {
-    width: 80px;
-    height: 80px;
-    font-size: 44px;
-    margin-bottom: 12px;
-    border-radius: 16px;
-  }
-
-  .app-icon img {
-    border-radius: 16px;
-  }
-
-  .app-big-icon {
-    width: 100px;
-    height: 100px;
-    font-size: 54px;
+  .top-main-nav a {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.84rem !important;
+    color: var(--text-main) !important;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
   }
 
-  .app-big-icon img {
-    border-radius: 20px;
+  .top-main-nav a:hover,
+  .top-main-nav a.active-nav-link {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
   }
 
-  .app-name {
-    font-size: 0.95rem;
-    margin: 0 0 6px 0;
-  }
-
-  .app-vision {
-    font-size: 0.8rem;
-    line-height: 1.35;
+  .top-main-nav .nav-divider,
+  .top-main-nav span:not([class]) {
+    display: none !important;
   }
 
   .lang-switcher {
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+    justify-content: center !important;
   }
 
-  .lang-switcher button {
-    padding: 3px 8px;
-    font-size: 0.9rem;
+  .lang-switcher button,
+  #themeToggleBtn {
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Mobil Breakpoint (<=540px): Store Card & Clean Mobile Spacing */
+@media (max-width: 540px) {
+  .portfolio-container {
+    padding: 20px 14px !important;
+  }
+
+  .logo-container {
+    margin-bottom: 25px !important;
+  }
+
+  .main-logo {
+    width: 190px !important;
+  }
+
+  .page-title {
+    font-size: 1.55rem !important;
+    margin-bottom: 24px !important;
+  }
+
+  .category-title {
+    font-size: 1.15rem !important;
+    margin: 20px 0 12px 0 !important;
+  }
+
+  /* Tek Sütunlu Uygulama Listesi (Google Play & App Store Formatı - 2 Sütunlu CSS Grid) */
+  .app-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .app-card {
+    display: grid !important;
+    grid-template-columns: 64px 1fr !important;
+    column-gap: 14px !important;
+    row-gap: 3px !important;
+    align-items: center !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    text-align: left !important;
+  }
+
+  .app-icon {
+    grid-row: 1 / span 3 !important;
+    grid-column: 1 !important;
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    font-size: 34px !important;
+    margin-bottom: 0 !important;
+    border-radius: 16px !important;
+    align-self: center !important;
+  }
+
+  .app-icon img {
+    border-radius: 16px !important;
+  }
+
+  .app-name {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-size: 1.05rem !important;
+    margin: 0 !important;
+  }
+
+  .app-vision {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  .lang-badges {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    margin-top: 2px !important;
+  }
+
+  .app-big-icon {
+    width: 90px !important;
+    height: 90px !important;
+    font-size: 48px !important;
+    border-radius: 20px !important;
+  }
+
+  .app-big-icon img {
+    border-radius: 18px !important;
   }
 
   .infeed-ad-container .ad-placeholder {
-    height: 100px;
+    height: 100px !important;
   }
 }
 
