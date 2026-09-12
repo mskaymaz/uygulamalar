@@ -6,8 +6,8 @@
 window.MSK_APPS_DATA = {
   "haydinamaza": {
     id: "haydinamaza",
-    icon: "🕌",
-    logoImg: "img/haydinamaza.png",
+    icon: '<img src="media/haydinamaza/icon.png" alt="HaydiNamaza">',
+    logoImg: "media/haydinamaza/icon.png",
     name: { tr: "Haydi Namaza", en: "Haydi Namaza", ar: "حي على الصلاة" },
     tagline: {
       tr: "Namaz Vakitleri, Ezan Alarmları & Kıble Bulucu",
@@ -34,8 +34,8 @@ window.MSK_APPS_DATA = {
   },
   "deskpilot": {
     id: "deskpilot",
-    icon: "⚡",
-    logoImg: "img/deskpilot.png",
+    icon: '<img src="media/deskpilot/icon.png" alt="DeskPilot">',
+    logoImg: "media/deskpilot/icon.png",
     name: { tr: "DeskPilot", en: "DeskPilot", ar: "DeskPilot" },
     tagline: {
       tr: "Masaüstü Otomasyon ve Verimlilik Asistanı",
@@ -61,8 +61,8 @@ window.MSK_APPS_DATA = {
   },
   "enyakin": {
     id: "enyakin",
-    icon: "📍",
-    logoImg: "img/enyakin.png",
+    icon: '<img src="media/enyakin/icon.png" alt="En Yakın">',
+    logoImg: "media/enyakin/icon.png",
     name: { tr: "En Yakın Camii & Mescid", en: "Nearest Mosque Finder", ar: "أقرب مسجد" },
     tagline: {
       tr: "Çevrenizdeki Tüm Camii ve Mescitleri Anında Bulun",
@@ -87,8 +87,8 @@ window.MSK_APPS_DATA = {
   },
   "emekli": {
     id: "emekli",
-    icon: "⏳",
-    logoImg: "img/emekli.png",
+    icon: '<img src="media/emekli/icon.png" alt="Emekli">',
+    logoImg: "media/emekli/icon.png",
     name: { tr: "Emekli Sayaç", en: "Retirement Counter", ar: "عداد التقاعد" },
     tagline: {
       tr: "Emeklilik Geri Sayım ve Gün Hesaplayıcı",
@@ -113,8 +113,8 @@ window.MSK_APPS_DATA = {
   },
   "gcpiluyari": {
     id: "gcpiluyari",
-    icon: "🔋",
-    logoImg: "img/gcpiluyari.png",
+    icon: '<img src="media/gcpiluyari/icon.png" alt="GC Pil Uyarı">',
+    logoImg: "media/gcpiluyari/icon.png",
     name: { tr: "GÇP İl Uyarı", en: "GÇP Battery Guard", ar: "حارس البطارية" },
     tagline: {
       tr: "Akıllı Pil Sağlığı ve Şarj Uyarı Motoru",
@@ -139,8 +139,8 @@ window.MSK_APPS_DATA = {
   },
   "rekatsay": {
     id: "rekatsay",
-    icon: "📿",
-    logoImg: "img/rekatsay.png",
+    icon: '<img src="media/rekatsay/icon.png" alt="RekatSay">',
+    logoImg: "media/rekatsay/icon.png",
     name: { tr: "RekatSay", en: "Rakaat Counter", ar: "عداد الركعات" },
     tagline: {
       tr: "Sensör Tabanlı Otomatik Rekat Sayacı",

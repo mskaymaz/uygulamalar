@@ -226,9 +226,11 @@
         var changelogBtnText = (activeLang === 'ar' ? '📜 سجل التغييرات' : (activeLang === 'en' ? '📜 Version Changelog' : '📜 Sürüm Günlüğü'));
         var featTitle = (activeLang === 'ar' ? 'الميزات البارزة' : (activeLang === 'en' ? 'Highlighted Features' : 'Öne Çıkan Özellikler'));
 
+        var iconMarkup = `<img src="media/${app.id}/icon.png" alt="${t(app.name)}">`;
+
         container.innerHTML = `
           <div class="app-header-flex">
-            <div class="app-big-icon">${app.icon}</div>
+            <div class="app-big-icon">${iconMarkup}</div>
             <div>
               <h1 style="margin: 0; font-size: 1.8rem; color: #0f172a;">${t(app.name)}</h1>
               <p style="margin: 0.25rem 0 0 0; color: #475569; font-weight: 600; font-size: 1rem;">${t(app.tagline)}</p>

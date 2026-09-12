@@ -190,44 +190,51 @@
   const APPS_CONFIG = {
     'haydinamaza': {
       name: 'HaydiNamaza',
-      icon: '🕌',
+      icon: '<img src="media/haydinamaza/icon.png" alt="HaydiNamaza">',
       play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.haydinamaza',
       app_store: 'https://apps.apple.com/app/haydinamaza',
-      page_url: 'haydinamaza.html'
+      page_url: 'apps/haydinamaza.html'
     },
     'rekatsay': {
       name: 'RekatSay',
-      icon: '📿',
+      icon: '<img src="media/rekatsay/icon.png" alt="RekatSay">',
       play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.rekatsay',
       app_store: 'https://apps.apple.com/app/rekatsay',
-      page_url: 'rekatsay.html'
+      page_url: 'apps/rekatsay.html'
     },
     'emekli': {
       name: 'Emekli Sayaç',
-      icon: '⏳',
+      icon: '<img src="media/emekli/icon.png" alt="Emekli">',
       play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.emekli',
       app_store: 'https://apps.apple.com/app/emekli',
-      page_url: 'emekli.html'
+      page_url: 'apps/emekli.html'
     },
     'enyakin': {
       name: 'En Yakın',
-      icon: '📍',
+      icon: '<img src="media/enyakin/icon.png" alt="En Yakın">',
       play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.enyakin',
       app_store: 'https://apps.apple.com/app/enyakin',
-      page_url: 'enyakin.html'
+      page_url: 'apps/enyakin.html'
     },
     'deskpilot': {
       name: 'DeskPilot Masaüstü',
-      icon: '🖥️',
-      play_store: 'https://msklabs.org/deskpilot.html',
-      app_store: 'https://msklabs.org/deskpilot.html',
-      page_url: 'deskpilot.html'
+      icon: '<img src="media/deskpilot/icon.png" alt="DeskPilot">',
+      play_store: 'https://msklabs.org/apps/deskpilot.html',
+      app_store: 'https://msklabs.org/apps/deskpilot.html',
+      page_url: 'apps/deskpilot.html'
+    },
+    'gcpiluyari': {
+      name: 'GC Pil Uyarı',
+      icon: '<img src="media/gcpiluyari/icon.png" alt="GC Pil Uyarı">',
+      play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.gcpiluyari',
+      app_store: 'https://apps.apple.com/app/gcpiluyari',
+      page_url: 'apps/gcpiluyari.html'
     }
   };
 
   const DEFAULT_APP = {
     name: 'MSK Labs Portföyü',
-    icon: '📱',
+    icon: '<img src="img/MSKLabs_favicon.png" alt="MSK Labs">',
     play_store: 'https://msklabs.org/index.html',
     app_store: 'https://msklabs.org/index.html',
     page_url: 'index.html'
@@ -255,7 +262,7 @@
 
     const appData = APPS_CONFIG[appId] || DEFAULT_APP;
     document.getElementById('appNameText').innerText = appData.name;
-    document.getElementById('appIconBox').innerText = appData.icon;
+    document.getElementById('appIconBox').innerHTML = appData.icon;
 
     document.getElementById('playStoreBtn').href = appData.play_store;
     document.getElementById('appStoreBtn').href = appData.app_store;

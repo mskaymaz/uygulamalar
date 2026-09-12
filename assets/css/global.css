@@ -1567,12 +1567,6 @@ body.lang-ar .static-page-card {
   color: var(--text-main) !important;
 }
 
-[data-theme="dark"] .main-logo,
-[data-theme="dark"] .site-header-logo,
-[data-theme="dark"] .bizce-header-logo {
-  filter: brightness(0) invert(1);
-}
-
 [data-theme="dark"] .category-option {
   background: var(--bg-surface) !important;
   border-color: var(--border-color) !important;
