@@ -230,8 +230,8 @@ body.lang-ar { direction: rtl; }
    STANDART İÇ SAYFA ÜST HEADER (SITE HEADER) STİLLERİ
    ========================================================================== */
 .site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #cbd5e1;
+  background: var(--bg-card, #ffffff);
+  border-bottom: 1px solid var(--border-color, #cbd5e1);
   padding: 0.5rem 1.25rem;
   position: sticky;
   top: 0;
@@ -255,7 +255,7 @@ body.lang-ar { direction: rtl; }
 .site-header-title-group h1 {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main, #0f172a);
   margin: 0;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -266,7 +266,7 @@ body.lang-ar { direction: rtl; }
 
 .site-header-title-group p {
   font-size: 0.72rem;
-  color: #0284c7;
+  color: var(--primary-color, #0284c7);
   margin: 0.15rem 0 0 0;
   font-weight: 600;
 }
@@ -277,26 +277,6 @@ body.lang-ar { direction: rtl; }
   object-fit: contain;
   display: block;
 }
-
-/* Çoklu Dil Ayarları (Varsayılan Dil: Türkçe) */
-body:not(.lang-en):not(.lang-ar) .lang-en,
-body:not(.lang-en):not(.lang-ar) .lang-ar,
-body.lang-tr .lang-en,
-body.lang-tr .lang-ar {
-  display: none !important;
-}
-
-body.lang-en .lang-tr,
-body.lang-en .lang-ar {
-  display: none !important;
-}
-
-body.lang-ar .lang-tr,
-body.lang-ar .lang-en {
-  display: none !important;
-}
-
-body.lang-ar { direction: rtl; }
 
 /* %20 Küçültülmüş ve 10px Yaklaştırılmış Dil Seçici */
 .lang-switcher {
@@ -384,8 +364,8 @@ body.lang-ar { direction: rtl; }
 
 .lang-badge.pending {
   background: #f3f4f6;
-  color: #9ca3af;
-  border: 1px dashed #d1d5db;
+  color: #4b5563; /* WCAG AA 4.8:1 contrast compliance */
+  border: 1px dashed #9ca3af;
 }
 
 /* Çeviri Talep Kutusu (Sadece EN ve AR dillerinde görünür) */
@@ -746,7 +726,12 @@ body:has(.bizce-header) .desktop-ad,
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 0.45rem 0.9rem !important;
+    padding: 0.55rem 0.95rem !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
     font-size: 0.84rem !important;
     color: var(--text-main) !important;
     text-decoration: none;
@@ -776,10 +761,12 @@ body:has(.bizce-header) .desktop-ad,
   #themeToggleBtn {
     padding: 6px 12px !important;
     font-size: 0.85rem !important;
-    min-height: 36px !important;
+    min-height: 44px !important;
+    min-width: 44px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -794,7 +781,7 @@ body:has(.bizce-header) .desktop-ad,
   }
 
   .main-logo {
-    width: 190px !important;
+    width: clamp(190px, 40vw, 240px) !important;
   }
 
   .page-title {
@@ -831,30 +818,24 @@ body:has(.bizce-header) .desktop-ad,
   }
 
   .app-icon {
-    grid-area: icon !important;
-    width: 64px !important;
-    height: 64px !important;
-    min-width: 64px !important;
-    max-width: 64px !important;
-    min-height: 64px !important;
-    max-height: 64px !important;
-    font-size: 34px !important;
-    margin-bottom: 0 !important;
-    border-radius: 16px !important;
-    align-self: center !important;
-    overflow: hidden !important;
-    flex-shrink: 0 !important;
-    box-sizing: border-box !important;
+    grid-area: icon;
+    width: 64px;
+    height: 64px;
+    font-size: 34px;
+    margin-bottom: 0;
+    border-radius: 16px;
+    align-self: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-sizing: border-box;
   }
 
   .app-icon img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 64px !important;
-    max-height: 64px !important;
-    object-fit: cover !important;
-    border-radius: 16px !important;
-    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
   }
 
   .app-name {
@@ -1169,6 +1150,13 @@ body:has(.bizce-header) .desktop-ad,
   text-align: center;
   box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
   animation: fadeInReceipt 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 600px) {
+  .support-card,
+  .receipt-card {
+    padding: 20px 16px !important;
+  }
 }
 
 @keyframes fadeInReceipt {

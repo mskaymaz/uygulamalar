@@ -11,8 +11,8 @@
 }
 
 body {
-  background: #f8fafc;
-  color: var(--bizce-text);
+  background: var(--bg-page, #f8fafc);
+  color: var(--text-main, var(--bizce-text));
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
@@ -20,8 +20,8 @@ body {
 
 /* Header */
 .bizce-header {
-  background: #ffffff;
-  border-bottom: 1px solid #cbd5e1;
+  background: var(--bg-card, #ffffff);
+  border-bottom: 1px solid var(--border-color, #cbd5e1);
   padding: 0.5rem 1.5rem;
   position: sticky;
   top: 0;
@@ -181,7 +181,7 @@ body {
 /* Article Card Grid */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
 }
 .post-card {
