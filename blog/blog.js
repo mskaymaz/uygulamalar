@@ -549,15 +549,64 @@ function playTTS() {
   var genderEl = document.getElementById('voiceGender');
   var genderPref = genderEl ? genderEl.value : 'male';
   
-  var matchedVoice = voices.find(function(v) {
-    return v.lang.startsWith(currentUtterance.lang.slice(0, 2)) && 
-    (genderPref === 'female' ? (v.name.includes('Female') || v.name.includes('Zira') || v.name.includes('Yelda')) : (v.name.includes('Male') || v.name.includes('David') || v.name.includes('Tolga')));
+  var langPrefix = currentUtterance.lang.slice(0, 2).toLowerCase();
+  var langVoices = voices.filter(function(v) {
+    return v.lang.toLowerCase().startsWith(langPrefix);
   });
-  
-  if (!matchedVoice) {
-    matchedVoice = voices.find(function(v) { return v.lang.startsWith(currentUtterance.lang.slice(0, 2)); });
+
+  var femaleKeywords = ['female', 'zira', 'yelda', 'seda', 'emel', 'filiz', 'dilara', 'ayşegül', 'gül', 'woman', 'lady'];
+  var maleKeywords = ['male', 'david', 'tolga', 'cem', 'ahmet', 'man', 'guy'];
+
+  var matchedVoice = null;
+  var isExactGenderMatch = false;
+
+  if (langVoices.length > 0) {
+    if (genderPref === 'female') {
+      matchedVoice = langVoices.find(function(v) {
+        var lowerName = v.name.toLowerCase();
+        return femaleKeywords.some(function(kw) { return lowerName.includes(kw); });
+      });
+    } else {
+      matchedVoice = langVoices.find(function(v) {
+        var lowerName = v.name.toLowerCase();
+        return maleKeywords.some(function(kw) { return lowerName.includes(kw); });
+      });
+    }
+
+    if (matchedVoice) {
+      isExactGenderMatch = true;
+    } else {
+      matchedVoice = langVoices[0]; // Fallback to available voice
+    }
   }
-  if (matchedVoice) currentUtterance.voice = matchedVoice;
+
+  if (matchedVoice) {
+    currentUtterance.voice = matchedVoice;
+  }
+
+  var noticeEl = document.getElementById('ttsNotice');
+
+  // Pitch modulation & device voice limitation notification
+  if (genderPref === 'female') {
+    if (isExactGenderMatch) {
+      currentUtterance.pitch = 1.0;
+      if (noticeEl) noticeEl.style.display = 'none';
+    } else {
+      // Modulate pitch so generic voice sounds feminine (higher frequency)
+      currentUtterance.pitch = 1.35;
+      if (noticeEl) {
+        noticeEl.style.display = 'block';
+        noticeEl.innerText = (currentLang === 'ar' 
+          ? '⚠️ لم يتم العثور على محرك صوت نسائي محدد في جهازك. تم ضبط تردد الصوت لتناسب الصوت النسائي.'
+          : (currentLang === 'en'
+              ? 'ℹ️ Dedicated female voice engine is not installed on your device. Frequency adapted to higher pitch.'
+              : 'ℹ️ Cihazınızda tanımlı Kadın ses paketi bulunamadı. Ses frekansı kadın sesine (tiz) uyarlanarak okunuyor.'));
+      }
+    }
+  } else {
+    currentUtterance.pitch = 1.0;
+    if (noticeEl) noticeEl.style.display = 'none';
+  }
 
   currentUtterance.onstart = function() {
     var wave = document.getElementById('audioWave');
@@ -566,6 +615,7 @@ function playTTS() {
   currentUtterance.onend = function() {
     var wave = document.getElementById('audioWave');
     if (wave) wave.style.display = 'none';
+    if (noticeEl) noticeEl.style.display = 'none';
   };
 
   synth.speak(currentUtterance);
