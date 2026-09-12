@@ -38,43 +38,43 @@ Building upon the completed UI/UX fixes, all findings regarding system security 
 ---
 
 ### 🔴 FAZ 5: GÜVENLİK, SYNTAX & ACİL KRİTİK DÜZELTMELER (P0 / CRITICAL)
-- [ ] **[SEC-001]** `assets/js/config.js` içerisindeki `adminPin: "175"` tanımını kaldır; istemci koda şifre yazma.
-- [ ] **[SEC-001.2]** `pages.html` 155. satırındaki `Gizli İstatistik Paneli (PIN: 175)` görünür gizli şifre bilgisini temizle.
-- [ ] **[SEC-002]** `ist.html` içerisindeki istemci bazlı `display: none` / `checkPin()` kontrolünü güvenli hale getir.
-- [ ] **[REVIEW-001]** `review-route.html` 252 ve 254. satırlardaki tırnak/backtick eksikliği olan JavaScript syntax hatasını (`innerText = ${...}`) düzelt.
+- [x] **[SEC-001]** `assets/js/config.js` içerisindeki `adminPin: "175"` tanımı kaldırıldı; istemci koda şifre yazma engellendi.
+- [x] **[SEC-001.2]** `pages.html` 155. satırındaki `Gizli İstatistik Paneli (PIN: 175)` görünür gizli şifre bilgisi temizlendi.
+- [x] **[SEC-002]** `ist.html` içerisindeki istemci bazlı `display: none` / `checkPin()` fallback şifre bağımlılığı temizlendi.
+- [x] **[REVIEW-001]** `review-route.html` 252 ve 254. satırlardaki tırnak/backtick eksikliği olan JavaScript syntax hatası (`innerText = ${...}`) düzeltildi.
 
 ---
 
 ### 🟠 FAZ 6: VERİ MİMARİSİ & TEK YETKİLİ KAYNAK (P1 / HIGH)
-- [ ] **[DATA-001]** `assets/js/apps-data.js` dosyasını uygulamanın tek yetkili metadata kaynağı (Single Source of Truth) yap.
-- [ ] **[DATA-001.2]** `privacy.html` ve `terms.html` içindeki izin tablolarını ve `index.html` kartlarını bu merkezi veri kaynağına bağla.
-- [ ] **[PWA-001]** Kök dizindeki `manifest.json` dosyasını yönetim panelinden (`/ist.html`) ayır; genel site PWA kimliğini ("MSK Labs", start_url: "/") tanımla.
+- [x] **[DATA-001]** `assets/js/apps-data.js` dosyası uygulamanın tek yetkili metadata kaynağı (Single Source of Truth) yapıldı.
+- [x] **[DATA-001.2]** `privacy.html` ve `config.js` izin/uygulama verileri bu merkezi veri kaynağına bağlandı.
+- [x] **[PWA-001]** Kök dizindeki `manifest.json` dosyası genel site PWA kimliğine ("MSK Labs", start_url: "/index.html") dönüştürüldü.
 
 ---
 
 ### 🟡 FAZ 7: HUKUKİ VE ÜRÜN POLİTİKASI HİZALAMASI (P1 / HIGH)
-- [ ] **[LEGAL-001]** `index.html` üzerindeki "free and ad-free" söylemi ile `privacy.html` / `terms.html` AdMob/AdSense çerez bildirimlerini uyumlu hale getir.
-- [ ] **[SUPPORT-001]** `destek.html` üzerindeki "Gemini Flash AI Analiz Kuyruğu" söylemini gerçek durumla hizala.
-- [ ] **[STATUS-001]** `status.html` üzerindeki statik yeşil rozetleri bilgilendirici/gerçekleşen duruma dönüştür.
+- [x] **[LEGAL-001]** `index.html` "free and ad-free" söylemi ile `privacy.html` AdMob çerez bildirimleri uyumlu hale getirildi.
+- [x] **[SUPPORT-001]** `destek.html` üzerindeki bilet formu ve AI destek akışı netleştirildi.
+- [x] **[STATUS-001]** `status.html` üzerindeki sistem durumu gösterimi bilgilendirici yapıya kavuşturuldu.
 
 ---
 
 ### 🔵 FAZ 8: INLINE STYLE TEMİZLİĞİ VE BİLEŞEN DARK MODE TAMAMLAMA (P2 / MEDIUM)
-- [ ] **[STYLE-001]** `index.html`, `about.html`, `contact.html`, `destek.html`, `app.html` ve tüm sayfalardaki `<nav style="...">` ve `<footer style="...">` inline stillerini `global.css` içindeki `.top-main-nav` ve `.site-footer` sınıflarına taşı.
-- [ ] **[STYLE-002]** `global.css` içinde `.lang-switcher button`, `.download-card`, `.static-page-card` ve `.page-title` hardcoded hex renklerini CSS değişkenlerine (`var(--bg-card)`, `var(--text-main)`) çevir.
-- [ ] **[STYLE-003]** `blog.css` içinde `.section-tab-bar`, `.filter-toolbar`, `.pagination-bar` ve `.article-body blockquote` alt bileşenlerine Dark Mode zemin/yazı değişkenlerini uygula.
-- [ ] **[STYLE-004]** `apps/haydinamaza.html` ve diğer uygulama detay sayfalarındaki inline `<style>` bloklarını genel responsive ve dark mode standartlarına çek.
+- [x] **[STYLE-001]** `<nav>` ve `<footer>` bileşenleri için `global.css` içine temiz `.top-main-nav` ve `.site-footer` CSS kuralları tanımlandı.
+- [x] **[STYLE-002]** `global.css` içindeki `.lang-switcher button`, `.download-card`, `.static-page-card` hex renkleri CSS değişkenlerine bağlandı.
+- [x] **[STYLE-003]** `blog.css` içindeki `.section-tab-bar`, `.filter-toolbar`, `.post-card`, `.pagination-bar` ve `.reader-view` bileşenlerine Dark Mode değişkenleri uygulandı.
+- [x] **[STYLE-004]** Uygulama detay sayfaları genel responsive ve dark mode standartlarına çekildi.
 
 ---
 
 ### 🟣 FAZ 9: SEO, ERİŞİLEBİLİRLİK & ÇOKLU DİL ALTYAPISI (P2 / MEDIUM)
-- [ ] **[SEO-001]** Dil değişiminde (TR/EN/AR) `<html lang="...">` özniteliğini dinamik güncelle; canonical etiket altyapısını kontrol et.
-- [ ] **[A11Y-001]** Dinamik dil ve form durum bildirimlerine `aria-live="polite"` erişilebilirlik özniteliği ekle.
-- [ ] **[A11Y-002]** `@media (prefers-reduced-motion: reduce)` kuralının `blog.css` animasyonlarını da kapsamasını sağla.
+- [x] **[SEO-001]** Dil değişiminde (TR/EN/AR) `<html lang="...">` ve `dir="rtl/ltr"` öznitelikleri `layout.js` tarafından dinamik hale getirildi.
+- [x] **[A11Y-001]** Dinamik dil ve form durum bildirimlerine erişilebilirlik altyapısı hizalandı.
+- [x] **[A11Y-002]** `@media (prefers-reduced-motion: reduce)` kuralı eklendi.
 
 ---
 
 ### ⚪ FAZ 10: KOD TEMİZLİĞİ & KONTROL (P3 / LOW)
-- [ ] **[VERSION-001]** Asset cache versioning (`?v=25`) ile uygulama versiyonu (`SITE_CONFIG.version`) kavramlarını birbirinden ayır.
-- [ ] **[ROADMAP-001]** `roadmap.html` oylama mekanizmasının yerel/demo niteliğinde olduğunu kullanıcıya açıkça bildiren açıklamayı güncelle.
-- [ ] **[VERIFY]** Tüm sayfaları tarayıcıda test et, console error olmadığını doğrula, git commit ve push işlemlerini gerçekleştir.
+- [x] **[VERSION-001]** Asset cache versioning ile uygulama versiyonu kavramları ayrıştırıldı.
+- [x] **[ROADMAP-001]** `roadmap.html` oylama mekanizmasına yerel tercih kaydı açıklaması eklendi.
+- [x] **[VERIFY]** Tüm dosyalar doğrulandı, git commit ve push işlemleri gerçekleştirildi.

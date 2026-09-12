@@ -227,6 +227,62 @@ body.lang-ar .lang-en {
 body.lang-ar { direction: rtl; }
 
 /* ==========================================================================
+   STANDART NAVİGASYON VE FOOTER STİLLERİ
+   ========================================================================== */
+.top-main-nav {
+  text-align: center;
+  margin: 1rem 0 1.25rem 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted, #475569);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.top-main-nav a {
+  color: var(--text-main, #334155);
+  text-decoration: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.top-main-nav a:hover,
+.top-main-nav a.active-nav-link {
+  color: var(--primary-color, #0284c7);
+  background: var(--bg-surface, #f1f5f9);
+}
+
+.top-main-nav .nav-divider {
+  color: var(--border-color, #cbd5e1);
+  user-select: none;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--border-color, #cbd5e1);
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748b);
+  background: var(--bg-card, transparent);
+}
+
+.site-footer a {
+  color: var(--text-main, #475569);
+  text-decoration: none;
+  margin: 0 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--primary-color, #0284c7);
+}
+
+/* ==========================================================================
    STANDART İÇ SAYFA ÜST HEADER (SITE HEADER) STİLLERİ
    ========================================================================== */
 .site-header {

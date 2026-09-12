@@ -127,18 +127,33 @@
     }
   }
 
+  // Dynamic HTML lang and RTL attribute sync
+  function syncLangAttributes() {
+    var savedLang = 'tr';
+    try { savedLang = localStorage.getItem('user_lang') || 'tr'; } catch(e) {}
+    document.documentElement.setAttribute('lang', savedLang);
+    if (savedLang === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  }
+
   // Pre-DOM theme apply
   initTheme();
+  syncLangAttributes();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       initTheme();
+      syncLangAttributes();
       syncTopNav();
       renderFooter();
       highlightActiveTopNav();
     });
   } else {
     initTheme();
+    syncLangAttributes();
     syncTopNav();
     renderFooter();
     highlightActiveTopNav();

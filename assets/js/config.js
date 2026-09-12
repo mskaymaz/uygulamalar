@@ -9,13 +9,16 @@ const SITE_CONFIG = {
   contactEmail: "msklabs.org@gmail.com",
   googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbxoT1OGEkYZ_1MJXv6XErJYjVe26qqtr2rZGIXiDXxbNG9gIzabfhWsPJhjInTlG3_NQw/exec",
   version: "1.0.0",
+  getAppsData: function() {
+    return (typeof window !== 'undefined' && window.MSK_APPS_DATA) ? window.MSK_APPS_DATA : this.apps;
+  },
   apps: {
-    haydinamaza: { name: "Haydi Namaza", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.haydinamaza" },
-    rekatsay: { name: "RekatSay", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.rekatsay" },
-    emekli: { name: "Ne Zaman Emekli Olabilirim", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.emekli" },
-    enyakin: { name: "En Yakın Hizmet", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.enyakin" },
+    haydinamaza: { name: "Haydi Namaza", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.haydinamaza" },
+    rekatsay: { name: "RekatSay", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.rekatsay" },
+    emekli: { name: "Ne Zaman Emekli Olabilirim", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.emekli" },
+    enyakin: { name: "En Yakın Hizmet", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.enyakin" },
     deskpilot: { name: "DeskPilot Pro", storeUrlWindows: "https://msklabs.org/dl.html?app=deskpilot" },
-    gcpiluyari: { name: "Geç Pil Uyarısı", storeUrlAndroid: "https://play.google.com/store/apps/details?id=com.msklabs.gcpiluyari" }
+    gcpiluyari: { name: "Geç Pil Uyarısı", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.gcpiluyari" }
   }
 };
 

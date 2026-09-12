@@ -1,8 +1,8 @@
-﻿{
-  "name": "MSK Labs Analiz Paneli",
-  "short_name": "MSK Analiz",
-  "description": "MSK Labs Canlı Yönetim ve İstatistik Paneli",
-  "start_url": "/ist.html",
+{
+  "name": "MSK Labs - Ücretsiz & Reklamsız Uygulamalar",
+  "short_name": "MSK Labs",
+  "description": "MSK Labs mobil ve masaüstü yazılım portföyü",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0284c7",
