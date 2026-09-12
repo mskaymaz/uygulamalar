@@ -61,8 +61,8 @@ window.MSK_APPS_DATA = {
   },
   "enyakin": {
     id: "enyakin",
-    icon: '<img src="media/enyakin/icon.png" alt="En Yakın">',
-    logoImg: "media/enyakin/icon.png",
+    icon: "📍",
+    logoImg: "",
     name: { tr: "En Yakın Camii & Mescid", en: "Nearest Mosque Finder", ar: "أقرب مسجد" },
     tagline: {
       tr: "Çevrenizdeki Tüm Camii ve Mescitleri Anında Bulun",
@@ -113,8 +113,8 @@ window.MSK_APPS_DATA = {
   },
   "gcpiluyari": {
     id: "gcpiluyari",
-    icon: '<img src="media/gcpiluyari/icon.png" alt="GC Pil Uyarı">',
-    logoImg: "media/gcpiluyari/icon.png",
+    icon: "🔋",
+    logoImg: "",
     name: { tr: "GÇP İl Uyarı", en: "GÇP Battery Guard", ar: "حارس البطارية" },
     tagline: {
       tr: "Akıllı Pil Sağlığı ve Şarj Uyarı Motoru",
