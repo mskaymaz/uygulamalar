@@ -807,7 +807,7 @@ body:has(.bizce-header) .desktop-ad,
     margin: 20px 0 12px 0 !important;
   }
 
-  /* Tek Sütunlu Uygulama Listesi (Google Play & App Store Formatı - 2 Sütunlu CSS Grid) */
+  /* Tek Sütunlu Uygulama Listesi (Google Play & App Store Formatı - Explicit Grid Areas) */
   .app-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
@@ -816,49 +816,66 @@ body:has(.bizce-header) .desktop-ad,
   .app-card {
     display: grid !important;
     grid-template-columns: 64px 1fr !important;
+    grid-template-areas:
+      "icon name"
+      "icon vision"
+      "icon badges" !important;
     column-gap: 14px !important;
-    row-gap: 3px !important;
+    row-gap: 4px !important;
     align-items: center !important;
     padding: 14px 16px !important;
     border-radius: 14px !important;
     text-align: left !important;
+    overflow: hidden !important;
+    position: relative !important;
   }
 
   .app-icon {
-    grid-row: 1 / span 3 !important;
-    grid-column: 1 !important;
+    grid-area: icon !important;
     width: 64px !important;
     height: 64px !important;
     min-width: 64px !important;
+    max-width: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
     font-size: 34px !important;
     margin-bottom: 0 !important;
     border-radius: 16px !important;
     align-self: center !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .app-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 64px !important;
+    max-height: 64px !important;
+    object-fit: cover !important;
     border-radius: 16px !important;
+    display: block !important;
   }
 
   .app-name {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
+    grid-area: name !important;
     font-size: 1.05rem !important;
     margin: 0 !important;
+    line-height: 1.25 !important;
   }
 
   .app-vision {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
+    grid-area: vision !important;
     font-size: 0.82rem !important;
     line-height: 1.35 !important;
     margin: 0 !important;
   }
 
   .lang-badges {
-    grid-column: 2 !important;
-    grid-row: 3 !important;
+    grid-area: badges !important;
     margin-top: 2px !important;
+    display: flex !important;
+    gap: 6px !important;
   }
 
   .app-big-icon {
