@@ -63,6 +63,6 @@ MSK Labs is developed and maintained by a single founder working alongside an AI
 
 ### Faz 6: Klasör Düzeni ve Tek Yetkili Dosya Mimarisi (Single Source of Truth)
 - [x] Uygulama detay sayfalarının TEK YETKİLİ adresi olarak `/apps/` klasörünü belirle (`apps/haydinamaza.html`, `apps/rekatsay.html`, `apps/emekli.html`, `apps/deskpilot.html`, `apps/enyakin.html`, `apps/gcpiluyari.html`).
-- [x] Ana dizinde (root) yer alan eski uygulama dosyalarını 1 satırlık kesintisiz HTTP meta-refresh yönlendirme kodlarına çevir.
+- [x] Ana dizinde (root) yer alan atıl uygulama ve blog dosyalarını (`haydinamaza.html`, `rekatsay.html`, `emekli.html`, `deskpilot.html`, `enyakin.html`, `gcpiluyari.html`, `bizce.html`) tamamen sil, kök dizini 100% temiz tut.
 - [x] `index.html` ve `pages.html` içindeki tüm uygulama bağlantılarını doğrudan `/apps/` klasöründeki yetkili dosyalara yönlendir.
 - [x] Dokümantasyonu (`ISTISARE_VE_KARARLAR.md` ve `tasks_architecture.md`) güncelle ve kararı açıkça ilan et.
