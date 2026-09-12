@@ -586,26 +586,27 @@ function playTTS() {
   }
 
   var noticeEl = document.getElementById('ttsNotice');
+  var noticeTextEl = document.getElementById('ttsNoticeText');
 
-  // Pitch modulation & device voice limitation notification
+  // Keep pitch at natural 1.0 tone under all circumstances
+  currentUtterance.pitch = 1.0;
+
   if (genderPref === 'female') {
     if (isExactGenderMatch) {
-      currentUtterance.pitch = 1.0;
       if (noticeEl) noticeEl.style.display = 'none';
     } else {
-      // Modulate pitch so generic voice sounds feminine (higher frequency)
-      currentUtterance.pitch = 1.35;
       if (noticeEl) {
         noticeEl.style.display = 'block';
-        noticeEl.innerText = (currentLang === 'ar' 
-          ? '⚠️ لم يتم العثور على محرك صوت نسائي محدد في جهازك. تم ضبط تردد الصوت لتناسب الصوت النسائي.'
+        var noticeMsg = (currentLang === 'ar' 
+          ? 'ℹ️ لم يتم العثور على محرك صوت نسائي في جهازك؛ يتم القراءة بالمحرك الصوتي المتاح. (عند إضافة حزمة صوت نسائي في إعدادات جهازك سيعمل تلقائياً.)'
           : (currentLang === 'en'
-              ? 'ℹ️ Dedicated female voice engine is not installed on your device. Frequency adapted to higher pitch.'
-              : 'ℹ️ Cihazınızda tanımlı Kadın ses paketi bulunamadı. Ses frekansı kadın sesine (tiz) uyarlanarak okunuyor.'));
+              ? 'ℹ️ Dedicated female voice engine is not installed on your device; reading with default male voice. (Adding a female voice package in your OS settings will activate this feature.)'
+              : 'ℹ️ Cihazınızda tanımlı Kadın ses paketi bulunmadığı için okuma mevcut Erkek ses motoru ile yapılmaktadır. (İşletim sistemi ayarlarınızdan Türkçe Kadın ses paketi eklediğinizde otomatik aktifleşecektir.)'));
+        if (noticeTextEl) noticeTextEl.innerText = noticeMsg;
+        else noticeEl.innerText = noticeMsg;
       }
     }
   } else {
-    currentUtterance.pitch = 1.0;
     if (noticeEl) noticeEl.style.display = 'none';
   }
 
@@ -616,10 +617,14 @@ function playTTS() {
   currentUtterance.onend = function() {
     var wave = document.getElementById('audioWave');
     if (wave) wave.style.display = 'none';
-    if (noticeEl) noticeEl.style.display = 'none';
   };
 
   synth.speak(currentUtterance);
+}
+
+function hideTTSNotice() {
+  var noticeEl = document.getElementById('ttsNotice');
+  if (noticeEl) noticeEl.style.display = 'none';
 }
 
 function pauseTTS() {
