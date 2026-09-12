@@ -304,8 +304,8 @@ function updateReaderViewLanguage() {
 
   var voiceLabels = document.querySelectorAll('.tts-selects label');
   if (voiceLabels && voiceLabels.length >= 2) {
-    voiceLabels[0].innerText = (currentLang === 'ar' ? '🎙️ الصوت:' : (currentLang === 'en' ? '🎙️ Voice:' : '🎙️ Ses:'));
-    voiceLabels[1].innerText = (currentLang === 'ar' ? '⚡ السرعة:' : (currentLang === 'en' ? '⚡ Speed:' : '⚡ Hız:'));
+    voiceLabels[0].innerText = (currentLang === 'ar' ? 'الصوت:' : (currentLang === 'en' ? 'Voice:' : 'Ses:'));
+    voiceLabels[1].innerText = (currentLang === 'ar' ? 'السرعة:' : (currentLang === 'en' ? 'Speed:' : 'Hız:'));
   }
 
   var genderSel = document.getElementById('voiceGender');

@@ -577,7 +577,7 @@ body {
   }
 
   .tts-player-bar {
-    padding: 0.85rem 0.85rem !important;
+    padding: 0.75rem 0.6rem !important;
     border-radius: 12px !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -587,7 +587,7 @@ body {
   .tts-controls-row {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 0.85rem !important;
+    gap: 0.75rem !important;
     width: 100% !important;
   }
 
@@ -615,7 +615,7 @@ body {
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 12px !important;
+    gap: 8px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     margin-top: 2px !important;
@@ -624,23 +624,24 @@ body {
   .tts-select-group {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 5px !important;
+    gap: 4px !important;
     flex-shrink: 0 !important;
   }
 
   .tts-selects label {
     white-space: nowrap !important;
     font-weight: 600 !important;
-    font-size: 0.82rem !important;
+    font-size: 0.8rem !important;
+    color: #475569 !important;
   }
 
   .tts-selects select {
     width: auto !important;
-    min-width: 75px !important;
-    padding: 0.3rem 0.55rem !important;
-    font-size: 0.82rem !important;
+    min-width: 65px !important;
+    padding: 0.25rem 0.45rem !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     border: 1px solid #cbd5e1 !important;
     background-color: #ffffff !important;
     cursor: pointer !important;
