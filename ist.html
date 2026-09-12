@@ -219,12 +219,13 @@
     <h1 class="page-title" style="margin-bottom: 1.25rem;">📊 Canlı İstatistik ve Yönetim Paneli</h1>
 
     <!-- Timeframe Filter Buttons -->
-    <div class="timeframe-bar">
+    <div class="timeframe-bar" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
       <button onclick="changeTimeframe('today')" class="timeframe-btn active" id="tf_today">🗓️ Bugün</button>
       <button onclick="changeTimeframe('week')" class="timeframe-btn" id="tf_week">📅 Son 7 Gün (Haftalık)</button>
       <button onclick="changeTimeframe('month')" class="timeframe-btn" id="tf_month">📆 Son 30 Gün (Aylık)</button>
       <button onclick="changeTimeframe('year')" class="timeframe-btn" id="tf_year">📊 Bu Yıl (2026)</button>
       <button onclick="changeTimeframe('all')" class="timeframe-btn" id="tf_all">🏆 Tüm Zamanlar (Toplam)</button>
+      <button onclick="confirmResetStats()" class="timeframe-btn" style="background: rgba(239, 68, 68, 0.1); border-color: #ef4444; color: #dc2626; font-weight: 700; margin-left: auto;">🔄 İstatistikleri Sıfırla (Arşivle)</button>
     </div>
 
     <!-- Key Metrics Grid -->
@@ -320,6 +321,17 @@
       </table>
     </div>
 
+    <!-- Archive Snapshots Table -->
+    <div class="data-table-card" style="margin-top: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="color: #0f172a; margin: 0; font-weight: 700;">📜 Geçmiş Sıfırlama Arşivi (Snapshots)</h3>
+        <button onclick="clearArchiveHistory()" style="background: none; border: none; color: #94a3b8; font-size: 0.8rem; cursor: pointer; text-decoration: underline;">Arşiv Geçmişini Temizle</button>
+      </div>
+      <div id="archiveContainer">
+        <p style="color: #64748b; font-size: 0.85rem; font-style: italic; margin: 0;">Henüz sıfırlanmış bir arşiv kaydı bulunmamaktadır. İstatistikler sıfırlandığında o anki veriler otomatik buraya kaydolur.</p>
+      </div>
+    </div>
+
   </div>
 
   <aside class="desktop-ad desktop-ad-right">
@@ -407,13 +419,13 @@
     const chartViewsData = [];
     const chartUniqueData = [];
 
-    targetDates.forEach((dateStr, idx) => {
+    targetDates.forEach((dateStr) => {
       const dayData = stats[dateStr] || {};
       
-      // Calculate realistic baseline + actual data for rich visualization
-      const views = (dayData.views || 0) + (currentTimeframe !== 'today' ? (25 + (idx * 3) % 40) : 0);
-      const unique = (dayData.unique || 0) + (currentTimeframe !== 'today' ? (10 + (idx * 2) % 15) : 0);
-      const downloads = (dayData.downloads || 0) + (currentTimeframe !== 'today' ? (1 + idx % 3) : 0);
+      // Pure 100% real live tracking data (0 baseline additions)
+      const views = (dayData.views || 0);
+      const unique = (dayData.unique || 0);
+      const downloads = (dayData.downloads || 0);
 
       totalViews += views;
       totalUnique += unique;
@@ -426,15 +438,6 @@
         if (dayData.apps.emekli) appDownloads.emekli += dayData.apps.emekli;
         if (dayData.apps.deskpilot) appDownloads.deskpilot += dayData.apps.deskpilot;
         if (dayData.apps.enyakin) appDownloads.enyakin += dayData.apps.enyakin;
-      }
-      
-      // Default baseline distributions if no history yet
-      if (currentTimeframe !== 'today') {
-        appDownloads.haydinamaza += 2 + (idx % 2);
-        appDownloads.rekatsay += 1 + (idx % 3);
-        appDownloads.emekli += 1;
-        appDownloads.deskpilot += (idx % 2);
-        appDownloads.enyakin += 1;
       }
 
       // Chart Label formatting (e.g., "12 Eyl")
@@ -477,6 +480,66 @@
 
     // Render Chart 2: App Share Doughnut Chart
     renderAppShareChart(appDownloads);
+
+    // Render Archive History Table
+    renderArchiveTable();
+  }
+
+  function confirmResetStats() {
+    if (!confirm("⚠️ Mevcut tüm istatistik rakamlarını 0'a sıfırlamak istediğinize emin misiniz?\n\nO anki veriler kaybolmayacak, tarih ve saat damgasıyla 'Geçmiş Sıfırlama Arşivi' tablosuna otomatik kaydedilecektir.")) {
+      return;
+    }
+
+    if (window.MSK_Analytics && window.MSK_Analytics.resetStatsWithArchive) {
+      // Calculate current totals for snapshot summary
+      const unique = document.getElementById('statUnique').innerText;
+      const views = document.getElementById('statViews').innerText;
+      const downloads = document.getElementById('statDownloads').innerText;
+
+      window.MSK_Analytics.resetStatsWithArchive({
+        unique: unique,
+        views: views,
+        downloads: downloads
+      });
+      alert("✅ İstatistikler başarıyla 0'a sıfırlandı ve anlık veriler arşiv geçmişine kaydedildi!");
+      renderAnalytics();
+    }
+  }
+
+  function renderArchiveTable() {
+    const container = document.getElementById('archiveContainer');
+    if (!container || !window.MSK_Analytics || !window.MSK_Analytics.getArchive) return;
+
+    const archive = window.MSK_Analytics.getArchive();
+    if (!archive || archive.length === 0) {
+      container.innerHTML = '<p style="color: #64748b; font-size: 0.85rem; font-style: italic; margin: 0;">Henüz sıfırlanmış bir arşiv kaydı bulunmamaktadır. İstatistikler sıfırlandığında o anki veriler otomatik buraya kaydolur.</p>';
+      return;
+    }
+
+    let html = '<table class="data-table"><thead><tr><th>Sıfırlama Tarihi ve Saati</th><th>Tekil Ziyaretçi</th><th>Sayfa Gösterimi</th><th>İndirme Sayısı</th><th>Durum</th></tr></thead><tbody>';
+
+    archive.forEach(item => {
+      const summary = item.summary || {};
+      html += '<tr>' +
+        '<td><strong>⏱️ ' + (item.timestamp || '-') + '</strong></td>' +
+        '<td>' + (summary.unique || '0') + '</td>' +
+        '<td>' + (summary.views || '0') + '</td>' +
+        '<td>' + (summary.downloads || '0') + '</td>' +
+        '<td><span style="color: #0284c7; font-weight: 600;">📁 Arşivlendi</span></td>' +
+        '</tr>';
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+  }
+
+  function clearArchiveHistory() {
+    if (confirm("⚠️ Tüm geçmiş sıfırlama arşiv kayıtlarını kalıcı olarak silmek istediğinize emin misiniz?")) {
+      if (window.MSK_Analytics && window.MSK_Analytics.clearArchive) {
+        window.MSK_Analytics.clearArchive();
+        renderArchiveTable();
+      }
+    }
   }
 
   function renderTrafficChart(labels, viewsData, uniqueData) {

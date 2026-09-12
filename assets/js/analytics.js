@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MSK Labs - Lightweight Live Web Analytics & Event Tracker
  * Sitedeki her sayfa gösterimini ve buton tıklamalarını canlı kaydeder.
  * Non-blocking 1KB client tracking engine.
@@ -68,11 +68,53 @@
     }
   }
 
+  const ARCHIVE_KEY = 'msklabs_analytics_archive_v1';
+
+  function getArchive() {
+    let archive = [];
+    try {
+      archive = JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]');
+    } catch(e) {}
+    return archive;
+  }
+
+  function resetStatsWithArchive(summaryMetrics) {
+    const currentStats = getStats();
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' }) + ' ' + now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    const archiveItem = {
+      id: Date.now(),
+      timestamp: dateStr,
+      summary: summaryMetrics || {},
+      raw: currentStats
+    };
+
+    const archive = getArchive();
+    archive.unshift(archiveItem);
+
+    try {
+      localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive));
+      localStorage.removeItem(STORAGE_KEY);
+    } catch(e) {}
+
+    return archiveItem;
+  }
+
+  function clearArchive() {
+    try {
+      localStorage.removeItem(ARCHIVE_KEY);
+    } catch(e) {}
+  }
+
   // Expose global object
   window.MSK_Analytics = {
     trackPageView: trackPageView,
     trackEvent: trackEvent,
-    getStats: getStats
+    getStats: getStats,
+    getArchive: getArchive,
+    resetStatsWithArchive: resetStatsWithArchive,
+    clearArchive: clearArchive
   };
 
   // Auto-run page view track
