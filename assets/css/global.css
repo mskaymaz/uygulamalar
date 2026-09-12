@@ -763,36 +763,30 @@ body:has(.bizce-header) .desktop-ad,
 @media (max-width: 768px) {
   .top-main-nav {
     display: flex !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 6px !important;
-    padding: 8px 4px !important;
-    margin: 0.75rem 0 1.25rem 0 !important;
-    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
     align-items: center !important;
-  }
-
-  .top-main-nav::-webkit-scrollbar {
-    display: none;
+    gap: 4px 6px !important;
+    margin: 0.5rem 0 1rem 0 !important;
+    padding: 0 !important;
   }
 
   .top-main-nav a {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 0.55rem 0.95rem !important;
-    min-height: 44px !important;
+    background: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 0.3rem 0.65rem !important;
+    min-height: 32px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     box-sizing: border-box !important;
-    font-size: 0.84rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
     color: var(--text-main) !important;
-    text-decoration: none;
+    text-decoration: none !important;
     flex-shrink: 0;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease !important;
   }
 
   .top-main-nav a:hover,

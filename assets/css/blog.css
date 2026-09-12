@@ -144,6 +144,18 @@ body {
   box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
 }
 
+.tab-subtitle {
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .tab-subtitle {
+    display: none;
+  }
+}
+
 /* Filter & Category Toolbar */
 .filter-toolbar {
   display: flex;
